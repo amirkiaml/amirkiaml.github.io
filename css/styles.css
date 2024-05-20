@@ -74,7 +74,7 @@
   --bs-border-radius-xl: 1rem;
   --bs-border-radius-2xl: 2rem;
   --bs-border-radius-pill: 50rem;
-  --bs-link-color: #000;
+  --bs-link-color: #fff;
   --bs-link-hover-color: #fff;
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
@@ -3700,12 +3700,12 @@ fieldset:disabled .btn {
   --bs-dropdown-divider-bg: var(--bs-border-color-translucent);
   --bs-dropdown-divider-margin-y: 0.5rem;
   --bs-dropdown-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  --bs-dropdown-link-color: #212529;
+  --bs-dropdown-link-color: #fff;
   --bs-dropdown-link-hover-color: #fff;
   --bs-dropdown-link-hover-bg: #fff;
   --bs-dropdown-link-active-color: #fff;
-  --bs-dropdown-link-active-bg: #000;
-  --bs-dropdown-link-disabled-color: #adb5bd;
+  --bs-dropdown-link-active-bg: #fff;
+  --bs-dropdown-link-disabled-color: #fff;
   --bs-dropdown-item-padding-x: 1rem;
   --bs-dropdown-item-padding-y: 0.25rem;
   --bs-dropdown-header-color: #6c757d;
@@ -4218,7 +4218,7 @@ fieldset:disabled .btn {
 .nav-pills {
   --bs-nav-pills-border-radius: 0.5rem;
   --bs-nav-pills-link-active-color: #fff;
-  --bs-nav-pills-link-active-bg: #000;
+  --bs-nav-pills-link-active-bg: #fff;
 }
 
 .nav-pills .nav-link {
