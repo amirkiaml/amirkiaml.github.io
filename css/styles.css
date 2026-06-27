@@ -12883,3 +12883,16 @@ html {
 .portfolio-links {
   text-align: left;
 }
+
+
+/* Fix link visibility on white backgrounds */
+.portfolio-links a,
+.col-lg-4 a,
+.page-section:not(.bg-primary) a {
+    color: #000;
+    text-decoration: underline;
+}
+
+.page-section:not(.bg-primary) a:hover {
+    color: #555;
+}
