@@ -12885,14 +12885,16 @@ html {
 }
 
 
-/* Fix link visibility on white backgrounds */
-.portfolio-links a,
-.col-lg-4 a,
-.page-section:not(.bg-primary) a {
-    color: #000;
-    text-decoration: underline;
+/* Fix links in portfolio modals */
+.portfolio-modal a,
+.modal a,
+.modal-body a {
+    color: #1a73e8 !important;
+    text-decoration: underline !important;
 }
 
-.page-section:not(.bg-primary) a:hover {
-    color: #555;
+.portfolio-modal a:hover,
+.modal a:hover,
+.modal-body a:hover {
+    color: #0d47a1 !important;
 }
