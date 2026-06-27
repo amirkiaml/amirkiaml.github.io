@@ -12885,16 +12885,21 @@ html {
 }
 
 
-/* Fix links in portfolio modals */
-.portfolio-modal a,
-.modal a,
-.modal-body a {
+/* Fix all links across the entire site */
+.modal-content a {
     color: #1a73e8 !important;
     text-decoration: underline !important;
 }
 
-.portfolio-modal a:hover,
-.modal a:hover,
-.modal-body a:hover {
+.modal-content a:hover {
     color: #0d47a1 !important;
+}
+
+.masthead a {
+    color: #fff !important;
+    text-decoration: underline !important;
+}
+
+.masthead a:hover {
+    color: #e0e0e0 !important;
 }
