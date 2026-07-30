@@ -38,6 +38,7 @@
     }
     details[open] > summary::after { transform: rotate(45deg); }
     details[open] > summary { box-shadow: inset 0 0 0 2px oklch(52% 0.16 258 / 0.35); border-radius: inherit; }
+    #vm-track img, #vm-track a { -webkit-user-drag: none; user-drag: none; }
     @media (max-width: 640px) {
       .vm-logo { width: 64px !important; height: 64px !important; top: 20px !important; right: 20px !important; }
       .vm-header-row { padding-right: 84px !important; }
@@ -237,9 +238,9 @@ app/routes/   FastAPI webhook routes</pre>
           <h4 style="margin: 20px 0 10px; font-size: 14px; font-weight: 700;">Project Overview</h4>
           <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">I created a recommender system on a dataset of over 520k recipes scraped from food.com as my capstone project for the bootcamp — titled DeepChef. DeepChef harnesses the power of state-of-the-art large language models and semantic embeddings to create a recommender system that takes in users' favorite recipes — ingredients or instructions, along with themes or other elements — and returns the 5 most similar recipes from the dataset.</p>
           <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Video Tour</h4>
-          <a href="https://www.loom.com/share/350eed0ce28c43e297ea78e6ede7d694" target="_blank" style="display: block; margin-bottom: 16px;">
-            <img src="uploads/pasted-1784577691694-0.png" alt="DeepChef video walkthrough on Loom" style="width: 100%; border-radius: 12px; border: 1px solid oklch(91% 0.006 85); display: block;">
-          </a>
+          <div style="position: relative; padding-top: 62.5%; border-radius: 12px; overflow: hidden; margin-bottom: 16px;">
+            <iframe src="https://www.loom.com/embed/350eed0ce28c43e297ea78e6ede7d694" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+          </div>
           <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);"><a href="https://www.loom.com/share/350eed0ce28c43e297ea78e6ede7d694" target="_blank">Watch the video walkthrough on Loom →</a></p>
           <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">The App</h4>
           <img src="uploads/pasted-1784573944620-0.png" alt="DeepChef Streamlit app interface" style="width: 100%; border-radius: 12px; margin-bottom: 8px; border: 1px solid oklch(91% 0.006 85);">
@@ -408,8 +409,8 @@ app/routes/   FastAPI webhook routes</pre>
         </div>
       </div>
 
-      <div style="overflow: hidden;">
-      <div style="display: flex; gap: 14px; width: max-content; animation: vm-scroll 75s linear infinite;">
+      <div id="vm-viewport" style="overflow: hidden; cursor: grab; touch-action: none;">
+      <div id="vm-track" style="display: flex; gap: 14px; width: max-content; animation: vm-scroll 75s linear infinite; user-select: none; will-change: transform;">
         <a href="https://www.youtube.com/watch?v=5rfMqjmZxQo" target="_blank" style="flex: 0 0 clamp(170px, 60vw, 220px); background: oklch(23% 0.01 85); border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit;">
           <img src="uploads/ep13.png" alt="Ep 13" style="width: 100%; height: 124px; object-fit: cover; display: block;">
           <div style="padding: 12px 14px;">
@@ -728,6 +729,69 @@ app/routes/   FastAPI webhook routes</pre>
   </section>
 
 </div>
+
+<script>
+(function(){
+  var track = document.getElementById('vm-track');
+  var viewport = document.getElementById('vm-viewport');
+  if (!track || !viewport) return;
+  var dragging = false, startX = 0, startTx = 0, currentTx = 0, moved = false;
+  function getTx(){
+    var m = getComputedStyle(track).transform;
+    if (m === 'none') return 0;
+    var vals = m.match(/matrix\(([^)]+)\)/);
+    if (!vals) return 0;
+    return parseFloat(vals[1].split(',')[4]);
+  }
+  function freeze(){
+    currentTx = getTx();
+    track.style.animation = 'none';
+    track.style.transform = 'translateX(' + currentTx + 'px)';
+  }
+  function resumeRolling(fromTx){
+    var half = track.scrollWidth / 2;
+    var frac = ((-fromTx) % half + half) % half / half;
+    track.style.transform = '';
+    track.style.animation = 'none';
+    void track.offsetWidth;
+    track.style.animation = 'vm-scroll 75s linear infinite';
+    track.style.animationDelay = (-(frac * 75)) + 's';
+  }
+  function suppressNextClick(){
+    function h(e){ e.preventDefault(); viewport.removeEventListener('click', h, true); }
+    viewport.addEventListener('click', h, true);
+  }
+  viewport.addEventListener('pointerdown', function(e){
+    e.preventDefault();
+    freeze();
+    dragging = true; moved = false;
+    startX = e.clientX; startTx = currentTx;
+    viewport.style.cursor = 'grabbing';
+    viewport.setPointerCapture(e.pointerId);
+  });
+  viewport.addEventListener('pointermove', function(e){
+    if (!dragging) return;
+    e.preventDefault();
+    var dx = e.clientX - startX;
+    if (Math.abs(dx) > 6) moved = true;
+    var half = track.scrollWidth / 2;
+    var nx = (startTx + dx) % half;
+    if (nx > 0) nx -= half;
+    currentTx = nx;
+    track.style.transform = 'translateX(' + nx + 'px)';
+  });
+  function endDrag(){
+    if (!dragging) return;
+    dragging = false;
+    viewport.style.cursor = 'grab';
+    if (moved) suppressNextClick();
+    resumeRolling(currentTx);
+  }
+  viewport.addEventListener('pointerup', endDrag);
+  viewport.addEventListener('pointercancel', endDrag);
+  viewport.addEventListener('pointerleave', endDrag);
+})();
+</script>
 
 </body>
 </html>
