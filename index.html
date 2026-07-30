@@ -18,6 +18,30 @@
     summary::-webkit-details-marker { display: none; }
     ::selection { background: oklch(90% 0.05 258); }
     @keyframes vm-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    details { position: relative; }
+    details > summary::after {
+      content: "+";
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 26px;
+      height: 26px;
+      line-height: 26px;
+      text-align: center;
+      border-radius: 50%;
+      background: oklch(52% 0.16 258);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      transition: transform 0.2s;
+      pointer-events: none;
+    }
+    details[open] > summary::after { transform: rotate(45deg); }
+    details[open] > summary { box-shadow: inset 0 0 0 2px oklch(52% 0.16 258 / 0.35); border-radius: inherit; }
+    @media (max-width: 640px) {
+      .vm-logo { width: 64px !important; height: 64px !important; top: 20px !important; right: 20px !important; }
+      .vm-header-row { padding-right: 84px !important; }
+    }
     .nav-toggle { display: none; }
     .nav-links { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
     @media (max-width: 1024px) {
@@ -372,8 +396,8 @@ app/routes/   FastAPI webhook routes</pre>
     <p style="margin: 0 0 24px; font-size: 15px; color: oklch(46% 0.01 85);">AI safety, ethics, and machine consciousness.</p>
 
     <div style="background: oklch(18% 0.01 85); border-radius: 22px; padding: 32px; margin-bottom: 24px; position: relative;">
-      <img src="uploads/vm_13.png" alt="Virtuous Machines podcast logo" style="position: absolute; top: 24px; right: 28px; width: 128px; height: 128px; border-radius: 16px; object-fit: cover;">
-      <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-right: 150px;">
+      <img src="uploads/vm-logo.png" alt="Virtuous Machines podcast logo" class="vm-logo" style="position: absolute; top: 24px; right: 28px; width: 128px; height: 128px; border-radius: 16px; object-fit: contain;">
+      <div class="vm-header-row" style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-right: 150px;">
         <div style="max-width: 620px;">
           <h3 style="margin: 0 0 6px; font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 700; color: #fff;">Virtuous Machines — the podcast</h3>
           <p style="margin: 0; font-size: 14px; line-height: 1.6; color: oklch(78% 0.01 85);">Conversations at the intersection of AI and philosophy with researchers in AI safety, ethics, and emerging tech. 13 episodes and counting, on YouTube and Spotify.</p>
@@ -482,7 +506,6 @@ app/routes/   FastAPI webhook routes</pre>
             <p style="margin: 0; font-size: 10.5px; color: oklch(65% 0.01 85);">Oct 14, 2024</p>
           </div>
         </a>
-      </div>
       </div>
       </div>
       <p style="margin: 12px 0 0; text-align: right;"><a href="https://virtuousmachines.com" target="_blank" style="font-size: 13.5px; font-weight: 600;">All 13 episodes →</a></p>
@@ -703,11 +726,6 @@ app/routes/   FastAPI webhook routes</pre>
     </div>
     <p style="text-align: center; margin: 28px 0 0; font-size: 12.5px; color: oklch(55% 0.01 85);">© 2026 Amir Kiani</p>
   </section>
-
-
-
-</div>
-
 
 </div>
 
