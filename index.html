@@ -163,12 +163,12 @@
           <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.7; color: oklch(30% 0.01 85);">Output guardrails run after tool calls, so an agent holding <code>send_sms</code> can deliver an ungrounded message before any check sees it — and a text can't be unsent. It returns structured output; code decides. Replies are grounded in a YAML knowledge base with lexical rather than vector retrieval, because an off-topic question must retrieve <em>nothing</em>, and similarity search always returns a nearest neighbour.</p>
           <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Project layout</h4>
           <pre style="margin: 0; font-size: 12px; line-height: 1.7; color: oklch(30% 0.01 85); background: oklch(96% 0.005 85); padding: 12px 14px; border-radius: 10px; overflow-x: auto;">app/agents/   9 agents: hook, 3 drafters, picker, triage, draft, SDR, guardrails
-app/kb/       knowledge base (YAML) + lexical retrieval
-app/tools/    send_sms with suppression + line-type guards
-app/db/       Supabase client, schema, migrations
-app/routes/   FastAPI webhook + operator console
-tests/        105 tests, 20 compliance
-notebooks/    7 walkthroughs, each component built from scratch</pre>
+            app/kb/       knowledge base (YAML) + lexical retrieval
+            app/tools/    send_sms with suppression + line-type guards
+            app/db/       Supabase client, schema, migrations
+            app/routes/   FastAPI webhook + operator console
+            tests/        105 tests, 20 compliance
+            notebooks/    7 walkthroughs, each component built from scratch</pre>
         </div>
       </details>
 
