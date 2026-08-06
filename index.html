@@ -155,15 +155,20 @@
         </summary>
         <div style="padding: 0 28px 28px; border-top: 1px solid oklch(93% 0.006 85); margin-top: 4px;">
           <p style="margin: 20px 0 16px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">Agentic SMS sales outreach for VoiceCaptures, built on the OpenAI Agents SDK and Twilio. Sends bulk cold outreach via a deterministic multi-agent drafting/picker pipeline, then hands live conversations to a stateful conversational SDR agent that responds to inbound replies in real time.</p>
-          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Design note: admin console vs. public demo</h4>
-          <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.7; color: oklch(30% 0.01 85);"><code>/demo</code> is the safe, public-facing preview (no Twilio access, request queue only). <code>/admin</code> is a password-protected operator console showing real prospects and conversations, built so the real workflow (poll → triage → draft → human review → send) is screen-recordable for a portfolio video instead of living only in a terminal.</p>
-          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Design note: minimal leads</h4>
-          <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.7; color: oklch(30% 0.01 85);">Only name and phone are required anywhere in the pipeline — the CSV importer, demo page, and hook agent all degrade gracefully to a generic-but-relevant message when other fields are missing.</p>
+          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Result: 44% of scraped business numbers can't receive SMS</h4>
+          <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.7; color: oklch(30% 0.01 85);">37 leads scraped from Google Maps, 18 messaged, 8 delivered. Roughly half are office landlines — invisible across three days of development because every test went to my own mobile. Cost per <em>delivered</em> message is $0.020, not $0.009. Twilio's Lookup answers this directly but needs NPAC approval for Canadian numbers, so line type is recovered for free from delivery error codes instead, and <code>send_sms</code> refuses known landlines from then on.</p>
+          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Design note: rules that must always hold live in code</h4>
+          <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.7; color: oklch(30% 0.01 85);">Five times a rule had to move out of a prompt: the CASL opt-out footer, GSM-7 punctuation, sub-4.0 ratings the hook agent would build insulting angles from. An instruction followed 98% of the time isn't a guarantee — and twice, tightening the instruction caused the next failure. 105 tests, 20 of them asserting the paths where a bug is a legal problem: a suppressed number can never be sent to, opt-outs survive prospect deletion, a blocked message never returns silence.</p>
+          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Design note: the autopilot agent has no tools</h4>
+          <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.7; color: oklch(30% 0.01 85);">Output guardrails run after tool calls, so an agent holding <code>send_sms</code> can deliver an ungrounded message before any check sees it — and a text can't be unsent. It returns structured output; code decides. Replies are grounded in a YAML knowledge base with lexical rather than vector retrieval, because an off-topic question must retrieve <em>nothing</em>, and similarity search always returns a nearest neighbour.</p>
           <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Project layout</h4>
-          <pre style="margin: 0; font-size: 12px; line-height: 1.7; color: oklch(30% 0.01 85); background: oklch(96% 0.005 85); padding: 12px 14px; border-radius: 10px; overflow-x: auto;">app/agents/   agent definitions (drafters, picker, triage, SDR)
-app/tools/    function_tools (send_sms, db read/write)
-app/db/       Supabase client + schema
-app/routes/   FastAPI webhook routes</pre>
+          <pre style="margin: 0; font-size: 12px; line-height: 1.7; color: oklch(30% 0.01 85); background: oklch(96% 0.005 85); padding: 12px 14px; border-radius: 10px; overflow-x: auto;">app/agents/   9 agents: hook, 3 drafters, picker, triage, draft, SDR, guardrails
+app/kb/       knowledge base (YAML) + lexical retrieval
+app/tools/    send_sms with suppression + line-type guards
+app/db/       Supabase client, schema, migrations
+app/routes/   FastAPI webhook + operator console
+tests/        105 tests, 20 compliance
+notebooks/    7 walkthroughs, each component built from scratch</pre>
         </div>
       </details>
 
