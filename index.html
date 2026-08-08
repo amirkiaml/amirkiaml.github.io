@@ -66,11 +66,11 @@
       <span style="width: 22px; height: 2px; background: oklch(18% 0.01 85); display: block;"></span>
     </label>
     <div class="nav-links">
-      <a href="#agentic" style="color: oklch(38% 0.01 85); font-size: 14px; font-weight: 500;">Portfolio Projects</a>
+      <a href="#agentic" style="color: oklch(38% 0.01 85); font-size: 14px; font-weight: 500;">Agentic Systems</a>
+      <a href="#rag" style="color: oklch(38% 0.01 85); font-size: 14px; font-weight: 500;">Retrieval &amp; ML</a>
       <a href="#insights" style="color: oklch(38% 0.01 85); font-size: 14px; font-weight: 500;">Podcast &amp; Talks</a>
       <a href="#publications" style="color: oklch(38% 0.01 85); font-size: 14px; font-weight: 500;">Publications</a>
       <a href="#education" style="color: oklch(38% 0.01 85); font-size: 14px; font-weight: 500;">Education</a>
-      <a href="#certificates" style="color: oklch(38% 0.01 85); font-size: 14px; font-weight: 500;">Certificates</a>
       <a href="#contact" style="display: inline-flex; align-items: center; padding: 9px 16px; background: oklch(18% 0.01 85); color: #fff; border-radius: 100px; font-size: 13px; font-weight: 600;">Contact</a>
     </div>
   </nav>
@@ -79,9 +79,14 @@
   <header id="top" style="padding: 72px 0 56px; border-bottom: 1px solid oklch(91% 0.006 85); display: flex; gap: 40px; align-items: center; flex-wrap: wrap; position: relative; overflow: hidden;">
     <div style="position: absolute; top: -80px; right: -80px; width: 280px; height: 280px; border-radius: 50%; background: oklch(90% 0.05 258 / 0.35); z-index: 0;"></div>
     <div style="flex: 1; min-width: 280px; position: relative; z-index: 1;">
-      <p style="margin: 0 0 14px; font-size: 14px; font-weight: 600; color: oklch(52% 0.16 258); text-transform: uppercase; letter-spacing: 0.08em;">AI Engineer · Agentic AI Builder <span style="color: oklch(55% 0.01 85); font-weight: 500;">— with a philosophy PhD</span> · Philosopher</p>
+      <p style="margin: 0 0 14px; font-size: 14px; font-weight: 600; color: oklch(52% 0.16 258); text-transform: uppercase; letter-spacing: 0.08em;">AI Engineer · Agentic Systems in Production <span style="color: oklch(55% 0.01 85); font-weight: 500;">· Toronto</span></p>
       <h1 style="margin: 0 0 18px; font-family: 'Montserrat', sans-serif; font-size: 46px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; max-width: 720px;">Amir Kiani</h1>
-      <p style="margin: 0 0 28px; font-size: 18px; line-height: 1.6; color: oklch(38% 0.01 85); max-width: 640px;">I build production agentic AI systems and engineer LLM-powered products end to end — from multi-agent orchestration to RAG pipelines to deployment. My PhD in philosophy also shapes how I think about AI safety, ethics, and alignment.</p>
+      <p style="margin: 0 0 22px; font-size: 18px; line-height: 1.6; color: oklch(38% 0.01 85); max-width: 660px;">I build LLM agent systems that run in production and handle real customers — multi-agent orchestration, tool use, guardrails, and the compliance paths where a bug is a legal problem. I founded and shipped an AI voice receptionist that books jobs live on the call, and a 9-agent SMS outreach system with a 105-test suite behind it.</p>
+      <p style="margin: 0 0 28px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 660px;">A PhD in formal logic and semantics is where my instinct for specifying rules an agent must actually follow comes from — and it's what I write and speak about in AI safety and alignment.</p>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <a href="#agentic" style="padding: 11px 20px; background: oklch(18% 0.01 85); color: #fff; border-radius: 100px; font-size: 14px; font-weight: 600;">See the agent systems →</a>
+        <a href="https://github.com/amirkiaml" target="_blank" style="padding: 11px 20px; border: 1px solid oklch(85% 0.01 85); color: oklch(30% 0.01 85); border-radius: 100px; font-size: 14px; font-weight: 600;">GitHub</a>
+      </div>
     </div>
     <img src="assets/amirkiani.png" alt="Amir Kiani" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 1px solid oklch(91% 0.006 85); flex-shrink: 0; position: relative; z-index: 1;">
   </header>
@@ -91,24 +96,75 @@
   <!-- AGENTIC AI WORK -->
   <section id="agentic" style="padding: 48px 0 64px;">
     <p style="margin: 0 0 6px; font-size: 13px; font-weight: 700; color: oklch(52% 0.16 258); text-transform: uppercase; letter-spacing: 0.08em;">Featured Work</p>
-    <h2 style="margin: 0 0 36px; font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em;">Agentic AI Work</h2>
+    <h2 style="margin: 0 0 10px; font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em;">Agentic AI Systems in Production</h2>
+    <p style="margin: 0 0 36px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 700px;">Two systems handling live traffic — one on the phone, one over SMS. Both are mine end to end: architecture, agent design, guardrails, deployment, and the failures that only show up once real numbers are on the other end.</p>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; align-items: start;">
+
+      <!-- VoiceCaptures SMS Outreach Agent -->
+      <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;" open>
+        <summary style="padding: 28px;">
+          <img src="uploads/ccfb1389-14b4-449a-a3ce-a8848e8755ab.png" alt="VoiceCaptures SMS Outreach Agent workflow" style="width: 100%; height: 170px; object-fit: contain; background: #111; border-radius: 12px; margin-bottom: 14px; border: 1px solid oklch(91% 0.006 85);">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;">
+            <span style="font-size: 11px; font-weight: 700; color: oklch(32% 0.01 85); background: oklch(95% 0.01 85); padding: 4px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em;">9-Agent System</span>
+            <span style="font-size: 11px; font-weight: 700; color: #fff; background: oklch(52% 0.19 25); padding: 4px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em;">Production Grade</span>
+            <span style="font-size: 11px; font-weight: 700; color: #fff; background: oklch(52% 0.16 258); padding: 4px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em;">105 Tests</span>
+          </div>
+          <h3 style="margin: 0 0 10px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">SMS Outreach &amp; SDR Agent System</h3>
+          <p style="margin: 0 0 18px; font-size: 14.5px; line-height: 1.5; color: oklch(38% 0.01 85); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">A deterministic multi-agent drafting pipeline sends cold outreach, then hands live conversations to a stateful SDR agent replying to inbound texts in real time. Compliance rules that must always hold are enforced in code, not prompts.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px;">
+            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">OpenAI Agents SDK</span>
+            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Multi-Agent Orchestration</span>
+            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Input/Output Guardrails</span>
+            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Twilio SMS</span>
+            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">FastAPI</span>
+            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Supabase</span>
+            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">CASL Compliance</span>
+          </div>
+          <a href="https://github.com/amirkiaml/sales_automation" target="_blank" style="font-size: 14px; font-weight: 600;">View repository →</a>
+        </summary>
+        <div style="padding: 0 28px 28px; border-top: 1px solid oklch(93% 0.006 85); margin-top: 4px;">
+          <p style="margin: 20px 0 16px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">Agentic SMS sales outreach for VoiceCaptures, built on the OpenAI Agents SDK and Twilio. Sends bulk cold outreach via a deterministic multi-agent drafting/picker pipeline, then hands live conversations to a stateful conversational SDR agent that responds to inbound replies in real time.</p>
+
+          <!-- ▼▼ VIDEO PLACEHOLDER — paste your Loom share ID into the src below and delete this comment ▼▼ -->
+          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Walkthrough</h4>
+          <div style="position: relative; padding-top: 62.5%; border-radius: 12px; overflow: hidden; margin-bottom: 16px; background: oklch(94% 0.005 85);">
+            <iframe src="https://www.loom.com/embed/REPLACE_WITH_LOOM_ID" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+          </div>
+          <!-- ▲▲ END VIDEO PLACEHOLDER ▲▲ -->
+
+          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Result: 44% of scraped business numbers can't receive SMS</h4>
+          <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.7; color: oklch(30% 0.01 85);">37 leads scraped from Google Maps, 18 messaged, 8 delivered. Roughly half are office landlines — invisible across three days of development because every test went to my own mobile. Cost per <em>delivered</em> message is $0.020, not $0.009. Twilio's Lookup answers this directly but needs NPAC approval for Canadian numbers, so line type is recovered for free from delivery error codes instead, and <code>send_sms</code> refuses known landlines from then on.</p>
+          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Design note: rules that must always hold live in code</h4>
+          <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.7; color: oklch(30% 0.01 85);">Five times a rule had to move out of a prompt: the CASL opt-out footer, GSM-7 punctuation, sub-4.0 ratings the hook agent would build insulting angles from. An instruction followed 98% of the time isn't a guarantee — and twice, tightening the instruction caused the next failure. 105 tests, 20 of them asserting the paths where a bug is a legal problem: a suppressed number can never be sent to, opt-outs survive prospect deletion, a blocked message never returns silence.</p>
+          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Design note: the autopilot agent has no tools</h4>
+          <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.7; color: oklch(30% 0.01 85);">Output guardrails run after tool calls, so an agent holding <code>send_sms</code> can deliver an ungrounded message before any check sees it — and a text can't be unsent. It returns structured output; code decides. Replies are grounded in a YAML knowledge base with lexical rather than vector retrieval, because an off-topic question must retrieve <em>nothing</em>, and similarity search always returns a nearest neighbour.</p>
+          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Project layout</h4>
+          <pre style="margin: 0; font-size: 12px; line-height: 1.7; color: oklch(30% 0.01 85); background: oklch(96% 0.005 85); padding: 12px 14px; border-radius: 10px; overflow-x: auto;">app/agents/   9 agents: hook, 3 drafters, picker, triage, draft, SDR, guardrails
+app/kb/       knowledge base (YAML) + lexical retrieval
+app/tools/    send_sms with suppression + line-type guards
+app/db/       Supabase client, schema, migrations
+app/routes/   FastAPI webhook + operator console
+tests/        105 tests, 20 compliance
+notebooks/    7 walkthroughs, each component built from scratch</pre>
+        </div>
+      </details>
 
       <!-- VoiceCaptures Voice Agent -->
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
         <summary style="padding: 28px;">
           <img src="uploads/69db9c4b-67c8-42c8-a149-461e033e8969.png" alt="VoiceCaptures — AI receptionist for home service contractors" style="width: 100%; height: 170px; object-fit: cover; border-radius: 12px; margin-bottom: 14px; border: 1px solid oklch(91% 0.006 85);">
-          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px;">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;">
             <span style="font-size: 11px; font-weight: 700; color: #fff; background: oklch(52% 0.16 258); padding: 4px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em;">Founder Product</span>
             <span style="font-size: 11px; font-weight: 700; color: #fff; background: oklch(52% 0.19 25); padding: 4px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em;">Production Grade</span>
-          </div>          
+            <span style="font-size: 11px; font-weight: 700; color: oklch(38% 0.09 150); background: oklch(93% 0.06 150); padding: 4px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em;">Live Product</span>
+          </div>
           <h3 style="margin: 0 0 10px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">VoiceCaptures — AI Voice Agent</h3>
-          <p style="margin: 0 0 18px; font-size: 14.5px; line-height: 1.5; color: oklch(38% 0.01 85); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Founded and built an AI voice agent for home service businesses that answers every call 24/7, qualifies the job in conversation, checks real calendar availability, and books it — live, on the call.</p>
+          <p style="margin: 0 0 18px; font-size: 14.5px; line-height: 1.5; color: oklch(38% 0.01 85); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Founded and built a real-time voice agent for home service businesses: answers every call 24/7, qualifies the job in conversation, checks live calendar availability, and books the appointment before hanging up.</p>
           <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px;">
-            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Conversational Voice AI (STT/TTS)</span>
+            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Real-time Voice (STT/TTS)</span>
             <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Twilio Telephony</span>
-            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Google Calendar API</span>
+            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Tool Use (Calendar API)</span>
             <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Dynamic Call Routing</span>
             <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Real-time Intent Parsing</span>
           </div>
@@ -116,6 +172,14 @@
         </summary>
         <div style="padding: 0 28px 28px; border-top: 1px solid oklch(93% 0.006 85); margin-top: 4px;">
           <p style="margin: 20px 0 16px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">Founded and built an AI voice agent for home service businesses that answers every call 24/7, qualifies the job in conversation, checks real calendar availability, and books it — live, on the call.</p>
+
+          <!-- ▼▼ VIDEO PLACEHOLDER — a recorded call demo goes here. Paste the Loom share ID and delete this comment ▼▼ -->
+          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Hear a booking call</h4>
+          <div style="position: relative; padding-top: 62.5%; border-radius: 12px; overflow: hidden; margin-bottom: 16px; background: oklch(94% 0.005 85);">
+            <iframe src="https://www.loom.com/embed/REPLACE_WITH_LOOM_ID" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+          </div>
+          <!-- ▲▲ END VIDEO PLACEHOLDER ▲▲ -->
+
           <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Why it matters</h4>
           <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 18px;">
             <div><p style="margin: 0; font-size: 22px; font-weight: 800; font-family: 'Montserrat', sans-serif;">$75B</p><p style="margin: 0; font-size: 12px; color: oklch(46% 0.01 85);">Lost annually to unanswered business calls (Forbes)</p></div>
@@ -130,169 +194,89 @@
             <li>Checks the real Google Calendar and books an open slot live on the call.</li>
             <li>Business owner and customer both get a text confirmation.</li>
           </ol>
-          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Fully customizable</h4>
+          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Configurable per business</h4>
           <p style="margin: 0; font-size: 13.5px; line-height: 1.7; color: oklch(30% 0.01 85);">Voice, greeting, business hours, appointment length, and services are all configurable per business — built for plumbing, HVAC, electrical, roofing, pest control, landscaping, general contracting, and locksmith trades.</p>
         </div>
       </details>
 
-      <!-- VoiceCaptures SMS Outreach Agent -->
-      <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
-        <summary style="padding: 28px;">
-          <img src="uploads/ccfb1389-14b4-449a-a3ce-a8848e8755ab.png" alt="VoiceCaptures SMS Outreach Agent workflow" style="width: 100%; height: 170px; object-fit: contain; background: #111; border-radius: 12px; margin-bottom: 14px; border: 1px solid oklch(91% 0.006 85);">
-          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px;">
-            <span style="font-size: 11px; font-weight: 700; color: oklch(32% 0.01 85); background: oklch(95% 0.01 85); padding: 4px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em;">Multi-Agent System</span>
-            <span style="font-size: 11px; font-weight: 700; color: #fff; background: oklch(52% 0.19 25); padding: 4px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em;">Production Grade</span>
+    </div>
+
+    <!-- SMALLER BUILDS -->
+    <h3 style="margin: 40px 0 16px; font-size: 13px; font-weight: 700; color: oklch(52% 0.01 85); text-transform: uppercase; letter-spacing: 0.08em;">Smaller builds &amp; experiments</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; align-items: start;">
+      <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 18px;">
+        <summary style="padding: 22px;">
+          <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 16.5px; font-weight: 700;">Agentic Task Runner</h3>
+          <p style="margin: 0 0 14px; font-size: 13.5px; line-height: 1.55; color: oklch(38% 0.01 85);">A FastAPI app where an agent parses a plain-language task, selects and executes tools in sequence, and returns a numbered execution trace with persistent history. Built to test native tool-calling against a hand-rolled planner.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px;">
+            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">FastAPI</span>
+            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">OpenAI Agents SDK</span>
+            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">tool_choice=required</span>
           </div>
-          <h3 style="margin: 0 0 10px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">VoiceCaptures SMS Outreach Agent</h3>
-          <p style="margin: 0 0 18px; font-size: 14.5px; line-height: 1.5; color: oklch(38% 0.01 85); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Agentic SMS sales outreach: a deterministic multi-agent drafting/picker pipeline sends bulk cold outreach, then hands live conversations to a stateful conversational SDR agent that replies to inbound texts in real time.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px;">
-            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">OpenAI Agents SDK</span>
-            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Multi-Agent Orchestration</span>
-            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Drafting · Picker · Triage · SDR Agents</span>
-            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Twilio SMS</span>
-            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">FastAPI</span>
-            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Supabase</span>
-          </div>
-          <a href="https://github.com/amirkiaml/sales_automation" target="_blank" style="font-size: 14px; font-weight: 600;">View repository →</a>
+          <a href="https://github.com/amirkiaml/agentic-task-runner" target="_blank" style="font-size: 13.5px; font-weight: 600;">Repository →</a>
         </summary>
-        <div style="padding: 0 28px 28px; border-top: 1px solid oklch(93% 0.006 85); margin-top: 4px;">
-          <p style="margin: 20px 0 16px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">Agentic SMS sales outreach for VoiceCaptures, built on the OpenAI Agents SDK and Twilio. Sends bulk cold outreach via a deterministic multi-agent drafting/picker pipeline, then hands live conversations to a stateful conversational SDR agent that responds to inbound replies in real time.</p>
-          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Result: 44% of scraped business numbers can't receive SMS</h4>
-          <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.7; color: oklch(30% 0.01 85);">37 leads scraped from Google Maps, 18 messaged, 8 delivered. Roughly half are office landlines — invisible across three days of development because every test went to my own mobile. Cost per <em>delivered</em> message is $0.020, not $0.009. Twilio's Lookup answers this directly but needs NPAC approval for Canadian numbers, so line type is recovered for free from delivery error codes instead, and <code>send_sms</code> refuses known landlines from then on.</p>
-          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Design note: rules that must always hold live in code</h4>
-          <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.7; color: oklch(30% 0.01 85);">Five times a rule had to move out of a prompt: the CASL opt-out footer, GSM-7 punctuation, sub-4.0 ratings the hook agent would build insulting angles from. An instruction followed 98% of the time isn't a guarantee — and twice, tightening the instruction caused the next failure. 105 tests, 20 of them asserting the paths where a bug is a legal problem: a suppressed number can never be sent to, opt-outs survive prospect deletion, a blocked message never returns silence.</p>
-          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Design note: the autopilot agent has no tools</h4>
-          <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.7; color: oklch(30% 0.01 85);">Output guardrails run after tool calls, so an agent holding <code>send_sms</code> can deliver an ungrounded message before any check sees it — and a text can't be unsent. It returns structured output; code decides. Replies are grounded in a YAML knowledge base with lexical rather than vector retrieval, because an off-topic question must retrieve <em>nothing</em>, and similarity search always returns a nearest neighbour.</p>
-          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Project layout</h4>
-          <pre style="margin: 0; font-size: 12px; line-height: 1.7; color: oklch(30% 0.01 85); background: oklch(96% 0.005 85); padding: 12px 14px; border-radius: 10px; overflow-x: auto;">app/agents/   9 agents: hook, 3 drafters, picker, triage, draft, SDR, guardrails
-            app/kb/       knowledge base (YAML) + lexical retrieval
-            app/tools/    send_sms with suppression + line-type guards
-            app/db/       Supabase client, schema, migrations
-            app/routes/   FastAPI webhook + operator console
-            tests/        105 tests, 20 compliance
-            notebooks/    7 walkthroughs, each component built from scratch</pre>
+        <div style="padding: 0 22px 22px; border-top: 1px solid oklch(93% 0.006 85); margin-top: 4px;">
+          <h4 style="margin: 16px 0 8px; font-size: 13px; font-weight: 700;">Key design decision</h4>
+          <p style="margin: 0 0 12px; font-size: 12.5px; line-height: 1.7; color: oklch(30% 0.01 85);">Started with a custom planner/executor design, but switched to native <code>@function_tool</code> + <code>tool_choice="required"</code> — each tool call happens with real prior results already in context, since the SDK's own conversation loop handles that automatically. Added <code>DirectAnswerTool</code> as an explicit "no tool applies" option to stop the model misusing the nearest tool on trivial inputs.</p>
+          <h4 style="margin: 0 0 8px; font-size: 13px; font-weight: 700;">Tools implemented</h4>
+          <p style="margin: 0; font-size: 12.5px; line-height: 1.7; color: oklch(30% 0.01 85);">Text processing, calculator, unit conversion, a mock weather lookup, and an explicit direct-answer fallback — deliberately trivial, so the routing behaviour is the thing under test.</p>
         </div>
       </details>
 
-      <!-- Agentic Task Runner -->
-      <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
-        <summary style="padding: 28px;">
-          <img src="uploads/agentic-task-runner.png" alt="Agentic Task Runner dashboard UI" style="width: 100%; height: 170px; object-fit: cover; border-radius: 12px; margin-bottom: 14px; border: 1px solid oklch(91% 0.006 85);">
-          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px;">
-            <span style="font-size: 11px; font-weight: 700; color: oklch(32% 0.01 85); background: oklch(95% 0.01 85); padding: 4px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em;">Agentic AI Project</span>
-          </div>
-          <h3 style="margin: 0 0 10px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">Agentic Task Runner</h3>
-          <p style="margin: 0 0 18px; font-size: 14.5px; line-height: 1.5; color: oklch(38% 0.01 85); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">A FastAPI app where an agent parses a plain-language task, selects and executes tools in sequence, and returns a transparent, numbered execution trace with persistent history.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px;">
-            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">FastAPI</span>
-            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">OpenAI Agents SDK</span>
-            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">function_tools · tool_choice=required</span>
-            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Deterministic Rule-Based Router</span>
-            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">JSON Persistence</span>
-          </div>
-          <a href="https://github.com/amirkiaml/agentic-task-runner" target="_blank" style="font-size: 14px; font-weight: 600;">View repository →</a>
+      <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 18px;">
+        <summary style="padding: 22px;">
+          <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 16.5px; font-weight: 700;">Google × BrainStation Hackathon — 1st Place</h3>
+          <p style="margin: 0 0 14px; font-size: 13.5px; line-height: 1.55; color: oklch(38% 0.01 85);">Won a 24-hour industry hackathon designing "Insights" — an LLM widget giving users plain-language explanations of how Google's AI features use their data.</p>
+          <a href="https://github.com/amirkiaml/Google-Industry-Day" target="_blank" style="font-size: 13.5px; font-weight: 600;">Repository →</a>
         </summary>
-        <div style="padding: 0 28px 28px; border-top: 1px solid oklch(93% 0.006 85); margin-top: 4px;">
-          <p style="margin: 20px 0 16px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">A FastAPI app where an agent parses a plain-language task, selects and executes tools in sequence, and returns a transparent, numbered execution trace with persistent history.</p>
-          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Tools implemented</h4>
-          <ul style="margin: 0 0 16px; padding-left: 18px; font-size: 13.5px; line-height: 1.85; color: oklch(30% 0.01 85);">
-            <li><strong>TextProcessorTool</strong> — uppercase / lowercase / word count</li>
-            <li><strong>CalculatorTool</strong> — addition / subtraction / multiplication / division</li>
-            <li><strong>WeatherMockTool</strong> — mock weather for a city (no external API)</li>
-            <li><strong>UnitConvertor</strong> — km↔miles, °C↔°F, kg↔lbs</li>
-            <li><strong>DirectAnswerTool</strong> — explicit fallback when no other tool applies</li>
-          </ul>
-          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Key design decision</h4>
-          <p style="margin: 0; font-size: 13.5px; line-height: 1.7; color: oklch(30% 0.01 85);">Started with a custom planner/executor design, but switched to native <code>@function_tool</code> + <code>tool_choice="required"</code> — each tool call happens with real prior results already in context, since the SDK's own conversation loop handles that automatically. Added <code>DirectAnswerTool</code> as an explicit "no tool applies" option to stop the model misusing the nearest tool on trivial inputs.</p>
+        <div style="padding: 0 22px 22px; border-top: 1px solid oklch(93% 0.006 85); margin-top: 4px;">
+          <p style="margin: 16px 0 12px; font-size: 12.5px; line-height: 1.7; color: oklch(30% 0.01 85);">A one-day hackathon hosted by BrainStation for Google, July 2023. Our team tackled growing public mistrust of AI: no transparency, privacy concerns, no way to verify how AI-driven results are produced.</p>
+          <p style="margin: 0 0 12px; font-size: 12.5px; line-height: 1.7; color: oklch(30% 0.01 85);">We designed "Insights," a widget giving users an on-demand explanation of how AI is using their data. A hover reveals a summary; a click opens a chatbot (envisioned on an LLM fine-tuned on Google's product docs) that answers deeper questions in the moment — turning a black box into something users can interrogate. Engagement with the widget doubles as a trust signal, analyzed with ANOVA and A/B testing to feed back into product decisions.</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+            <img src="uploads/pasted-1784569978612-0.png" alt="Google x BrainStation hackathon — Meet Google Insights concept slide" style="width: 100%; border-radius: 10px; border: 1px solid oklch(91% 0.006 85); display: block;">
+            <img src="uploads/pasted-1784569984033-0.png" alt="1st Place Industry Project certificate awarded to Amir Kiani by BrainStation x Google" style="width: 100%; border-radius: 10px; border: 1px solid oklch(91% 0.006 85); display: block;">
+          </div>
         </div>
       </details>
-
     </div>
   </section>
 
   <!-- RAG PROJECTS -->
   <section id="rag" style="padding: 64px 0; border-top: 1px solid oklch(91% 0.006 85);">
-    <p style="margin: 0 0 6px; font-size: 13px; font-weight: 700; color: oklch(52% 0.16 258); text-transform: uppercase; letter-spacing: 0.08em;">Retrieval-Augmented Generation</p>
-    <h2 style="margin: 0 0 36px; font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em;">RAG Projects</h2>
+    <p style="margin: 0 0 6px; font-size: 13px; font-weight: 700; color: oklch(52% 0.16 258); text-transform: uppercase; letter-spacing: 0.08em;">Retrieval &amp; Applied ML</p>
+    <h2 style="margin: 0 0 10px; font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em;">RAG &amp; Semantic Search</h2>
+    <p style="margin: 0 0 36px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 700px;">Retrieval systems built on corpora large enough that the retrieval strategy actually decides the answer.</p>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; align-items: start;">
 
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
         <summary style="padding: 28px;">
-          <img src="uploads/96f892ee-7ac3-4b2e-82ce-52b93d09fea1.png" alt="DeepChef app overview" style="width: 100%; height: 190px; object-fit: contain; background: #fff; border-radius: 12px; margin-bottom: 14px; border: 1px solid oklch(91% 0.006 85);">
-          <h3 style="margin: 0 0 10px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">DeepChef — Recipe Recommender</h3>
-          <p style="margin: 0 0 18px; font-size: 14.5px; line-height: 1.5; color: oklch(38% 0.01 85); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Capstone project: a recommender system over 520k+ recipes scraped from food.com. Takes a user's favorite recipe or ingredients and returns the 5 most semantically similar recipes, deployed as a live app.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px;">
-            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">OpenAI Embeddings</span>
-            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Semantic Search</span>
-            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">BERTopic</span>
-            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">spaCy / NLTK</span>
-            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">scikit-learn · UMAP</span>
-            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Selenium (scraping)</span>
-            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Streamlit (deployment)</span>
-          </div>
-          <div style="display: flex; gap: 16px;">
-            <a href="https://github.com/amirkiaml/DeepChef-BSTN-Capstone" target="_blank" style="font-size: 14px; font-weight: 600;">Repository →</a>
-            <a href="https://deepchef.streamlit.app" target="_blank" style="font-size: 14px; font-weight: 600;">Live app →</a>
-          </div>
-        </summary>
-        <div style="padding: 0 28px 28px; border-top: 1px solid oklch(93% 0.006 85); margin-top: 4px;">
-          <h4 style="margin: 20px 0 10px; font-size: 14px; font-weight: 700;">Project Overview</h4>
-          <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">I created a recommender system on a dataset of over 520k recipes scraped from food.com as my capstone project for the bootcamp — titled DeepChef. DeepChef harnesses the power of state-of-the-art large language models and semantic embeddings to create a recommender system that takes in users' favorite recipes — ingredients or instructions, along with themes or other elements — and returns the 5 most similar recipes from the dataset.</p>
-          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Video Tour</h4>
-          <div style="position: relative; padding-top: 62.5%; border-radius: 12px; overflow: hidden; margin-bottom: 16px;">
-            <iframe src="https://www.loom.com/embed/350eed0ce28c43e297ea78e6ede7d694" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-          </div>
-          <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);"><a href="https://www.loom.com/share/350eed0ce28c43e297ea78e6ede7d694" target="_blank">Watch the video walkthrough on Loom →</a></p>
-          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">The App</h4>
-          <img src="uploads/pasted-1784573944620-0.png" alt="DeepChef Streamlit app interface" style="width: 100%; border-radius: 12px; margin-bottom: 8px; border: 1px solid oklch(91% 0.006 85);">
-          <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">Deployed as an interactive app: <a href="https://deepchef.streamlit.app" target="_blank">deepchef.streamlit.app →</a></p>
-          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Technologies Used</h4>
-          <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px;">
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">bertopic</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">gdown</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">jupyter</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">spacy</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">pandas / numpy</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">openai</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">re / requests</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">scikit-learn</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">matplotlib / seaborn / wordcloud</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">nltk</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">selenium</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">streamlit</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">tiktoken</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">umap</span>
-          </div>
-          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">GitHub Repo</h4>
-          <p style="margin: 0; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">For codes, implementation, data sources, and limitations: <a href="https://github.com/amirkiaml/DeepChef-BSTN-Capstone" target="_blank">DeepChef - Recommender System →</a></p>
-        </div>
-      </details>
-
-      <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
-        <summary style="padding: 28px;">
           <img src="uploads/5ae65aef-5383-4077-9c79-f184aadcb8a3.png" alt="DeepAnalytic platform overview" style="width: 100%; height: 190px; object-fit: contain; background: #111; border-radius: 12px; margin-bottom: 14px; border: 1px solid oklch(91% 0.006 85);">
-          <h3 style="margin: 0 0 10px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">DeepAnalytic — Philosophy LLM Research</h3>
-          <p style="margin: 0 0 18px; font-size: 14.5px; line-height: 1.5; color: oklch(38% 0.01 85); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">DeepAnalytic is an ongoing end-to-end team project dedicated to my research on utilizing LLMs for various use cases in the context of Analytic Philosophy, applied to thousands of research papers and books. A large corpus of specialized philosophical data has been scraped from leading academic journals, with cutting-edge NLP and Gen-AI tasks performed on it for research purposes.</p>
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;">
+            <span style="font-size: 11px; font-weight: 700; color: oklch(32% 0.01 85); background: oklch(95% 0.01 85); padding: 4px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em;">Agentic RAG</span>
+            <span style="font-size: 11px; font-weight: 700; color: oklch(32% 0.01 85); background: oklch(95% 0.01 85); padding: 4px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em;">~800k Pages</span>
+          </div>
+          <h3 style="margin: 0 0 10px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">DeepAnalytic — Retrieval over a Philosophy Corpus</h3>
+          <p style="margin: 0 0 18px; font-size: 14.5px; line-height: 1.5; color: oklch(38% 0.01 85); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">A retrieval stack benchmarked across four architectures — naive, reranked, multi-query, and a custom critique-and-rerank agentic pipeline — over a scraped corpus of academic philosophy spanning roughly 800k pages.</p>
           <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px;">
-            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Naive / Rerank / Multiquery / Advanced RAG</span>
+            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Naive / Rerank / Multiquery / Agentic RAG</span>
             <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Sentence Transformers (fine-tuned)</span>
-            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Topic Modeling</span>
-            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">NLI Benchmarking</span>
+            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Pipeline Benchmarking</span>
+            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">NLI Dataset Construction</span>
             <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Web Scraping</span>
           </div>
-          <a href="https://github.com/amirkiaml/DeepAnalytic" target="_blank" style="font-size: 14px; font-weight: 600;">Repository (in progress) →</a>
+          <a href="https://github.com/amirkiaml/DeepAnalytic" target="_blank" style="font-size: 14px; font-weight: 600;">View repository →</a>
         </summary>
         <div style="padding: 0 28px 28px; border-top: 1px solid oklch(93% 0.006 85); margin-top: 4px;">
-          <h4 style="margin: 20px 0 10px; font-size: 14px; font-weight: 700;">Project Overview</h4>
-          <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">DeepAnalytic is an ongoing end-to-end team project applying LLMs to Analytic Philosophy across thousands of papers and books. A large corpus has been scraped from leading academic journals, and cutting-edge NLP and Gen-AI tasks are being performed on it for research. In the coming months, access will open to researchers in the field, then to the public.</p>
-          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">RAG architecture progression</h4>
+          <h4 style="margin: 20px 0 10px; font-size: 14px; font-weight: 700;">Project overview</h4>
+          <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">DeepAnalytic applies LLMs and retrieval to analytic philosophy across thousands of papers and books. The domain is a hard case for retrieval on purpose: philosophical vocabulary is densely polysemous, so nearest-neighbour similarity routinely returns passages that use the same term in an unrelated sense. That failure mode is what the benchmarking is aimed at.</p>
+          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Retrieval architectures benchmarked</h4>
           <ul style="margin: 0 0 16px; padding-left: 18px; font-size: 13.5px; line-height: 1.9; color: oklch(30% 0.01 85);">
             <li>Naive RAG (chunk-400, <code>text-embedding-3-small</code>, cosine similarity)</li>
-            <li>RAG + Reranking</li>
+            <li>RAG + reranking</li>
             <li>Multi-query generation RAG</li>
-            <li>Custom Multi-Query + Critique + Rerank + Generate pipeline (agentic RAG)</li>
-            <li>Systematic pipeline &amp; parameter benchmarking</li>
+            <li>Custom multi-query → critique → rerank → generate pipeline (agentic RAG)</li>
+            <li>Systematic pipeline &amp; parameter benchmarking across the above</li>
             <li>Sentence-transformer fine-tuning for domain-specific vectorization</li>
             <li>Natural Language Inference (NLI) dataset construction</li>
           </ul>
@@ -301,102 +285,83 @@
         </div>
       </details>
 
+      <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
+        <summary style="padding: 28px;">
+          <img src="uploads/96f892ee-7ac3-4b2e-82ce-52b93d09fea1.png" alt="DeepChef app overview" style="width: 100%; height: 190px; object-fit: contain; background: #fff; border-radius: 12px; margin-bottom: 14px; border: 1px solid oklch(91% 0.006 85);">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;">
+            <span style="font-size: 11px; font-weight: 700; color: oklch(32% 0.01 85); background: oklch(95% 0.01 85); padding: 4px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em;">Live App</span>
+            <span style="font-size: 11px; font-weight: 700; color: oklch(32% 0.01 85); background: oklch(95% 0.01 85); padding: 4px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em;">520k Records</span>
+          </div>
+          <h3 style="margin: 0 0 10px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">DeepChef — Semantic Recommender</h3>
+          <p style="margin: 0 0 18px; font-size: 14.5px; line-height: 1.5; color: oklch(38% 0.01 85); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">An embedding-based recommender over 520k+ recipes scraped from food.com — takes a favourite recipe or a set of ingredients and returns the five most semantically similar results. Scraped, embedded, and deployed end to end.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px;">
+            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">OpenAI Embeddings</span>
+            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Semantic Search</span>
+            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">BERTopic</span>
+            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">spaCy / NLTK</span>
+            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">scikit-learn · UMAP</span>
+            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Selenium</span>
+            <span style="font-size: 12.5px; padding: 6px 12px; background: oklch(95% 0.01 85); border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Streamlit</span>
+          </div>
+          <div style="display: flex; gap: 16px;">
+            <a href="https://github.com/amirkiaml/DeepChef-BSTN-Capstone" target="_blank" style="font-size: 14px; font-weight: 600;">Repository →</a>
+            <a href="https://deepchef.streamlit.app" target="_blank" style="font-size: 14px; font-weight: 600;">Live app →</a>
+          </div>
+        </summary>
+        <div style="padding: 0 28px 28px; border-top: 1px solid oklch(93% 0.006 85); margin-top: 4px;">
+          <h4 style="margin: 20px 0 10px; font-size: 14px; font-weight: 700;">Project overview</h4>
+          <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">DeepChef is a recommender built on a dataset of over 520k recipes scraped from food.com. It uses semantic embeddings to take a user's favourite recipe — ingredients, instructions, themes, or a mix — and return the five most similar recipes in the corpus. Built as my capstone for the BrainStation data science diploma, then extended and deployed.</p>
+          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Walkthrough</h4>
+          <div style="position: relative; padding-top: 62.5%; border-radius: 12px; overflow: hidden; margin-bottom: 16px;">
+            <iframe src="https://www.loom.com/embed/350eed0ce28c43e297ea78e6ede7d694" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+          </div>
+          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">The app</h4>
+          <img src="uploads/pasted-1784573944620-0.png" alt="DeepChef Streamlit app interface" style="width: 100%; border-radius: 12px; margin-bottom: 8px; border: 1px solid oklch(91% 0.006 85);">
+          <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">Deployed as an interactive app: <a href="https://deepchef.streamlit.app" target="_blank">deepchef.streamlit.app →</a></p>
+          <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Stack</h4>
+          <p style="margin: 0; font-size: 13.5px; line-height: 1.7; color: oklch(30% 0.01 85);">bertopic · spacy · nltk · pandas / numpy · openai · tiktoken · scikit-learn · umap · selenium · streamlit · matplotlib / seaborn. Full implementation, data sources, and limitations in the <a href="https://github.com/amirkiaml/DeepChef-BSTN-Capstone" target="_blank">repository →</a></p>
+        </div>
+      </details>
+
     </div>
-  </section>
 
-  <!-- DATA ANALYTICS -->
-  <section id="data" style="padding: 64px 0; border-top: 1px solid oklch(91% 0.006 85);">
-    <p style="margin: 0 0 6px; font-size: 13px; font-weight: 700; color: oklch(52% 0.16 258); text-transform: uppercase; letter-spacing: 0.08em;">Analysis &amp; Statistics</p>
-    <h2 style="margin: 0 0 36px; font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em;">Data Analytics</h2>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; align-items: start;">
-
-      <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 18px;">
-        <summary style="padding: 22px;">
-          <img src="assets/Google ngrams.png" alt="Google Books Ngrams" style="width: 100%; height: 110px; object-fit: cover; border-radius: 10px; margin-bottom: 14px;">
-          <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 16.5px; font-weight: 700;">Big Data Wrangling — Google Books Ngrams</h3>
-          <p style="margin: 0 0 14px; font-size: 13.5px; line-height: 1.55; color: oklch(38% 0.01 85);">Loaded, filtered, and visualized a dataset spanning 4% of all printed books (1800s–2000s) in a cloud distributed-computing environment.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px;">
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Hadoop</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Spark / PySpark</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Hive</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">AWS S3</span>
-          </div>
-          <a href="https://github.com/amirkiaml/Google-ngarms" target="_blank" style="font-size: 13.5px; font-weight: 600;">Repository →</a>
-        </summary>
-        <div style="padding: 0 22px 22px; border-top: 1px solid oklch(93% 0.006 85); margin-top: 4px;">
-          <h4 style="margin: 16px 0 8px; font-size: 13px; font-weight: 700;">Overview</h4>
-          <p style="margin: 0 0 10px; font-size: 12.5px; line-height: 1.7; color: oklch(30% 0.01 85);">Applies Big Data skills to the Google Ngrams dataset — content from Google Books encapsulating ~4% of all printed books, spanning the 1800s to the 2000s.</p>
-          <p style="margin: 0 0 12px; font-size: 12.5px; line-height: 1.7; color: oklch(30% 0.01 85);">Focus: proficient loading, filtering, and dynamic visualization of an expansive dataset within a cloud-based distributed computing environment, using Hadoop, Spark, Hive, and S3.</p>
-          <img src="uploads/pasted-1784574198200-0.png" alt="Google Books Ngram Viewer chart" style="width: 100%; border-radius: 10px; margin-bottom: 14px; border: 1px solid oklch(91% 0.006 85);">
-          <h4 style="margin: 0 0 8px; font-size: 13px; font-weight: 700;">GitHub Repo</h4>
-          <p style="margin: 0 0 8px; font-size: 12.5px; color: oklch(30% 0.01 85);">This project contains two files:</p>
-          <ul style="margin: 0; padding-left: 16px; font-size: 12.5px; line-height: 1.8; color: oklch(30% 0.01 85);">
-            <li><a href="https://github.com/amirkiaml/Google-ngarms/blob/main/Introduction%20and%20Q1-Q3%20Walkthrough.pdf" target="_blank">Step-by-step guide to setting up AWS S3 &amp; Spark in the cloud</a></li>
-            <li><a href="https://github.com/amirkiaml/Google-ngarms/blob/main/Amirhossein_Kiani_Big_Data_Wrangling.ipynb" target="_blank">Jupyter notebook — big data wrangling on the Google Ngrams dataset</a></li>
-          </ul>
+    <!-- EARLIER DATA WORK — condensed -->
+    <h3 style="margin: 40px 0 16px; font-size: 13px; font-weight: 700; color: oklch(52% 0.01 85); text-transform: uppercase; letter-spacing: 0.08em;">Earlier data science &amp; analytics</h3>
+    <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 18px;">
+      <summary style="padding: 22px;">
+        <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 16.5px; font-weight: 700;">Five analytics &amp; ML studies</h3>
+        <p style="margin: 0 0 6px; font-size: 13.5px; line-height: 1.6; color: oklch(38% 0.01 85); max-width: 760px;">Distributed big-data wrangling, SQL and dashboarding, NLP classification, public-health prediction, and hospital readmission modelling — the statistical and data-engineering groundwork under the agent work above.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px;">
+          <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Spark / PySpark</span>
+          <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Hadoop · Hive · S3</span>
+          <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">SQL · Tableau</span>
+          <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Regression · Classification</span>
         </div>
-      </details>
+      </summary>
+      <div style="padding: 0 22px 22px; border-top: 1px solid oklch(93% 0.006 85); margin-top: 4px;">
+        <p style="margin: 16px 0 8px; font-size: 13px; font-weight: 700; color: oklch(25% 0.01 85);">Big Data Wrangling — Google Books Ngrams</p>
+        <p style="margin: 0 0 14px; font-size: 12.5px; line-height: 1.7; color: oklch(30% 0.01 85);">Loading, filtering, and visualizing a dataset covering roughly 4% of all printed books (1800s–2000s) in a cloud distributed-computing environment with Hadoop, Spark, Hive, and S3. <a href="https://github.com/amirkiaml/Google-ngarms" target="_blank">Repository →</a></p>
 
-      <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 18px;">
-        <summary style="padding: 22px;">
-          <img src="assets/Bixi.png" alt="Bixi bike usage" style="width: 100%; height: 110px; object-fit: cover; border-radius: 10px; margin-bottom: 14px;">
-          <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 16.5px; font-weight: 700;">Bixi Bike Usage — Trend Analysis</h3>
-          <p style="margin: 0 0 14px; font-size: 13.5px; line-height: 1.55; color: oklch(38% 0.01 85);">SQL-driven exploration of Montreal's bike-share system, paired with an interactive drill-down Tableau dashboard.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px;">
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">SQL</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Tableau</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Data Wrangling</span>
-          </div>
-          <a href="https://github.com/amirkiaml/Bixi" target="_blank" style="font-size: 13.5px; font-weight: 600;">Repository →</a>
-        </summary>
-        <div style="padding: 0 22px 22px; border-top: 1px solid oklch(93% 0.006 85); margin-top: 4px;">
-          <h4 style="margin: 16px 0 8px; font-size: 13px; font-weight: 700;">Overview</h4>
-          <p style="margin: 0 0 10px; font-size: 12.5px; line-height: 1.7; color: oklch(30% 0.01 85);">BIXI Montreal, established in 2014, owns 10,000 bikes across nearly 800 stations (as of 2023). Goal: understand usage drivers, popular stations, and business growth, using April–November 2016 &amp; 2017 data.</p>
-          <p style="margin: 0 0 12px; font-size: 12.5px; line-height: 1.7; color: oklch(30% 0.01 85);">Centerpiece deliverable is an interactive drill-down Tableau dashboard exploring hidden usage patterns.</p>
-          <img src="uploads/pasted-1784574191636-0.png" alt="Bixi revenue-per-hour Tableau chart" style="width: 100%; border-radius: 10px; margin-bottom: 14px; border: 1px solid oklch(91% 0.006 85);">
-          <h4 style="margin: 0 0 8px; font-size: 13px; font-weight: 700;">GitHub Repo</h4>
-          <p style="margin: 0; font-size: 12.5px; line-height: 1.7; color: oklch(30% 0.01 85);"><a href="https://github.com/amirkiaml/Bixi/blob/main/Bixi_Codes.sql" target="_blank">SQL Codes (Parts 1–4) →</a> · Final Tableau sheets and reports to be uploaded soon.</p>
-        </div>
-      </details>
+        <p style="margin: 0 0 8px; font-size: 13px; font-weight: 700; color: oklch(25% 0.01 85);">Bixi Bike Usage — Trend Analysis</p>
+        <p style="margin: 0 0 14px; font-size: 12.5px; line-height: 1.7; color: oklch(30% 0.01 85);">SQL-driven exploration of Montreal's bike-share system across the 2016–2017 seasons, paired with an interactive drill-down Tableau dashboard on usage drivers and station demand. <a href="https://github.com/amirkiaml/Bixi/blob/main/Bixi_Codes.sql" target="_blank">SQL →</a></p>
 
+        <p style="margin: 0 0 8px; font-size: 13px; font-weight: 700; color: oklch(25% 0.01 85);">Sentiment Analysis — Hotel Reviews</p>
+        <p style="margin: 0 0 14px; font-size: 12.5px; line-height: 1.7; color: oklch(30% 0.01 85);">NLP pipeline from EDA through feature engineering to sentiment classification — comparing Logistic Regression, PCA, KNN, and Decision Trees, refined with cross-validation. <a href="https://github.com/amirkiaml/Sentiment-Analysis-Hotel-Reviews" target="_blank">Repository →</a></p>
 
-      <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 18px;">
-        <summary style="padding: 22px;">
-          <img src="uploads/other-data-analytics-collage.png" alt="Collage: Hotel Reviews sentiment analysis, West Nile Virus prediction, and U.S. Diabetes readmission projects" style="width: 100%; height: 110px; object-fit: cover; border-radius: 10px; margin-bottom: 14px;">
-          <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 16.5px; font-weight: 700;">Other Data Analytics Projects</h3>
-          <p style="margin: 0 0 14px; font-size: 13.5px; line-height: 1.55; color: oklch(38% 0.01 85);">Three additional EDA &amp; ML studies — sentiment classification, public-health prediction, and hospital readmission risk.</p>
-          <ul style="margin: 0; padding-left: 16px; font-size: 13px; line-height: 1.9; color: oklch(30% 0.01 85);">
-            <li><a href="https://github.com/amirkiaml/Sentiment-Analysis-Hotel-Reviews" target="_blank">Sentiment Analysis — Hotel Reviews</a></li>
-            <li><a href="https://github.com/amirkiaml/Stats-and-Public-Health" target="_blank">West Nile Virus — Predictive Analysis</a></li>
-            <li><a href="https://github.com/amirkiaml/US-Diabetes" target="_blank">U.S. Diabetes Readmission</a></li>
-          </ul>
-        </summary>
-        <div style="padding: 0 22px 22px; border-top: 1px solid oklch(93% 0.006 85); margin-top: 4px;">
-          <div style="margin: 16px 0 12px; display: flex; align-items: center; gap: 8px;">
-            <span style="font-size: 11px; font-weight: 700; color: #fff; background: oklch(52% 0.16 258); padding: 4px 10px; border-radius: 100px;">Sentiment Analysis — Hotel Reviews</span>
-          </div>
-          <p style="margin: 0 0 16px; font-size: 12.5px; line-height: 1.7; color: oklch(30% 0.01 85);">NLP pipeline from EDA through feature engineering to sentiment classification — comparing Logistic Regression, PCA, KNN, and Decision Trees, refined with cross-validation. <a href="https://github.com/amirkiaml/Sentiment-Analysis-Hotel-Reviews" target="_blank">Repository →</a></p>
+        <p style="margin: 0 0 8px; font-size: 13px; font-weight: 700; color: oklch(25% 0.01 85);">West Nile Virus — Predictive Analysis</p>
+        <p style="margin: 0 0 14px; font-size: 12.5px; line-height: 1.7; color: oklch(30% 0.01 85);">Statistical and predictive modeling of Chicago mosquito trap data for the city's public health monitoring program — chi-square testing, then linear and logistic regression on WNV prevalence. <a href="https://github.com/amirkiaml/Stats-and-Public-Health" target="_blank">Repository →</a></p>
 
-          <div style="margin: 0 0 12px; display: flex; align-items: center; gap: 8px;">
-            <span style="font-size: 11px; font-weight: 700; color: #fff; background: oklch(52% 0.16 258); padding: 4px 10px; border-radius: 100px;">West Nile Virus — Predictive Analysis</span>
-          </div>
-          <p style="margin: 0 0 16px; font-size: 12.5px; line-height: 1.7; color: oklch(30% 0.01 85);">Statistical and predictive modeling of Chicago mosquito trap data for the city's public health monitoring program — chi-square testing, then linear and logistic regression on WNV prevalence. <a href="https://github.com/amirkiaml/Stats-and-Public-Health" target="_blank">Repository →</a></p>
-
-          <div style="margin: 0 0 12px; display: flex; align-items: center; gap: 8px;">
-            <span style="font-size: 11px; font-weight: 700; color: #fff; background: oklch(52% 0.16 258); padding: 4px 10px; border-radius: 100px;">U.S. Diabetes Readmission</span>
-          </div>
-          <p style="margin: 0; font-size: 12.5px; line-height: 1.7; color: oklch(30% 0.01 85);">Explored ~100k U.S. hospital records (1999–2008) to identify sub-groups at higher readmission risk, then modeled readmission with logistic regression. <a href="https://github.com/amirkiaml/US-Diabetes" target="_blank">Repository →</a></p>
-        </div>
-      </details>
-    </div>
+        <p style="margin: 0 0 8px; font-size: 13px; font-weight: 700; color: oklch(25% 0.01 85);">U.S. Diabetes Readmission</p>
+        <p style="margin: 0; font-size: 12.5px; line-height: 1.7; color: oklch(30% 0.01 85);">Explored ~100k U.S. hospital records (1999–2008) to identify sub-groups at higher readmission risk, then modeled readmission with logistic regression. <a href="https://github.com/amirkiaml/US-Diabetes" target="_blank">Repository →</a></p>
+      </div>
+    </details>
   </section>
 
   <!-- AI SAFETY & ETHICS / VIRTUOUS MACHINES -->
   <section id="insights" style="padding: 64px 0; border-top: 1px solid oklch(91% 0.006 85);">
     <p style="margin: 0 0 6px; font-size: 13px; font-weight: 700; color: oklch(52% 0.16 258); text-transform: uppercase; letter-spacing: 0.08em;">Research &amp; Public Voice</p>
     <h2 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em;">Podcast &amp; Talks</h2>
-    <p style="margin: 0 0 24px; font-size: 15px; color: oklch(46% 0.01 85);">AI safety, ethics, and machine consciousness.</p>
+    <p style="margin: 0 0 24px; font-size: 15px; color: oklch(46% 0.01 85);">AI safety, alignment, and what it takes for a system to actually follow a rule.</p>
 
     <div style="background: oklch(18% 0.01 85); border-radius: 22px; padding: 32px; margin-bottom: 24px; position: relative;">
       <img src="uploads/vm-logo.png" alt="Virtuous Machines podcast logo" class="vm-logo" style="position: absolute; top: 24px; right: 28px; width: 128px; height: 128px; border-radius: 16px; object-fit: contain;">
@@ -554,10 +519,8 @@
         </summary>
         <div style="padding: 0 24px 24px; border-top: 1px solid oklch(93% 0.006 85); margin-top: 4px;">
           <img src="uploads/book1.png" alt="No Bullshit Math for Data Science full cover" style="width: 100%; max-width: 260px; display: block; margin: 16px auto 16px; border-radius: 10px; border: 1px solid oklch(91% 0.006 85);">
-          <p style="margin: 0 0 10px; font-size: 13px; line-height: 1.65; color: oklch(30% 0.01 85);">Data science is an interdisciplinary, growing field that uses scientific methods, processes, and algorithms to extract or extrapolate knowledge, patterns, and insights from various kinds of structured, semi-structured, and unstructured data for various real-life and theoretical purposes.</p>
-          <p style="margin: 0 0 10px; font-size: 13px; line-height: 1.65; color: oklch(30% 0.01 85);">To become a data scientist, one must have a solid foundation in mathematics, programming skills, and domain expertise — able to work with large datasets, analyze data using statistical techniques, communicate findings, and design predictive models using machine learning.</p>
-          <p style="margin: 0 0 10px; font-size: 13px; line-height: 1.65; color: oklch(30% 0.01 85);">As someone engaging with math for over a decade, I found few books teach the mathematics underneath data science in a comprehensive, short and sharp manner — most are ~350 pages, expensive, code-heavy, and light on actual math teaching. This book aims to fix that.</p>
-          <p style="margin: 0 0 14px; font-size: 13px; line-height: 1.65; color: oklch(30% 0.01 85);">Part I explores core mathematics — Linear Algebra, Calculus, Statistics, and Probability Theory. Part II builds on this to cover the underlying mathematics of Regression, Tree Methods, Support Vector Machines, Clustering, PCA, and Neural Networks, with Python implementations throughout.</p>
+          <p style="margin: 0 0 10px; font-size: 13px; line-height: 1.65; color: oklch(30% 0.01 85);">Most books teaching the mathematics under data science run ~350 pages, cost a lot, lean heavily on code, and teach surprisingly little actual math. This one is built to fix that: short, sharp, and math-first.</p>
+          <p style="margin: 0 0 14px; font-size: 13px; line-height: 1.65; color: oklch(30% 0.01 85);">Part I covers the core mathematics — linear algebra, calculus, statistics, and probability theory. Part II builds on it to cover the mathematics underneath regression, tree methods, support vector machines, clustering, PCA, and neural networks, with Python implementations throughout.</p>
           <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
             <img src="uploads/book2.png" alt="Sample page: Vectors" style="width: 100%; border-radius: 8px; border: 1px solid oklch(91% 0.006 85);">
             <img src="uploads/book3.png" alt="Sample page: table of contents" style="width: 100%; border-radius: 8px; border: 1px solid oklch(91% 0.006 85);">
@@ -588,7 +551,7 @@
         </summary>
         <div style="padding: 0 24px 24px; border-top: 1px solid oklch(93% 0.006 85); margin-top: 4px;">
           <img src="uploads/cover.png" alt="Practical Statistics for Data Practitioners full cover" style="width: 100%; max-width: 260px; display: block; margin: 16px auto 16px; border-radius: 10px; border: 1px solid oklch(91% 0.006 85);">
-          <p style="margin: 0 0 10px; font-size: 13px; line-height: 1.65; color: oklch(30% 0.01 85);">Practical Statistics for Data Practitioners is an open-source, hands-on guide that introduces the essential descriptive and inferential statistics needed in real-world analytics and machine learning pipelines. Designed for data analysts, scientists, engineers, and students, it emphasizes a "read → run → apply" learning approach by pairing each concept with clear intuition, minimal proofs, and fully reproducible Python code.</p>
+          <p style="margin: 0 0 10px; font-size: 13px; line-height: 1.65; color: oklch(30% 0.01 85);">An open-source, hands-on guide to the descriptive and inferential statistics needed in real analytics and ML pipelines. Each concept is paired with clear intuition, minimal proofs, and fully reproducible Python code.</p>
           <p style="margin: 0; font-size: 13px; line-height: 1.65; color: oklch(30% 0.01 85);">Covers measures of central tendency and dispersion, hypothesis testing, A/B testing, and regression models, illustrated with end-to-end examples using pandas, NumPy, SciPy, and statsmodels.</p>
         </div>
       </details>
@@ -599,7 +562,7 @@
 
   <!-- EDUCATION -->
   <section id="education" style="padding: 64px 0; border-top: 1px solid oklch(91% 0.006 85);">
-    <h2 style="margin: 0 0 36px; font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em;">Education</h2>
+    <h2 style="margin: 0 0 36px; font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em;">Education &amp; Certificates</h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; align-items: start;">
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 18px;">
         <summary style="padding: 22px;">
@@ -631,22 +594,11 @@
             <li>Excellence Scholarship for Travel and Accommodation, University of Tartu</li>
           </ul>
           <p style="margin: 0 0 6px; font-size: 13px; font-weight: 600; color: oklch(30% 0.01 85);">PhD scholarships (over $50,000):</p>
-          <ul style="margin: 0 0 16px; padding-left: 18px; font-size: 13px; line-height: 1.8; color: oklch(30% 0.01 85);">
+          <ul style="margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.8; color: oklch(30% 0.01 85);">
             <li>Alberta Graduate Excellence Scholarship (AGES), International — CA$15,000 (2021, 2019)</li>
             <li>Department of Philosophy Graduate Essay Award — CA$2,500 (2021)</li>
             <li>Full Funding Package (4 years) — CA$30,000/yr (2019–2023)</li>
           </ul>
-
-          <h4 style="margin: 0 0 8px; font-size: 13.5px; font-weight: 700;">Transferable Skills</h4>
-          <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Analytical Thinking</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Research</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Communication</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Teamwork</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Mentoring</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Time Management</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Project Management</span>
-          </div>
         </div>
       </details>
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 18px;">
@@ -672,57 +624,19 @@
           </div>
 
           <h4 style="margin: 0 0 8px; font-size: 13.5px; font-weight: 700;">Research</h4>
-          <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">Thesis on coalgebraic logics — <em>Logics for Coalgebras, and a Final Coalgebra Theorem</em> (written in Persian). <a href="http://amirkiani.ucalgaryblogs.ca/files/2020/10/Logics-For-Coalgebras-and-a-Final-Coalgebra-Theorem.pdf" target="_blank">Read the thesis →</a></p>
-
-          <h4 style="margin: 0 0 8px; font-size: 13.5px; font-weight: 700;">Transferable Skills</h4>
-          <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Perseverance</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Responsibility</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Analytical Thinking</span>
-            <span style="font-size: 11.5px; padding: 5px 10px; background: oklch(95% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);">Quantitative Reasoning</span>
-          </div>
+          <p style="margin: 0; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">Thesis on coalgebraic logics — <em>Logics for Coalgebras, and a Final Coalgebra Theorem</em> (written in Persian). <a href="http://amirkiani.ucalgaryblogs.ca/files/2020/10/Logics-For-Coalgebras-and-a-Final-Coalgebra-Theorem.pdf" target="_blank">Read the thesis →</a></p>
         </div>
       </details>
     </div>
-  </section>
 
-  <!-- CERTIFICATES -->
-  <section id="certificates" style="padding: 64px 0; border-top: 1px solid oklch(91% 0.006 85);">
-    <h2 style="margin: 0 0 36px; font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em;">Awards &amp; Certificates</h2>
-
-    <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px; margin-bottom: 20px;">
-      <summary style="padding: 28px;">
-        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
-          <span style="font-size: 11px; font-weight: 700; color: #fff; background: oklch(52% 0.16 258); padding: 4px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em;">🏆 1st Place</span>
-          <h3 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 700;">Google × BrainStation — 24hr Industry Hackathon</h3>
-        </div>
-        <p style="margin: 0 0 20px; font-size: 14px; line-height: 1.6; color: oklch(38% 0.01 85); max-width: 700px;">Won first place designing "Insights" — a widget using LLMs to give users transparent, plain-language explanations of how Google's AI features use their data, addressing trust, privacy, and explainability concerns.</p>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
-          <img src="uploads/pasted-1784569978612-0.png" alt="Google x BrainStation hackathon — Meet Google Insights concept slide" style="width: 100%; border-radius: 12px; border: 1px solid oklch(91% 0.006 85); display: block;">
-          <img src="uploads/pasted-1784569984033-0.png" alt="1st Place Industry Project certificate awarded to Amir Kiani by BrainStation x Google" style="width: 100%; border-radius: 12px; border: 1px solid oklch(91% 0.006 85); display: block;">
-        </div>
-      </summary>
-      <div style="padding: 0 28px 28px; border-top: 1px solid oklch(93% 0.006 85); margin-top: 4px;">
-        <h4 style="margin: 20px 0 10px; font-size: 14px; font-weight: 700;">The Challenge</h4>
-        <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">A one-day hackathon hosted by BrainStation for Google, July 20, 2023. Our team — "The Extremers" — tackled a real Google problem: growing public mistrust of AI, driven by lack of transparency, privacy concerns, and no clear way to verify how AI-driven results are produced.</p>
-        <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Our Solution — "Insights"</h4>
-        <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">We designed "Insights," a widget for Google's platform giving users a plain-language, on-demand explanation of how AI is using their data. A hover reveals a quick summary; a click opens a full chatbot (envisioned on a fine-tuned LLM trained on Google's own product docs) that answers deeper questions in the moment — turning a black box into something users can actually interrogate.</p>
-        <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Measuring trust</h4>
-        <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">The widget's engagement would double as a trust signal — analyzing interaction data with statistical methods (ANOVA, A/B testing) to gauge how much users actually engage with AI-powered features, and feed that back into product decisions.</p>
-        <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 700;">Team — The Extremers</h4>
-        <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">Moises Vera, Annie Yan &amp; Amir Kiani (Data Science) · Amy Chen (UX Design) · Emmanuel Atuahene &amp; Chelsea Quindipan (Software Engineering) · Laura Merino (Product Manager)</p>
-        <a href="https://github.com/amirkiaml/Google-Industry-Day" target="_blank" style="font-size: 13.5px; font-weight: 600;">View repository →</a>
-      </div>
-    </details>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+    <div id="certificates" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 20px;">
       <div style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 18px; padding: 22px;">
-        <img src="assets/bstn.png" alt="BrainStation certificate" style="width: 100%; height: 170px; object-fit: contain; background: oklch(96% 0.005 85); border-radius: 12px; margin-bottom: 14px;">
+        <img src="assets/bstn.png" alt="BrainStation certificate" style="width: 100%; height: 140px; object-fit: contain; background: oklch(96% 0.005 85); border-radius: 12px; margin-bottom: 14px;">
         <h3 style="margin: 0 0 6px; font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700;">BrainStation — Data Science Diploma</h3>
         <p style="margin: 0; font-size: 13px; color: oklch(46% 0.01 85);">3-month intensive data science bootcamp</p>
       </div>
       <div style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 18px; padding: 22px;">
-        <img src="assets/gcp.png" alt="Google Cloud Platform certificate" style="width: 100%; height: 170px; object-fit: contain; background: oklch(96% 0.005 85); border-radius: 12px; margin-bottom: 14px;">
+        <img src="assets/gcp.png" alt="Google Cloud Platform certificate" style="width: 100%; height: 140px; object-fit: contain; background: oklch(96% 0.005 85); border-radius: 12px; margin-bottom: 14px;">
         <h3 style="margin: 0 0 6px; font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700;">Google Cloud Platform</h3>
         <p style="margin: 0; font-size: 13px; color: oklch(46% 0.01 85);">Cloud &amp; ML infrastructure certification</p>
       </div>
@@ -732,8 +646,8 @@
   <!-- CONTACT -->
   <section id="contact" style="padding: 64px 0 100px; border-top: 1px solid oklch(91% 0.006 85);">
     <div style="background: oklch(18% 0.01 85); border-radius: 24px; padding: 48px; text-align: center;">
-      <h2 style="margin: 0 0 16px; font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 800; color: #fff;">Let's talk</h2>
-      <p style="margin: 0 0 28px; font-size: 15px; line-height: 1.7; color: oklch(78% 0.01 85); max-width: 560px; margin-left: auto; margin-right: auto;">Building AI agent systems, doing data science, or thinking through AI safety and ethics — I'd love to hear from you.</p>
+      <h2 style="margin: 0 0 16px; font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 800; color: #fff;">Open to AI engineering roles</h2>
+      <p style="margin: 0 0 28px; font-size: 15px; line-height: 1.7; color: oklch(78% 0.01 85); max-width: 580px; margin-left: auto; margin-right: auto;">I'm looking for agentic AI, AI engineering, and applied ML roles — Toronto or remote. If you're building agent systems that have to work on real traffic, I'd like to hear about it.</p>
       <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
         <a href="mailto:amirkianitech@gmail.com" style="padding: 12px 22px; background: #fff; color: oklch(18% 0.01 85); border-radius: 100px; font-size: 14px; font-weight: 600;">amirkianitech@gmail.com</a>
         <a href="https://www.linkedin.com/in/amir-kiani/" target="_blank" style="padding: 12px 22px; border: 1px solid oklch(40% 0.01 85); color: #fff; border-radius: 100px; font-size: 14px; font-weight: 600;">LinkedIn</a>
