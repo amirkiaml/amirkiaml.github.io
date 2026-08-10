@@ -140,7 +140,7 @@
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; align-items: start;">
 
       <!-- SMS Outreach & SDR Agent -->
-       <!-- ============================================================
+        <!-- ============================================================
        FINAL — SMS Outreach & SDR Agent card.
        Replaces the FIRST <details>…</details> block inside
        <section id="agentic">. Nothing else in index.html changes.
@@ -198,9 +198,61 @@
   app/db/       Supabase client, schema, migrations
   app/routes/   FastAPI webhook + operator console
   tests/        105 tests, 20 compliance</pre>
+  
+    </div>
+  </details>
 
-  </div>
-</details>
+      <!-- VoiceCaptures -->
+      <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
+        <summary style="padding: 28px;">
+          <img src="uploads/69db9c4b-67c8-42c8-a149-461e033e8969.png" alt="VoiceCaptures — AI receptionist for home service contractors" style="width: 100%; height: 170px; object-fit: cover; border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
+          <p class="eyebrow">Founder · Deployed, public demo line · 2025–26</p>
+          <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">VoiceCaptures — AI Voice Receptionist</h3>
+          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">A real-time voice agent for home service trades: answers the call, qualifies the job in conversation, checks live calendar availability, and books the slot before hanging up.</p>
+
+          <p class="strip-label">The market it's built for</p>
+          <div class="strip-context">
+            <div><div class="n">$75B</div><div class="l">lost annually to unanswered business calls (Forbes)</div></div>
+            <div><div class="n">85%</div><div class="l">of callers won't leave a voicemail (Forbes)</div></div>
+            <div><div class="n">62%</div><div class="l">of calls land outside business hours (HomeAdvisor)</div></div>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px;">
+            <span class="chip">Vapi + Twilio</span>
+            <span class="chip">Real-time STT/TTS</span>
+            <span class="chip">Tool use (Calendar API)</span>
+            <span class="chip">RAG over per-business KB</span>
+            <span class="chip">Node/Express · Supabase</span>
+          </div>
+
+          <div class="card-links">
+            <a href="https://voicecaptures.com" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">voicecaptures.com →</a>
+            <a href="https://www.loom.com/share/voicecaptures" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Hear a booking call →</a>
+          </div>
+        </summary>
+        <div class="card-body">
+          <h4>Where it stands</h4>
+          <p>Deployed on Railway and reachable on a public demo line; onboarding for paying trades is in progress, so what I can report is latency and booking accuracy rather than revenue. I'd rather show what I've measured than what I hope for.</p>
+
+          <h4>The two fields that have to be exactly right</h4>
+          <p>A booking is worthless if the street address or callback number is wrong by one digit, and those are precisely the fields ASR mangles — proper nouns and digit strings have no language-model prior to fall back on. Both are read back to the caller for confirmation before the calendar write, and the structured payload is validated before it reaches the booking tool. Everything else in the conversation can tolerate a transcription error; these two cannot.</p>
+
+          <h4>Why Vapi, and where I went underneath it</h4>
+          <p>Reimplementing a managed voice runtime is a three-week infrastructure project that produces something worse. The real risk of building on a provider isn't the provider — it's that the abstraction has a bottom an interviewer reaches in eight minutes. So one route runs on Pipecat with my own endpointing and barge-in handling, which is where the interesting decisions actually live: how long a pause means "your turn" varies by caller, and getting it wrong either talks over people or leaves dead air.</p>
+
+          <h4>How it works</h4>
+          <ol style="margin: 0; padding-left: 18px; line-height: 1.85;">
+            <li>Customer calls the business's existing number.</li>
+            <li>Call forwards to the agent when the line is busy, on a job, or after hours.</li>
+            <li>Agent collects and confirms name, phone, address, and the nature of the job.</li>
+            <li>Checks the real Google Calendar and books an open slot live on the call.</li>
+            <li>Owner and customer both get a text confirmation.</li>
+          </ol>
+        </div>
+      </details>
+
+    </div>
+
     <!-- SMALLER BUILDS -->
     <h3 style="margin: 40px 0 16px; font-size: 13px; font-weight: 700; color: oklch(52% 0.01 85); text-transform: uppercase; letter-spacing: 0.08em;">Smaller builds &amp; experiments</h3>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; align-items: start;">
