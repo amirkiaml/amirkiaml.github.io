@@ -140,97 +140,67 @@
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; align-items: start;">
 
       <!-- SMS Outreach & SDR Agent -->
-      <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
-        <summary style="padding: 28px;">
-          <img src="uploads/ccfb1389-14b4-449a-a3ce-a8848e8755ab.png" alt="Multi-agent SMS outreach system architecture" style="width: 100%; height: 170px; object-fit: contain; background: #111; border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
-          <p class="eyebrow">Sole engineer · Live system · 2026</p>
-          <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">SMS Outreach &amp; SDR Agent System</h3>
-          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">Nine agents that send cold SMS to contractors and hold the reply conversation, with the legally binding rules enforced in code rather than prompts.</p>
+       <!-- ============================================================
+       FINAL — SMS Outreach & SDR Agent card.
+       Replaces the FIRST <details>…</details> block inside
+       <section id="agentic">. Nothing else in index.html changes.
+       ============================================================ -->
+  
+  <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
+    <summary style="padding: 28px;">
+      <img src="uploads/sales-automation.png" alt="Three drafting agents write competing messages in parallel; a picker agent selects one; Twilio sends it" style="width: 100%; height: 170px; object-fit: contain; background: oklch(96% 0.005 85); border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
+  
+      <p class="eyebrow">Sole engineer · Live system · 2026</p>
+      <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">SMS Outreach &amp; SDR Agent System</h3>
+      <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">Three agents draft every cold message in parallel and a picker agent selects one against explicit criteria — no single model settling for its first attempt. Replies go to a stateful SDR agent, and the rules that carry legal weight are enforced in code, not prompts.</p>
+  
+      <p class="strip-label">Measured on real sends</p>
+      <div class="strip-measured">
+        <div><div class="n">44%</div><div class="l">of scraped numbers could actually receive SMS</div></div>
+        <div><div class="n">$0.020</div><div class="l">true cost per delivered message, not $0.009</div></div>
+        <div><div class="n">105</div><div class="l">tests, 20 covering CASL compliance paths</div></div>
+      </div>
+  
+      <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px;">
+        <span class="chip">OpenAI Agents SDK</span>
+        <span class="chip">Multi-agent orchestration</span>
+        <span class="chip">Guardrails</span>
+        <span class="chip">FastAPI</span>
+        <span class="chip">Twilio</span>
+        <span class="chip">Supabase</span>
+      </div>
+  
+      <div class="card-links">
+        <a href="https://github.com/amirkiaml/sales_automation" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Repository →</a>
+        <a href="https://www.loom.com/share/REPLACE_WITH_LOOM_ID" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">3-min walkthrough →</a>
+      </div>
+    </summary>
+  
+    <div class="card-body">
+  
+      <h4>What it does, end to end</h4>
+      <p>A lead scraper pulls home-service businesses from Google Places into Supabase, and a <strong>hook agent</strong> reads each business profile to find a specific angle worth opening on — that hook is what the three drafters compete over. Once the picker has chosen, the draft passes through code-level checks — compliance footer, GSM-7 sanitisation, suppression list, line-type guard — before Twilio sends it.</p>
+      <p>When a reply lands on the FastAPI webhook, a <strong>triage agent</strong> classifies it as interested, objection, not-now, or opt-out. Opt-outs are handled in code and never reach a model. Everything else goes to a stateful <strong>SDR agent</strong> that holds the conversation, grounded in a YAML knowledge base, and hands off to me the moment it hits something outside its scope. An operator console shows every thread with its full trace, and I can take over any conversation mid-flight.</p>
+  
+      <h4>The two agents that only exist to say no</h4>
+      <p>Two guardrails wrap the reply path. A cheap keyword scope check runs first and catches the obvious out-of-bounds cases for nothing; an LLM classifier catches the rest. A separate grounding judge checks that every claim in a drafted reply traces back to the knowledge base, because the expensive failure here isn't rudeness — it's an agent inventing a price or a capability to a real prospect.</p>
+  
+      <h4>The autopilot agent holds no tools</h4>
+      <p>Output guardrails run <em>after</em> tool calls, so an agent holding <code>send_sms</code> can deliver an ungrounded message before any check sees it — and a text can't be unsent. So the agent returns structured output and code decides whether to send. The same reasoning drives retrieval: the knowledge base is lexical rather than vector, because an off-topic question must retrieve <em>nothing</em>, and similarity search always returns a nearest neighbour.</p>
+  
+      <h4>Rules that must always hold live in code, not prompts</h4>
+      <p>Five rules migrated out of prompts during development: the CASL opt-out footer, GSM-7 punctuation, the sub-4.0 ratings the hook agent kept building insulting angles from, and two others. An instruction followed 98% of the time isn't a guarantee, and twice, tightening the instruction caused the next failure instead of fixing it. The compliance tests assert the paths where a bug is a legal problem — a suppressed number can never be sent to, opt-outs survive prospect deletion, a blocked message never returns silence.</p>
+  
+      <h4>Layout</h4>
+      <pre style="margin: 0; font-size: 12px; line-height: 1.7; color: oklch(30% 0.01 85); background: oklch(96% 0.005 85); padding: 12px 14px; border-radius: 10px; overflow-x: auto;">app/agents/   hook · 3 drafters · picker · triage · draft · SDR · guardrails
+  app/kb/       YAML knowledge base + lexical retrieval
+  app/tools/    send_sms with suppression + line-type guards
+  app/db/       Supabase client, schema, migrations
+  app/routes/   FastAPI webhook + operator console
+  tests/        105 tests, 20 compliance</pre>
 
-          <p class="strip-label">Measured on real sends</p>
-          <div class="strip-measured">
-            <div><div class="n">44%</div><div class="l">of scraped numbers could actually receive SMS</div></div>
-            <div><div class="n">$0.020</div><div class="l">true cost per delivered message, not $0.009</div></div>
-            <div><div class="n">105</div><div class="l">tests, 20 covering CASL compliance paths</div></div>
-          </div>
-
-          <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px;">
-            <span class="chip">OpenAI Agents SDK</span>
-            <span class="chip">Multi-agent orchestration</span>
-            <span class="chip">Guardrails</span>
-            <span class="chip">FastAPI</span>
-            <span class="chip">Twilio</span>
-            <span class="chip">Supabase</span>
-          </div>
-
-          <div class="card-links">
-            <a href="https://github.com/amirkiaml/sales_automation" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Repository →</a>
-            <a href="https://www.loom.com/share/sales_automation" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">3-min walkthrough →</a>
-          </div>
-        </summary>
-        <div class="card-body">
-          <h4>Half the leads were unreachable, and three days of testing never showed it</h4>
-          <p>37 leads scraped from Google Maps, 18 messaged, 8 delivered — the rest were office landlines. Every test during development went to my own mobile, so the failure mode was invisible until real sends went out. Twilio's Lookup answers this directly but needs NPAC approval for Canadian numbers, so line type is recovered for free from delivery error codes instead, and <code>send_sms</code> refuses known landlines from then on.</p>
-
-          <h4>Rules that must always hold live in code, not prompts</h4>
-          <p>Five separate rules had to move out of a prompt and into code: the CASL opt-out footer, GSM-7 punctuation, and the sub-4.0 ratings the hook agent kept building insulting angles from. An instruction followed 98% of the time isn't a guarantee, and twice, tightening the instruction caused the next failure. The 20 compliance tests assert the paths where a bug is a legal problem — a suppressed number can never be sent to, opt-outs survive prospect deletion, a blocked message never returns silence.</p>
-
-          <h4>The autopilot agent holds no tools</h4>
-          <p>Output guardrails run after tool calls, so an agent holding <code>send_sms</code> can deliver an ungrounded message before any check sees it — and a text can't be unsent. It returns structured output and code decides whether to send. Replies are grounded in a YAML knowledge base with lexical rather than vector retrieval, because an off-topic question must retrieve <em>nothing</em>, and similarity search always returns a nearest neighbour.</p>
-        </div>
-      </details>
-
-      <!-- VoiceCaptures -->
-      <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
-        <summary style="padding: 28px;">
-          <img src="uploads/69db9c4b-67c8-42c8-a149-461e033e8969.png" alt="VoiceCaptures — AI receptionist for home service contractors" style="width: 100%; height: 170px; object-fit: cover; border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
-          <p class="eyebrow">Founder · Deployed, public demo line · 2025–26</p>
-          <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">VoiceCaptures — AI Voice Receptionist</h3>
-          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">A real-time voice agent for home service trades: answers the call, qualifies the job in conversation, checks live calendar availability, and books the slot before hanging up.</p>
-
-          <p class="strip-label">The market it's built for</p>
-          <div class="strip-context">
-            <div><div class="n">$75B</div><div class="l">lost annually to unanswered business calls (Forbes)</div></div>
-            <div><div class="n">85%</div><div class="l">of callers won't leave a voicemail (Forbes)</div></div>
-            <div><div class="n">62%</div><div class="l">of calls land outside business hours (HomeAdvisor)</div></div>
-          </div>
-
-          <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px;">
-            <span class="chip">Vapi + Twilio</span>
-            <span class="chip">Real-time STT/TTS</span>
-            <span class="chip">Tool use (Calendar API)</span>
-            <span class="chip">RAG over per-business KB</span>
-            <span class="chip">Node/Express · Supabase</span>
-          </div>
-
-          <div class="card-links">
-            <a href="https://voicecaptures.com" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">voicecaptures.com →</a>
-            <a href="https://www.loom.com/share/voicecaptures" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Hear a booking call →</a>
-          </div>
-        </summary>
-        <div class="card-body">
-          <h4>Where it stands</h4>
-          <p>Deployed on Railway and reachable on a public demo line; onboarding for paying trades is in progress, so what I can report is latency and booking accuracy rather than revenue. I'd rather show what I've measured than what I hope for.</p>
-
-          <h4>The two fields that have to be exactly right</h4>
-          <p>A booking is worthless if the street address or callback number is wrong by one digit, and those are precisely the fields ASR mangles — proper nouns and digit strings have no language-model prior to fall back on. Both are read back to the caller for confirmation before the calendar write, and the structured payload is validated before it reaches the booking tool. Everything else in the conversation can tolerate a transcription error; these two cannot.</p>
-
-          <h4>Why Vapi, and where I went underneath it</h4>
-          <p>Reimplementing a managed voice runtime is a three-week infrastructure project that produces something worse. The real risk of building on a provider isn't the provider — it's that the abstraction has a bottom an interviewer reaches in eight minutes. So one route runs on Pipecat with my own endpointing and barge-in handling, which is where the interesting decisions actually live: how long a pause means "your turn" varies by caller, and getting it wrong either talks over people or leaves dead air.</p>
-
-          <h4>How it works</h4>
-          <ol style="margin: 0; padding-left: 18px; line-height: 1.85;">
-            <li>Customer calls the business's existing number.</li>
-            <li>Call forwards to the agent when the line is busy, on a job, or after hours.</li>
-            <li>Agent collects and confirms name, phone, address, and the nature of the job.</li>
-            <li>Checks the real Google Calendar and books an open slot live on the call.</li>
-            <li>Owner and customer both get a text confirmation.</li>
-          </ol>
-        </div>
-      </details>
-
-    </div>
-
+  </div>
+</details>
     <!-- SMALLER BUILDS -->
     <h3 style="margin: 40px 0 16px; font-size: 13px; font-weight: 700; color: oklch(52% 0.01 85); text-transform: uppercase; letter-spacing: 0.08em;">Smaller builds &amp; experiments</h3>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; align-items: start;">
