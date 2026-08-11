@@ -97,7 +97,7 @@
   html { color-scheme: light; }
   html[data-theme="dark"] { color-scheme: dark; }
 
-  html[data-theme="dark"] body { background: oklch(17% 0.008 85) !important; color: oklch(92% 0.006 85) !important; }
+  html[data-theme="dark"] body { background: oklch(15% 0.006 85) !important; color: oklch(92% 0.006 85) !important; }
 
   html[data-theme="dark"] details,
   html[data-theme="dark"] #certificates > div,
@@ -151,7 +151,8 @@
     background: oklch(90% 0.006 85) !important; color: oklch(17% 0.008 85) !important;
   }
   html[data-theme="dark"] header [style*="280px"] {
-    background: oklch(35% 0.06 258 / 0.28) !important;
+    background: oklch(45% 0.10 258 / 0.14) !important;
+    filter: blur(40px);
   }
 
   /* Panels that were already dark need an edge now */
@@ -218,7 +219,8 @@
     <div style="flex: 1; min-width: 280px; position: relative; z-index: 1;">
       <p style="margin: 0 0 14px; font-size: 14px; font-weight: 600; color: oklch(52% 0.16 258); text-transform: uppercase; letter-spacing: 0.08em;">AI Engineer · Agentic Systems in Production <span style="color: oklch(55% 0.01 85); font-weight: 500;">· Toronto</span></p>
       <h1 style="margin: 0 0 18px; font-family: 'Montserrat', sans-serif; font-size: 46px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; max-width: 720px;">Amir Kiani</h1>
-      <p style="margin: 0 0 22px; font-size: 18px; line-height: 1.6; color: oklch(38% 0.01 85); max-width: 660px;">I build LLM agent systems that run on real infrastructure — multi-agent orchestration, tool use, guardrails, and the compliance paths where a bug is a legal problem. I founded and shipped an AI voice receptionist that books jobs live on the call, and a 9-agent SMS outreach system with a 105-test suite behind it.</p>
+      <p style="margin: 0 0 22px; font-size: 18px; line-height: 1.6; color: oklch(38% 0.01 85); max-width: 660px;">I build LLM agent systems that run on real infrastructure — multi-agent orchestration, tool use, guardrails, and the compliance paths where a bug is a legal problem. Two are live: an AI voice receptionist that books jobs during the call, and a nine-agent SMS outreach system with a 105-test suite behind it.</p>
+      <p style="margin: 0 0 22px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 660px;">Lately I've been building a section-aware retrieval system over the Stanford Encyclopedia of Philosophy — and measuring it, which turned up the reranker I'd added quietly making answers worse across 40 scored runs. It goes out to a group of philosophers shortly, on the theory that whoever knows the corpus best will break it fastest.</p>
       <p style="margin: 0 0 28px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 660px;">A PhD in formal logic and semantics is where my instinct for specifying rules an agent must actually follow comes from — and it's what I write and speak about in AI safety and alignment.</p>
       <div style="display: flex; gap: 10px; flex-wrap: wrap;">
         <a href="#agentic" style="padding: 11px 20px; background: oklch(18% 0.01 85); color: #fff; border-radius: 100px; font-size: 14px; font-weight: 600;">See the agent systems →</a>
@@ -817,8 +819,8 @@ notebooks/          the research this grew out of, kept as a record</pre>
   <!-- CONTACT -->
   <section id="contact" style="padding: 64px 0 100px; border-top: 1px solid oklch(91% 0.006 85);">
     <div style="background: oklch(18% 0.01 85); border-radius: 24px; padding: 48px; text-align: center;">
-      <h2 style="margin: 0 0 16px; font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 800; color: #fff;">Open to AI engineering roles</h2>
-      <p style="margin: 0 auto 28px; font-size: 15px; line-height: 1.7; color: oklch(78% 0.01 85); max-width: 580px;">I'm looking for agentic AI, AI engineering, and applied ML roles — Toronto or remote. If you're building agent systems that have to work on real traffic, I'd like to hear about it.</p>
+      <h2 style="margin: 0 0 16px; font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 800; color: #fff;">Get in touch</h2>
+      <p style="margin: 0 auto 28px; font-size: 15px; line-height: 1.7; color: oklch(78% 0.01 85); max-width: 580px;">Always glad to talk about agent systems that have to survive real traffic — evaluation, guardrails, and the failures that only surface once something is live. Open to agentic AI and applied ML work in Toronto or remote.</p>
       <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
         <a href="mailto:amirkianitech@gmail.com" style="padding: 12px 22px; background: #fff; color: oklch(18% 0.01 85); border-radius: 100px; font-size: 14px; font-weight: 600;">amirkianitech@gmail.com</a>
         <a href="https://www.linkedin.com/in/amir-kiani/" target="_blank" style="padding: 12px 22px; border: 1px solid oklch(40% 0.01 85); color: #fff; border-radius: 100px; font-size: 14px; font-weight: 600;">LinkedIn</a>
