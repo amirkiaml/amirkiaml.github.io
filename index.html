@@ -307,46 +307,64 @@
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; align-items: start;">
 
-      <!-- DeepAnalytic -->
-      <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
-        <summary style="padding: 28px;">
-          <img src="uploads/5ae65aef-5383-4077-9c79-f184aadcb8a3.png" alt="DeepAnalytic retrieval pipeline" style="width: 100%; height: 190px; object-fit: contain; background: #111; border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
-          <p class="eyebrow">Solo build · Ongoing</p>
-          <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">DeepAnalytic — Retrieval over a Philosophy Corpus</h3>
-          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">Four retrieval architectures benchmarked against each other on a corpus chosen because it breaks dense retrieval in a way standard metrics don't catch.</p>
+       <!-- ============================================================
+     DeepAnalytic — replaces the existing DeepAnalytic
+     <details>…</details> block inside <section id="rag">.
+     ============================================================ -->
 
-          <p class="strip-label">Corpus</p>
-          <div class="strip-context">
-            <div><div class="n">~800k</div><div class="l">pages across 28 Springer philosophy journals</div></div>
-            <div><div class="n">4</div><div class="l">pipelines benchmarked head to head</div></div>
-            <div><div class="n">2024</div><div class="l">Stanford Encyclopedia edition, scraped in full</div></div>
-          </div>
-
-          <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px;">
-            <span class="chip">Hybrid retrieval</span>
-            <span class="chip">Cross-encoder reranking</span>
-            <span class="chip">Sentence Transformers (fine-tuned)</span>
-            <span class="chip">NLI dataset construction</span>
-          </div>
-
-          <a href="https://github.com/amirkiaml/DeepAnalytic" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Repository →</a>
-        </summary>
-        <div class="card-body">
-          <h4>Your RAG system doesn't know "realism" means four different things</h4>
-          <p>Realism in philosophy of mathematics is not realism in metaethics is not realism in philosophy of science, and the same holds for necessity, validity, and grounding. Dense retrieval embeds these senses into overlapping regions and confidently returns the wrong article — producing answers that are fluent, well-cited, and about a different debate entirely. Standard RAG metrics score this as a hit, because the retrieved passage <em>is</em> topically relevant. It's relevant to the wrong sense. That's the failure the benchmarking is aimed at, and it's why this corpus was chosen.</p>
-
-          <h4>Architectures compared</h4>
-          <ul style="margin: 0 0 20px; padding-left: 18px; line-height: 1.9;">
-            <li>Naive RAG — chunk-400, <code>text-embedding-3-small</code>, cosine similarity</li>
-            <li>RAG + cross-encoder reranking</li>
-            <li>Multi-query generation</li>
-            <li>Custom multi-query → critique → rerank → generate pipeline</li>
-          </ul>
-
-          <h4>Data</h4>
-          <p>Metadata for 28 Springer Nature philosophy journals, the full 2024 Stanford Encyclopedia of Philosophy, and 10k+ pages from <em>Analysis</em> and other publishers — scraped and preprocessed for research use.</p>
+    <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
+      <summary style="padding: 28px;">
+        <img src="uploads/5ae65aef-5383-4077-9c79-f184aadcb8a3.png" alt="DeepAnalytic retrieval pipeline" style="width: 100%; height: 190px; object-fit: contain; background: #111; border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
+    
+        <p class="eyebrow">Solo build · Evaluated · 2026</p>
+        <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">DeepAnalytic — Section-Aware RAG over the Stanford Encyclopedia</h3>
+        <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">A retrieval pipeline that chunks articles along their real heading structure instead of blind token windows — and an evaluation that found the reranker was making answers worse, not better.</p>
+    
+        <p class="strip-label">Measured on a 40-run scored evaluation</p>
+        <div class="strip-measured">
+          <div><div class="n">4.19 → 4.05</div><div class="l">overall score <em>fell</em> when reranking was added</div></div>
+          <div><div class="n">95%</div><div class="l">of articles parsed on their own section boundaries</div></div>
+          <div><div class="n">40</div><div class="l">runs scored against a key written before any answers</div></div>
         </div>
-      </details>
+    
+        <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px;">
+          <span class="chip">Section-aware chunking</span>
+          <span class="chip">Cohere rerank</span>
+          <span class="chip">Pinecone</span>
+          <span class="chip">Retrieval evaluation</span>
+          <span class="chip">OpenAI embeddings</span>
+        </div>
+    
+        <a href="https://github.com/amirkiaml/DeepAnalytic" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Repository →</a>
+      </summary>
+    
+      <div class="card-body">
+    
+        <h4>The reranker was quietly losing the answer</h4>
+        <p>Adding a cross-encoder reranker is the standard "advanced RAG" upgrade, so I measured it rather than assuming it. Across 40 scored runs it came out roughly flat on Accuracy, marginally better on Source Match, and <em>worse</em> on Completeness — 3.68 against naive retrieval's 4.11. Two runs showed the mechanism: on broad, synthesizing questions the reranker sometimes demoted the single chunk that held the answer, which naive retrieval's wider candidate pool had caught. The pipeline then reported its context as insufficient. It wasn't. Reranking is now something I treat as a hypothesis per corpus, not a default.</p>
+    
+        <h4>How the evaluation was built</h4>
+        <p>10 articles chosen for topical and structural variety, 2 questions each — one narrow and section-specific, one broad and synthesizing — run through both retrieval modes for 40 total runs. Each was scored on Accuracy, Source Match, and Completeness against expected key points written <em>before</em> any answers were generated, which is the part that makes the numbers mean anything. Question set, raw results, and per-question scoring with notes are all in <code>tests/eval_scored.csv</code>.</p>
+        <p>Claude drafted the article selection, questions, rubric, and the automation script that ran the 40 tests, and did the first scoring pass; I did an independent second scoring pass, recorded in separate columns of the same file. Both passes are in the repo.</p>
+    
+        <h4>Why section-aware chunking</h4>
+        <p>Fixed-size token windows cut across content structure, so one chunk can straddle two unrelated subsections — which hurts retrieval precision and hands the model incoherent context. This pipeline uses each SEP article's own table of contents to find real section boundaries in the body, then chunks within them, and carries the section title into chunk metadata. The reranker and the LLM get "Avicenna and the Aristotelian Tradition" rather than an anonymous span. Parsing falls back from exact TOC matching to regex heading detection to whole-article indexing, and records which method fired per article so the failures are auditable: on a 100-article test run, 95% parsed fully and the remaining 5% partially, with nothing falling through to regex or failing outright.</p>
+    
+        <h4>What's in the repo</h4>
+        <pre style="margin: 0 0 20px; font-size: 12px; line-height: 1.7; color: oklch(30% 0.01 85); background: oklch(96% 0.005 85); padding: 12px 14px; border-radius: 10px; overflow-x: auto;">ingest.py           SEP corpus → section split → chunk → embed → Pinecone
+    rag_pipeline.py     retrieve → rerank → generate, plus a naive baseline path
+    section_parser.py   TOC-aware chunking with logged fallback chain
+    run_eval.py         runs the question set through both modes, logs results
+    check_chunks.py     inspect what actually got retrieved for a query
+    config.py           environment-driven settings, no secrets in code
+    tests/              question set, raw results, scored output
+    notebooks/          the research this grew out of, kept as a record</pre>
+    
+        <h4>Corpus, and where it goes next</h4>
+        <p>The full 2024 Stanford Encyclopedia is scraped — article text, tables of contents, bibliographies, and metadata. Metadata for 28 Springer Nature philosophy journals (~800k pages) and ~10k pages from <em>Analysis</em> are scraped but not yet indexed. Retrieval currently runs on a 100-article slice; next is full-corpus indexing, a FastAPI service around the pipeline, an open-model option alongside the OpenAI path, and closing out the Completeness gap before reranking gets treated as an improvement.</p>
+    
+      </div>
+    </details>
 
       <!-- DeepChef -->
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
