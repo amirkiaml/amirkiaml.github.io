@@ -47,6 +47,9 @@
     .nav-toggle { display: flex; }
     #nav-toggle-check:checked ~ .nav-links { display: flex; }
   }
+  @media (min-width: 1025px) {
+    .nav-links { margin-left: auto; margin-right: 12px; }
+  }
 
   /* ---- project card system ---- */
   .eyebrow {
@@ -88,7 +91,100 @@
   }
   .card-body p { margin: 0 0 20px; }
   .card-body p:last-child { margin-bottom: 0; }
+
+  /* ---- dark mode ----
+     Inline styles win on specificity, so overrides need !important. */
+  html { color-scheme: light; }
+  html[data-theme="dark"] { color-scheme: dark; }
+
+  html[data-theme="dark"] body { background: oklch(17% 0.008 85) !important; color: oklch(92% 0.006 85) !important; }
+
+  html[data-theme="dark"] details,
+  html[data-theme="dark"] #certificates > div,
+  html[data-theme="dark"] [style*="background: #fff"] {
+    background: oklch(22% 0.008 85) !important;
+    border-color: oklch(30% 0.008 85) !important;
+  }
+  html[data-theme="dark"] pre {
+    background: oklch(18% 0.008 85) !important;
+    color: oklch(80% 0.006 85) !important;
+  }
+
+  html[data-theme="dark"] h1,
+  html[data-theme="dark"] h2,
+  html[data-theme="dark"] h3,
+  html[data-theme="dark"] h4 { color: oklch(95% 0.006 85) !important; }
+  html[data-theme="dark"] p,
+  html[data-theme="dark"] li,
+  html[data-theme="dark"] .card-body p,
+  html[data-theme="dark"] .card-body ul,
+  html[data-theme="dark"] .card-body ol { color: oklch(80% 0.006 85) !important; }
+  html[data-theme="dark"] .strip-measured .n { color: oklch(93% 0.006 85) !important; }
+  html[data-theme="dark"] .strip-context .n { color: oklch(75% 0.006 85) !important; }
+  html[data-theme="dark"] .strip-measured .l,
+  html[data-theme="dark"] .strip-context .l,
+  html[data-theme="dark"] .strip-label { color: oklch(65% 0.006 85) !important; }
+
+  html[data-theme="dark"] a { color: oklch(78% 0.13 258) !important; }
+  html[data-theme="dark"] .eyebrow { color: oklch(78% 0.13 258) !important; }
+
+  html[data-theme="dark"] .chip {
+    background: oklch(27% 0.008 85) !important;
+    border-color: oklch(34% 0.008 85) !important;
+    color: oklch(85% 0.006 85) !important;
+  }
+
+  html[data-theme="dark"] [style*="border-top: 1px solid"],
+  html[data-theme="dark"] [style*="border-bottom: 1px solid"],
+  html[data-theme="dark"] .strip-measured,
+  html[data-theme="dark"] .strip-context { border-color: oklch(30% 0.008 85) !important; }
+
+  html[data-theme="dark"] nav { background: oklch(17% 0.008 85 / 0.9) !important; }
+  html[data-theme="dark"] nav > a:first-of-type { color: oklch(95% 0.006 85) !important; }
+  html[data-theme="dark"] .nav-toggle span { background: oklch(90% 0.006 85) !important; }
+  html[data-theme="dark"] .nav-links { background: oklch(17% 0.008 85) !important; }
+  html[data-theme="dark"] nav a[href="#contact"] {
+    background: oklch(90% 0.006 85) !important; color: oklch(17% 0.008 85) !important;
+  }
+
+  html[data-theme="dark"] header a[href="#agentic"] {
+    background: oklch(90% 0.006 85) !important; color: oklch(17% 0.008 85) !important;
+  }
+  html[data-theme="dark"] header [style*="280px"] {
+    background: oklch(35% 0.06 258 / 0.28) !important;
+  }
+
+  /* Panels that were already dark need an edge now */
+  html[data-theme="dark"] #insights > div:first-of-type,
+  html[data-theme="dark"] #contact > div:first-of-type {
+    background: oklch(24% 0.008 85) !important;
+    border: 1px solid oklch(32% 0.008 85) !important;
+  }
+  html[data-theme="dark"] #insights a[href="https://virtuousmachines.com"][style*="background: #fff"],
+  html[data-theme="dark"] #contact a[href^="mailto"] {
+    background: oklch(92% 0.006 85) !important; color: oklch(17% 0.008 85) !important;
+  }
+
+  html[data-theme="dark"] img { filter: brightness(0.92) contrast(1.02); }
+
+  #theme-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; margin-left: 4px; padding: 0;
+    background: transparent; border: 1px solid oklch(85% 0.01 85);
+    border-radius: 100px; cursor: pointer; font-size: 15px; line-height: 1;
+    color: inherit; flex-shrink: 0;
+  }
+  html[data-theme="dark"] #theme-toggle { border-color: oklch(38% 0.008 85) !important; }
 </style>
+<script>
+(function () {
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  var prefersDark = window.matchMedia &&
+                    window.matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+})();
+</script>
 </head>
 <body>
 
@@ -98,11 +194,6 @@
   <nav style="position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 20px 0; background: oklch(98% 0.006 85 / 0.9); backdrop-filter: blur(8px);">
     <a href="#top" style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 19px; color: oklch(18% 0.01 85); letter-spacing: -0.02em;">Amir Kiani</a>
     <input type="checkbox" id="nav-toggle-check" style="display: none;">
-    <label for="nav-toggle-check" class="nav-toggle" style="flex-direction: column; gap: 5px; cursor: pointer; padding: 8px;">
-      <span style="width: 22px; height: 2px; background: oklch(18% 0.01 85); display: block;"></span>
-      <span style="width: 22px; height: 2px; background: oklch(18% 0.01 85); display: block;"></span>
-      <span style="width: 22px; height: 2px; background: oklch(18% 0.01 85); display: block;"></span>
-    </label>
     <div class="nav-links">
       <a href="#agentic" style="color: oklch(38% 0.01 85); font-size: 14px; font-weight: 500;">Agentic Systems</a>
       <a href="#rag" style="color: oklch(38% 0.01 85); font-size: 14px; font-weight: 500;">Retrieval &amp; ML</a>
@@ -110,6 +201,14 @@
       <a href="#publications" style="color: oklch(38% 0.01 85); font-size: 14px; font-weight: 500;">Publications</a>
       <a href="#education" style="color: oklch(38% 0.01 85); font-size: 14px; font-weight: 500;">Education</a>
       <a href="#contact" style="display: inline-flex; align-items: center; padding: 9px 16px; background: oklch(18% 0.01 85); color: #fff; border-radius: 100px; font-size: 13px; font-weight: 600;">Contact</a>
+    </div>
+    <div style="display: flex; align-items: center; gap: 6px;">
+      <button id="theme-toggle" type="button" aria-label="Toggle dark mode">🌙</button>
+      <label for="nav-toggle-check" class="nav-toggle" style="flex-direction: column; gap: 5px; cursor: pointer; padding: 8px;">
+        <span style="width: 22px; height: 2px; background: oklch(18% 0.01 85); display: block;"></span>
+        <span style="width: 22px; height: 2px; background: oklch(18% 0.01 85); display: block;"></span>
+        <span style="width: 22px; height: 2px; background: oklch(18% 0.01 85); display: block;"></span>
+      </label>
     </div>
   </nav>
 
@@ -140,67 +239,61 @@
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; align-items: start;">
 
       <!-- SMS Outreach & SDR Agent -->
-        <!-- ============================================================
-       FINAL — SMS Outreach & SDR Agent card.
-       Replaces the FIRST <details>…</details> block inside
-       <section id="agentic">. Nothing else in index.html changes.
-       ============================================================ -->
-  
-  <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
-    <summary style="padding: 28px;">
-      <img src="uploads/sales-automation.png" alt="Three drafting agents write competing messages in parallel; a picker agent selects one; Twilio sends it" style="width: 100%; height: 170px; object-fit: contain; background: oklch(96% 0.005 85); border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
-  
-      <p class="eyebrow">Sole engineer · Live system · 2026</p>
-      <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">SMS Outreach &amp; SDR Agent System</h3>
-      <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">Three agents draft every cold message in parallel and a picker agent selects one against explicit criteria — no single model settling for its first attempt. Replies go to a stateful SDR agent, and the rules that carry legal weight are enforced in code, not prompts.</p>
-  
-      <p class="strip-label">Measured on real sends</p>
-      <div class="strip-measured">
-        <div><div class="n">44%</div><div class="l">of scraped numbers could actually receive SMS</div></div>
-        <div><div class="n">$0.020</div><div class="l">true cost per delivered message, not $0.009</div></div>
-        <div><div class="n">105</div><div class="l">tests, 20 covering CASL compliance paths</div></div>
-      </div>
-  
-      <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px;">
-        <span class="chip">OpenAI Agents SDK</span>
-        <span class="chip">Multi-agent orchestration</span>
-        <span class="chip">Guardrails</span>
-        <span class="chip">FastAPI</span>
-        <span class="chip">Twilio</span>
-        <span class="chip">Supabase</span>
-      </div>
-  
-      <div class="card-links">
-        <a href="https://github.com/amirkiaml/sales_automation" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Repository →</a>
-        <a href="https://www.loom.com/share/REPLACE_WITH_LOOM_ID" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">3-min walkthrough →</a>
-      </div>
-    </summary>
-  
-    <div class="card-body">
-  
-      <h4>What it does, end to end</h4>
-      <p>A lead scraper pulls home-service businesses from Google Places into Supabase, and a <strong>hook agent</strong> reads each business profile to find a specific angle worth opening on — that hook is what the three drafters compete over. Once the picker has chosen, the draft passes through code-level checks — compliance footer, GSM-7 sanitisation, suppression list, line-type guard — before Twilio sends it.</p>
-      <p>When a reply lands on the FastAPI webhook, a <strong>triage agent</strong> classifies it as interested, objection, not-now, or opt-out. Opt-outs are handled in code and never reach a model. Everything else goes to a stateful <strong>SDR agent</strong> that holds the conversation, grounded in a YAML knowledge base, and hands off to me the moment it hits something outside its scope. An operator console shows every thread with its full trace, and I can take over any conversation mid-flight.</p>
-  
-      <h4>The two agents that only exist to say no</h4>
-      <p>Two guardrails wrap the reply path. A cheap keyword scope check runs first and catches the obvious out-of-bounds cases for nothing; an LLM classifier catches the rest. A separate grounding judge checks that every claim in a drafted reply traces back to the knowledge base, because the expensive failure here isn't rudeness — it's an agent inventing a price or a capability to a real prospect.</p>
-  
-      <h4>The autopilot agent holds no tools</h4>
-      <p>Output guardrails run <em>after</em> tool calls, so an agent holding <code>send_sms</code> can deliver an ungrounded message before any check sees it — and a text can't be unsent. So the agent returns structured output and code decides whether to send. The same reasoning drives retrieval: the knowledge base is lexical rather than vector, because an off-topic question must retrieve <em>nothing</em>, and similarity search always returns a nearest neighbour.</p>
-  
-      <h4>Rules that must always hold live in code, not prompts</h4>
-      <p>Five rules migrated out of prompts during development: the CASL opt-out footer, GSM-7 punctuation, the sub-4.0 ratings the hook agent kept building insulting angles from, and two others. An instruction followed 98% of the time isn't a guarantee, and twice, tightening the instruction caused the next failure instead of fixing it. The compliance tests assert the paths where a bug is a legal problem — a suppressed number can never be sent to, opt-outs survive prospect deletion, a blocked message never returns silence.</p>
-  
-      <h4>Layout</h4>
-      <pre style="margin: 0; font-size: 12px; line-height: 1.7; color: oklch(30% 0.01 85); background: oklch(96% 0.005 85); padding: 12px 14px; border-radius: 10px; overflow-x: auto;">app/agents/   hook · 3 drafters · picker · triage · draft · SDR · guardrails
-  app/kb/       YAML knowledge base + lexical retrieval
-  app/tools/    send_sms with suppression + line-type guards
-  app/db/       Supabase client, schema, migrations
-  app/routes/   FastAPI webhook + operator console
-  tests/        105 tests, 20 compliance</pre>
-  
-    </div>
-  </details>
+      <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
+        <summary style="padding: 28px;">
+          <img src="uploads/sales-automation.png" alt="Three drafting agents write competing messages in parallel; a picker agent selects one; Twilio sends it" style="width: 100%; height: 170px; object-fit: contain; background: oklch(96% 0.005 85); border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
+
+          <p class="eyebrow">Sole engineer · Live system · 2026</p>
+          <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">SMS Outreach &amp; SDR Agent System</h3>
+          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">Three agents draft every cold message in parallel and a picker agent selects one against explicit criteria — no single model settling for its first attempt. Replies go to a stateful SDR agent, and the rules that carry legal weight are enforced in code, not prompts.</p>
+
+          <p class="strip-label">Measured on real sends</p>
+          <div class="strip-measured">
+            <div><div class="n">44%</div><div class="l">of scraped numbers could actually receive SMS</div></div>
+            <div><div class="n">$0.020</div><div class="l">true cost per delivered message, not $0.009</div></div>
+            <div><div class="n">105</div><div class="l">tests, 20 covering CASL compliance paths</div></div>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px;">
+            <span class="chip">OpenAI Agents SDK</span>
+            <span class="chip">Multi-agent orchestration</span>
+            <span class="chip">Guardrails</span>
+            <span class="chip">FastAPI</span>
+            <span class="chip">Twilio</span>
+            <span class="chip">Supabase</span>
+          </div>
+
+          <div class="card-links">
+            <a href="https://github.com/amirkiaml/sales_automation" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Repository →</a>
+            <a href="https://www.loom.com/share/REPLACE_WITH_LOOM_ID" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">3-min walkthrough →</a>
+          </div>
+        </summary>
+
+        <div class="card-body">
+
+          <h4>What it does, end to end</h4>
+          <p>A lead scraper pulls home-service businesses from Google Places into Supabase, and a <strong>hook agent</strong> reads each business profile to find a specific angle worth opening on — that hook is what the three drafters compete over. Once the picker has chosen, the draft passes through code-level checks — compliance footer, GSM-7 sanitisation, suppression list, line-type guard — before Twilio sends it.</p>
+          <p>When a reply lands on the FastAPI webhook, a <strong>triage agent</strong> classifies it as interested, objection, not-now, or opt-out. Opt-outs are handled in code and never reach a model. Everything else goes to a stateful <strong>SDR agent</strong> that holds the conversation, grounded in a YAML knowledge base, and hands off to me the moment it hits something outside its scope. An operator console shows every thread with its full trace, and I can take over any conversation mid-flight.</p>
+
+          <h4>The two agents that only exist to say no</h4>
+          <p>Two guardrails wrap the reply path. A cheap keyword scope check runs first and catches the obvious out-of-bounds cases for nothing; an LLM classifier catches the rest. A separate grounding judge checks that every claim in a drafted reply traces back to the knowledge base, because the expensive failure here isn't rudeness — it's an agent inventing a price or a capability to a real prospect.</p>
+
+          <h4>The autopilot agent holds no tools</h4>
+          <p>Output guardrails run <em>after</em> tool calls, so an agent holding <code>send_sms</code> can deliver an ungrounded message before any check sees it — and a text can't be unsent. So the agent returns structured output and code decides whether to send. The same reasoning drives retrieval: the knowledge base is lexical rather than vector, because an off-topic question must retrieve <em>nothing</em>, and similarity search always returns a nearest neighbour.</p>
+
+          <h4>Rules that must always hold live in code, not prompts</h4>
+          <p>Five rules migrated out of prompts during development: the CASL opt-out footer, GSM-7 punctuation, the sub-4.0 ratings the hook agent kept building insulting angles from, and two others. An instruction followed 98% of the time isn't a guarantee, and twice, tightening the instruction caused the next failure instead of fixing it. The compliance tests assert the paths where a bug is a legal problem — a suppressed number can never be sent to, opt-outs survive prospect deletion, a blocked message never returns silence.</p>
+
+          <h4>Layout</h4>
+<pre style="margin: 0; font-size: 12px; line-height: 1.7; color: oklch(30% 0.01 85); background: oklch(96% 0.005 85); padding: 12px 14px; border-radius: 10px; overflow-x: auto;">app/agents/   hook · 3 drafters · picker · triage · draft · SDR · guardrails
+app/kb/       YAML knowledge base + lexical retrieval
+app/tools/    send_sms with suppression + line-type guards
+app/db/       Supabase client, schema, migrations
+app/routes/   FastAPI webhook + operator console
+tests/        105 tests, 20 compliance</pre>
+
+        </div>
+      </details>
 
       <!-- VoiceCaptures -->
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
@@ -307,64 +400,60 @@
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; align-items: start;">
 
-       <!-- ============================================================
-     DeepAnalytic — replaces the existing DeepAnalytic
-     <details>…</details> block inside <section id="rag">.
-     ============================================================ -->
+      <!-- DeepAnalytic -->
+      <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
+        <summary style="padding: 28px;">
+          <img src="uploads/5ae65aef-5383-4077-9c79-f184aadcb8a3.png" alt="DeepAnalytic retrieval pipeline" style="width: 100%; height: 190px; object-fit: contain; background: #111; border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
 
-    <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
-      <summary style="padding: 28px;">
-        <img src="uploads/5ae65aef-5383-4077-9c79-f184aadcb8a3.png" alt="DeepAnalytic retrieval pipeline" style="width: 100%; height: 190px; object-fit: contain; background: #111; border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
-    
-        <p class="eyebrow">Solo build · Evaluated · 2026</p>
-        <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">DeepAnalytic — Section-Aware RAG over the Stanford Encyclopedia</h3>
-        <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">A retrieval pipeline that chunks articles along their real heading structure instead of blind token windows — and an evaluation that found the reranker was making answers worse, not better.</p>
-    
-        <p class="strip-label">Measured on a 40-run scored evaluation</p>
-        <div class="strip-measured">
-          <div><div class="n">4.19 → 4.05</div><div class="l">overall score <em>fell</em> when reranking was added</div></div>
-          <div><div class="n">95%</div><div class="l">of articles parsed on their own section boundaries</div></div>
-          <div><div class="n">40</div><div class="l">runs scored against a key written before any answers</div></div>
+          <p class="eyebrow">Solo build · Evaluated · 2026</p>
+          <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">DeepAnalytic — Section-Aware RAG over the Stanford Encyclopedia</h3>
+          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">A retrieval pipeline that chunks articles along their real heading structure instead of blind token windows — and an evaluation that found the reranker was making answers worse, not better.</p>
+
+          <p class="strip-label">Measured on a 40-run scored evaluation</p>
+          <div class="strip-measured">
+            <div><div class="n">4.19 → 4.05</div><div class="l">overall score <em>fell</em> when reranking was added</div></div>
+            <div><div class="n">95%</div><div class="l">of articles parsed on their own section boundaries</div></div>
+            <div><div class="n">40</div><div class="l">runs scored against a key written before any answers</div></div>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px;">
+            <span class="chip">Section-aware chunking</span>
+            <span class="chip">Cohere rerank</span>
+            <span class="chip">Pinecone</span>
+            <span class="chip">Retrieval evaluation</span>
+            <span class="chip">OpenAI embeddings</span>
+          </div>
+
+          <a href="https://github.com/amirkiaml/DeepAnalytic" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Repository →</a>
+        </summary>
+
+        <div class="card-body">
+
+          <h4>The reranker was quietly losing the answer</h4>
+          <p>Adding a cross-encoder reranker is the standard "advanced RAG" upgrade, so I measured it rather than assuming it. Across 40 scored runs it came out roughly flat on Accuracy, marginally better on Source Match, and <em>worse</em> on Completeness — 3.68 against naive retrieval's 4.11. Two runs showed the mechanism: on broad, synthesizing questions the reranker sometimes demoted the single chunk that held the answer, which naive retrieval's wider candidate pool had caught. The pipeline then reported its context as insufficient. It wasn't. Reranking is now something I treat as a hypothesis per corpus, not a default.</p>
+
+          <h4>How the evaluation was built</h4>
+          <p>10 articles chosen for topical and structural variety, 2 questions each — one narrow and section-specific, one broad and synthesizing — run through both retrieval modes for 40 total runs. Each was scored on Accuracy, Source Match, and Completeness against expected key points written <em>before</em> any answers were generated, which is the part that makes the numbers mean anything. Question set, raw results, and per-question scoring with notes are all in <code>tests/eval_scored.csv</code>.</p>
+          <p>Claude drafted the article selection, questions, rubric, and the automation script that ran the 40 tests, and did the first scoring pass; I did an independent second scoring pass, recorded in separate columns of the same file. Both passes are in the repo.</p>
+
+          <h4>Why section-aware chunking</h4>
+          <p>Fixed-size token windows cut across content structure, so one chunk can straddle two unrelated subsections — which hurts retrieval precision and hands the model incoherent context. This pipeline uses each SEP article's own table of contents to find real section boundaries in the body, then chunks within them, and carries the section title into chunk metadata. The reranker and the LLM get "Avicenna and the Aristotelian Tradition" rather than an anonymous span. Parsing falls back from exact TOC matching to regex heading detection to whole-article indexing, and records which method fired per article so the failures are auditable: on a 100-article test run, 95% parsed fully and the remaining 5% partially, with nothing falling through to regex or failing outright.</p>
+
+          <h4>What's in the repo</h4>
+<pre style="margin: 0 0 20px; font-size: 12px; line-height: 1.7; color: oklch(30% 0.01 85); background: oklch(96% 0.005 85); padding: 12px 14px; border-radius: 10px; overflow-x: auto;">ingest.py           SEP corpus → section split → chunk → embed → Pinecone
+rag_pipeline.py     retrieve → rerank → generate, plus a naive baseline path
+section_parser.py   TOC-aware chunking with logged fallback chain
+run_eval.py         runs the question set through both modes, logs results
+check_chunks.py     inspect what actually got retrieved for a query
+config.py           environment-driven settings, no secrets in code
+tests/              question set, raw results, scored output
+notebooks/          the research this grew out of, kept as a record</pre>
+
+          <h4>Corpus, and where it goes next</h4>
+          <p>The full 2024 Stanford Encyclopedia is scraped — article text, tables of contents, bibliographies, and metadata. Metadata for 28 Springer Nature philosophy journals (~800k pages) and ~10k pages from <em>Analysis</em> are scraped but not yet indexed. Retrieval currently runs on a 100-article slice; next is full-corpus indexing, a FastAPI service around the pipeline, an open-model option alongside the OpenAI path, and closing out the Completeness gap before reranking gets treated as an improvement.</p>
+
         </div>
-    
-        <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px;">
-          <span class="chip">Section-aware chunking</span>
-          <span class="chip">Cohere rerank</span>
-          <span class="chip">Pinecone</span>
-          <span class="chip">Retrieval evaluation</span>
-          <span class="chip">OpenAI embeddings</span>
-        </div>
-    
-        <a href="https://github.com/amirkiaml/DeepAnalytic" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Repository →</a>
-      </summary>
-    
-      <div class="card-body">
-    
-        <h4>The reranker was quietly losing the answer</h4>
-        <p>Adding a cross-encoder reranker is the standard "advanced RAG" upgrade, so I measured it rather than assuming it. Across 40 scored runs it came out roughly flat on Accuracy, marginally better on Source Match, and <em>worse</em> on Completeness — 3.68 against naive retrieval's 4.11. Two runs showed the mechanism: on broad, synthesizing questions the reranker sometimes demoted the single chunk that held the answer, which naive retrieval's wider candidate pool had caught. The pipeline then reported its context as insufficient. It wasn't. Reranking is now something I treat as a hypothesis per corpus, not a default.</p>
-    
-        <h4>How the evaluation was built</h4>
-        <p>10 articles chosen for topical and structural variety, 2 questions each — one narrow and section-specific, one broad and synthesizing — run through both retrieval modes for 40 total runs. Each was scored on Accuracy, Source Match, and Completeness against expected key points written <em>before</em> any answers were generated, which is the part that makes the numbers mean anything. Question set, raw results, and per-question scoring with notes are all in <code>tests/eval_scored.csv</code>.</p>
-        <p>Claude drafted the article selection, questions, rubric, and the automation script that ran the 40 tests, and did the first scoring pass; I did an independent second scoring pass, recorded in separate columns of the same file. Both passes are in the repo.</p>
-    
-        <h4>Why section-aware chunking</h4>
-        <p>Fixed-size token windows cut across content structure, so one chunk can straddle two unrelated subsections — which hurts retrieval precision and hands the model incoherent context. This pipeline uses each SEP article's own table of contents to find real section boundaries in the body, then chunks within them, and carries the section title into chunk metadata. The reranker and the LLM get "Avicenna and the Aristotelian Tradition" rather than an anonymous span. Parsing falls back from exact TOC matching to regex heading detection to whole-article indexing, and records which method fired per article so the failures are auditable: on a 100-article test run, 95% parsed fully and the remaining 5% partially, with nothing falling through to regex or failing outright.</p>
-    
-        <h4>What's in the repo</h4>
-        <pre style="margin: 0 0 20px; font-size: 12px; line-height: 1.7; color: oklch(30% 0.01 85); background: oklch(96% 0.005 85); padding: 12px 14px; border-radius: 10px; overflow-x: auto;">ingest.py           SEP corpus → section split → chunk → embed → Pinecone
-    rag_pipeline.py     retrieve → rerank → generate, plus a naive baseline path
-    section_parser.py   TOC-aware chunking with logged fallback chain
-    run_eval.py         runs the question set through both modes, logs results
-    check_chunks.py     inspect what actually got retrieved for a query
-    config.py           environment-driven settings, no secrets in code
-    tests/              question set, raw results, scored output
-    notebooks/          the research this grew out of, kept as a record</pre>
-    
-        <h4>Corpus, and where it goes next</h4>
-        <p>The full 2024 Stanford Encyclopedia is scraped — article text, tables of contents, bibliographies, and metadata. Metadata for 28 Springer Nature philosophy journals (~800k pages) and ~10k pages from <em>Analysis</em> are scraped but not yet indexed. Retrieval currently runs on a 100-article slice; next is full-corpus indexing, a FastAPI service around the pipeline, an open-model option alongside the OpenAI path, and closing out the Completeness gap before reranking gets treated as an improvement.</p>
-    
-      </div>
-    </details>
+      </details>
 
       <!-- DeepChef -->
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
@@ -740,6 +829,25 @@
   </section>
 
 </div>
+
+<script>
+(function () {
+  var btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  function paint() {
+    btn.textContent =
+      document.documentElement.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
+  }
+  paint();
+  btn.addEventListener('click', function () {
+    var next =
+      document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    paint();
+  });
+})();
+</script>
 
 <script>
 (function(){
