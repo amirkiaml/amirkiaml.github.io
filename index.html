@@ -455,15 +455,15 @@ tests/        105 tests, 20 compliance</pre>
           </ul>
 
           <h4>What's in the repo</h4>
-<pre style="margin: 0 0 20px; font-size: 12px; line-height: 1.7; color: oklch(30% 0.01 85); background: oklch(96% 0.005 85); padding: 12px 14px; border-radius: 10px; overflow-x: auto;">ingest.py           SEP corpus → section split → chunk → embed → Pinecone
-rag_pipeline.py     retrieve → rerank → generate, plus a naive baseline path
-section_parser.py   TOC-aware chunking with logged fallback chain
-run_eval.py         runs the eval set through both modes, logs results
-check_chunks.py     inspect what actually got retrieved for a query
-chat.py             terminal interface, naive or rerank mode
-config.py           environment-driven settings, no secrets in code
-tests/              question set, raw results, rubric, scored output
-notebooks/          research history + the 5-way chunking comparison</pre>
+            <pre style="margin: 0 0 20px; font-size: 12px; line-height: 1.7; color: oklch(30% 0.01 85); background: oklch(96% 0.005 85); padding: 12px 14px; border-radius: 10px; overflow-x: auto;">ingest.py           SEP corpus → section split → chunk → embed → Pinecone
+            rag_pipeline.py     retrieve → rerank → generate, plus a naive baseline path
+            section_parser.py   TOC-aware chunking with logged fallback chain
+            run_eval.py         runs the eval set through both modes, logs results
+            check_chunks.py     inspect what actually got retrieved for a query
+            chat.py             terminal interface, naive or rerank mode
+            config.py           environment-driven settings, no secrets in code
+            tests/              question set, raw results, rubric, scored output
+            notebooks/          research history + the 5-way chunking comparison</pre>
 
           <h4>Corpus, and what's next</h4>
           <p>The full 2024 Stanford Encyclopedia is scraped — article text, tables of contents, bibliographies, metadata. Metadata for 28 Springer Nature philosophy journals (~800k pages) and ~10k pages from <em>Analysis</em> are scraped but not yet indexed. Retrieval currently runs on a 100-article slice.</p>
@@ -477,7 +477,7 @@ notebooks/          research history + the 5-way chunking comparison</pre>
         <summary style="padding: 28px;">
           <img src="uploads/96f892ee-7ac3-4b2e-82ce-52b93d09fea1.png" alt="DeepChef app" style="width: 100%; height: 190px; object-fit: contain; background: #fff; border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
           <p class="eyebrow">Solo build · Live app</p>
-          <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">DeepChef — Semantic Recommender</h3>
+          <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">DeepChef — A Semantic Recipe Recommender (2023)</h3>
           <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">Give it a recipe you like or a handful of ingredients; it returns the five closest matches from half a million recipes. Scraped, embedded, and deployed end to end.</p>
 
           <p class="strip-label">Built and shipped</p>
