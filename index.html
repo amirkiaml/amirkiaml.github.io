@@ -82,6 +82,40 @@
     border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);
   }
   .chip-sm { font-size: 11.5px; padding: 5px 10px; }
+  /* hero inline highlights */
+  .hl-live {
+    color: oklch(42% 0.14 150); font-weight: 700;
+    background: oklch(94% 0.06 150); border-radius: 5px; padding: 1px 6px;
+    box-decoration-break: clone; -webkit-box-decoration-break: clone;
+  }
+  .hl-num { color: oklch(45% 0.17 258); font-weight: 700; }
+  html[data-theme="dark"] .hl-live {
+    color: oklch(88% 0.14 150) !important; background: oklch(30% 0.07 150) !important;
+  }
+  html[data-theme="dark"] .hl-num { color: oklch(80% 0.14 258) !important; }
+  .badge-live {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+    color: oklch(38% 0.13 150); background: oklch(94% 0.07 150);
+    border: 1px solid oklch(80% 0.10 150); border-radius: 100px;
+    padding: 6px 13px 6px 11px; margin: 0 0 14px;
+  }
+  .badge-live::before {
+    content: ""; width: 7px; height: 7px; border-radius: 50%;
+    background: oklch(60% 0.18 150); flex-shrink: 0;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(0.82); }
+  }
+  html[data-theme="dark"] .badge-live {
+    color: oklch(88% 0.13 150) !important; background: oklch(28% 0.07 150) !important;
+    border-color: oklch(42% 0.10 150) !important;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .badge-live::before { animation: none; }
+  }
   .card-links { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
   .card-body { padding: 0 28px 28px; border-top: 1px solid oklch(93% 0.006 85); margin-top: 4px; }
   .card-body h4 { margin: 0 0 8px; font-size: 14.5px; font-weight: 700; }
@@ -219,9 +253,9 @@
     <div style="flex: 1; min-width: 280px; position: relative; z-index: 1;">
       <p style="margin: 0 0 14px; font-size: 14px; font-weight: 600; color: oklch(52% 0.16 258); text-transform: uppercase; letter-spacing: 0.08em;">AI Engineer · Agentic Systems in Production <span style="color: oklch(55% 0.01 85); font-weight: 500;">· Toronto</span></p>
       <h1 style="margin: 0 0 18px; font-family: 'Montserrat', sans-serif; font-size: 46px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; max-width: 720px;">Amir Kiani</h1>
-      <p style="margin: 0 0 22px; font-size: 18px; line-height: 1.6; color: oklch(38% 0.01 85); max-width: 660px;">I build LLM agent systems that run on real infrastructure — multi-agent orchestration, tool use, guardrails, and the compliance paths where a bug is a legal problem. Two are live: an AI voice receptionist that books jobs during the call, and a nine-agent SMS outreach system with a 105-test suite behind it.</p>
-      <p style="margin: 0 0 22px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 660px;">Alongside that I'm building DeepAnalytic, a retrieval system over the Stanford Encyclopedia of Philosophy — an attempt to make a hard corpus genuinely answerable, and to find out by measuring rather than assuming. I'm currently lining up a test group of 50+ professional philosophers and PhD students, on the theory that the people who know the corpus best will break it fastest.</p>
-      <p style="margin: 0 0 28px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 660px;">A PhD in formal logic and semantics is where my instinct for specifying rules an agent must actually follow comes from — and it's what I write and speak about in AI safety and alignment.</p>
+      <p style="margin: 0 0 22px; font-size: 18px; line-height: 1.6; color: oklch(38% 0.01 85); max-width: 660px;">I build LLM agent systems that run on real infrastructure — multi-agent orchestration, tool use, guardrails, and the compliance paths where a bug is a legal problem. <span class="hl-live">Two are live right now</span>: an AI voice receptionist that books jobs during the call, and a <span class="hl-num">nine-agent</span> SMS outreach system with a <span class="hl-num">105-test</span> suite behind it.</p>
+      <p style="margin: 0 0 22px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 660px;">Alongside that I'm building DeepAnalytic, a retrieval system over the Stanford Encyclopedia of Philosophy — an attempt to make a hard corpus genuinely answerable, and to find out by measuring rather than assuming. <span class="hl-num">50+</span> professional philosophers and PhD students <span class="hl-live">start testing it on August 20</span>, on the theory that the people who know the corpus best will break it fastest.</p>
+      <p style="margin: 0 0 28px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 660px;">A PhD in Philosophy (formal logic and semantics) is where my instinct for specifying rules an agent must actually follow comes from — and it's what I write and speak about in AI safety and alignment.</p>
       <div style="display: flex; gap: 10px; flex-wrap: wrap;">
         <a href="#agentic" style="padding: 11px 20px; background: oklch(18% 0.01 85); color: #fff; border-radius: 100px; font-size: 14px; font-weight: 600;">See the agent systems →</a>
         <a href="https://github.com/amirkiaml" target="_blank" style="padding: 11px 20px; border: 1px solid oklch(85% 0.01 85); color: oklch(30% 0.01 85); border-radius: 100px; font-size: 14px; font-weight: 600;">GitHub</a>
@@ -245,7 +279,8 @@
         <summary style="padding: 28px;">
           <img src="uploads/sales-automation.png" alt="Three drafting agents write competing messages in parallel; a picker agent selects one; Twilio sends it" style="width: 100%; height: 170px; object-fit: contain; background: oklch(96% 0.005 85); border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
 
-          <p class="eyebrow">Sole engineer · Live system · 2026</p>
+          <span class="badge-live">Live — sending to real prospects</span>
+          <p class="eyebrow">Sole engineer · 2026</p>
           <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">SMS Outreach &amp; SDR Agent System</h3>
           <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">Three agents draft every cold message in parallel and a picker agent selects one against explicit criteria — no single model settling for its first attempt. Replies go to a stateful SDR agent, and the rules that carry legal weight are enforced in code, not prompts.</p>
 
@@ -301,7 +336,8 @@ tests/        105 tests, 20 compliance</pre>
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
         <summary style="padding: 28px;">
           <img src="uploads/69db9c4b-67c8-42c8-a149-461e033e8969.png" alt="VoiceCaptures — AI receptionist for home service contractors" style="width: 100%; height: 170px; object-fit: cover; border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
-          <p class="eyebrow">Founder · Deployed, public demo line · 2025–26</p>
+          <span class="badge-live">Live — public demo line</span>
+          <p class="eyebrow">Founder · 2025–26</p>
           <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">VoiceCaptures — AI Voice Receptionist</h3>
           <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">A real-time voice agent for home service trades: answers the call, qualifies the job in conversation, checks live calendar availability, and books the slot before hanging up.</p>
 
@@ -348,6 +384,101 @@ tests/        105 tests, 20 compliance</pre>
 
     </div>
 
+  </section>
+
+  <!-- RAG PROJECTS -->
+  <section id="rag" style="padding: 64px 0; border-top: 1px solid oklch(91% 0.006 85);">
+    <p style="margin: 0 0 6px; font-size: 13px; font-weight: 700; color: oklch(52% 0.16 258); text-transform: uppercase; letter-spacing: 0.08em;">Retrieval &amp; Applied ML</p>
+    <h2 style="margin: 0 0 10px; font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em;">RAG &amp; Semantic Search</h2>
+    <p style="margin: 0 0 36px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 700px;">One retrieval system, built on a corpus hard enough that the retrieval strategy decides the answer — and measured until it said things I didn't want to hear.</p>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 720px); gap: 20px; align-items: start;">
+
+      <!-- DeepAnalytic -->
+      <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
+        <summary style="padding: 28px;">
+          <img src="uploads/5ae65aef-5383-4077-9c79-f184aadcb8a3.png" alt="DeepAnalytic retrieval pipeline" style="width: 100%; height: 190px; object-fit: contain; background: #111; border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
+
+          <span class="badge-live">Expert testing begins Aug 20</span>
+          <p class="eyebrow">Solo build · Evaluated · 2026</p>
+          <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">DeepAnalytic — RAG over the Stanford Encyclopedia of Philosophy</h3>
+          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">A retrieval pipeline I built, then measured until it contradicted me twice: the reranker was making answers worse, and the section-aware chunking the whole design rests on didn't beat a far simpler splitter. Both findings redirected the build.</p>
+
+          <p class="strip-label">Measured, against my own hypotheses</p>
+          <div class="strip-measured">
+            <div><div class="n">4.11 → 3.74</div><div class="l">overall score <em>fell</em> when reranking was added</div></div>
+            <div><div class="n">5</div><div class="l">chunking strategies compared — no clear winner</div></div>
+            <div><div class="n">3</div><div class="l">failure modes traced to chunk-level evidence</div></div>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px;">
+            <span class="chip">Section-aware chunking</span>
+            <span class="chip">Multiquery decomposition</span>
+            <span class="chip">Cohere rerank</span>
+            <span class="chip">Pinecone</span>
+            <span class="chip">Retrieval evaluation</span>
+          </div>
+
+          <div class="card-links">
+            <a href="https://github.com/amirkiaml/DeepAnalytic" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Repository →</a>
+            <a href="https://vmachines.substack.com/p/building-a-rag-system-that-knows" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Read the write-up →</a>
+          </div>
+        </summary>
+
+        <div class="card-body">
+
+          <h4>What it is</h4>
+          <p>A retrieval-augmented QA system over the full 2024 Stanford Encyclopedia of Philosophy, scraped myself. The corpus is a deliberately hard case: dense, heavily cross-referenced, and full of terms whose meaning shifts between sub-fields. The pipeline chunks each article along its own table-of-contents boundaries, embeds to Pinecone, retrieves, reranks with Cohere, and generates — with a naive-retrieval path kept alongside so every change is measured against a baseline rather than assumed to help.</p>
+
+          <h4>I was wrong about chunking, and the test said so</h4>
+          <p>The premise was that chunking along real section boundaries would beat fixed token windows, since a blind splitter can drop two unrelated subsections into one chunk. A five-way comparison — section-aware, fixed-window, paragraph, sentence-window, semantic — says otherwise. On straightforward questions, section-aware, fixed-window and paragraph chunking retrieved near-identical text, word for word in places, because paragraph breaks in a well-edited article already track topic breaks closely enough that a structure-blind splitter lands in the same place.</p>
+          <p>Semantic chunking was the interesting failure: the only strategy that ever clearly won a question, and the only one that ever clearly lost one — it caught a specific example nothing else found, then drifted into an unrelated passage about heresy when asked about universals. That volatility is the finding. I'm not putting retrieval quality on a coin flip, so it's disqualified as a default despite the ceiling. Section-aware stays, not because it won but because nothing beat it and it matches the source structure.</p>
+
+          <h4>The bottleneck is after retrieval, not before it</h4>
+          <p>On composite questions — compare something in one part of an article to something in another — nearly every strategy failed the same way: it retrieved both halves of the evidence and then declined to synthesize them, reporting that the context provided no direct comparison. The material was in the window. That's a generation failure, and no amount of re-cutting the source text addresses it.</p>
+          <p>The systematic reranker eval pointed at the same place from a different direction. Reranking came out flat-to-worse across the board, with failures reproducible against the retrieved chunk text. On organic versus somatic animalism, the reranked context kept a chunk that <em>names</em> both terms and points at where they're explained — an explicit backward reference to section 1.2 — while discarding the two chunks section 1.2 was pointing at. On Cicero's <em>res publica</em>, retrieval kept the right chunk and the model still refused, because the causal claim was assembled across the surrounding section rather than stated in one place. A third case was harder still: a chunk opening "the third negative claim Oruka aimed to challenge," with no explicit link to follow and the section listing all three never retrieved at all.</p>
+          <p>One root cause, three shapes: a chunk can mention or presuppose content it doesn't contain, and nothing in the pipeline notices the gap. Explicit pointers are followable if you look for cross-references. Implicit ones — an ordinal, a presupposition, a causal link spread across a section — need the model to recognize it's filling a gap rather than reporting, which is a different fix.</p>
+
+          <h4>What the findings changed</h4>
+          <p>Multiquery decomposition is now built and in the pipeline rather than sitting on a someday list — <code>multiquery.py</code>, topic-first and schema-enforced, exposed through <code>query_multi()</code> and <code>query_multi_concat()</code>. It's aimed squarely at the composite-question failure: if the model won't assemble a comparison from one retrieval pass, decompose the question first and give it the halves separately. That ordering came from the evidence, not from a roadmap written in advance.</p>
+
+          <h4>How the evaluation was built</h4>
+          <p>Five articles chosen for known interesting cases rather than coverage — two confirmed rerank failures, one accuracy-drift case, one cross-article retrieval case, one clean baseline — two questions each, run through both retrieval modes and scored on Accuracy, Source Match and Completeness against expected key points fixed before any answers existed.</p>
+          <p>Methodology follows current RAG-eval practice: LLM-assisted test-set generation paired with LLM-as-judge scoring and human verification. Claude generated the article selection, questions and rubric, built the automation script, and did first-pass scoring; I scored independently afterward, spot-checking the highest-stakes rows against the retrieved chunk text directly. Both score sets sit side by side in <code>tests/eval_scored.xlsx</code>, including a row where my pass corrected Claude's.</p>
+
+          <h4>Write-ups</h4>
+          <ul style="margin: 0 0 20px; padding-left: 18px; line-height: 1.9;">
+            <li><a href="https://vmachines.substack.com/p/building-a-rag-system-that-knows" target="_blank" rel="noopener">Building a RAG System That Knows What Section It's In</a></li>
+            <li>Five Chunking Strategies, No Winner, One Real Finding — coming soon</li>
+            <li>Chunks That Mention vs. Chunks That Explain — coming soon</li>
+            <li>From Multiquery to a Referee — coming soon</li>
+            <li>A Buried Answer, Two Wrong Guesses, and a Fix — coming soon</li>
+          </ul>
+
+          <h4>What's in the repo</h4>
+<pre style="margin: 0 0 20px; font-size: 12px; line-height: 1.7; color: oklch(30% 0.01 85); background: oklch(96% 0.005 85); padding: 12px 14px; border-radius: 10px; overflow-x: auto;">ingest.py           SEP corpus → section split → chunk → embed → Pinecone
+rag_pipeline.py     retrieve → rerank → generate, plus a naive baseline path
+multiquery.py       topic-first, schema-enforced question decomposition
+section_parser.py   TOC-aware chunking with logged fallback chain
+run_eval.py         runs the eval set through both modes, logs results
+check_chunks.py     inspect what actually got retrieved for a query
+chat.py             terminal interface, naive or rerank mode
+config.py           environment-driven settings, no secrets in code
+tests/              question set, raw results, rubric, scored output
+notebooks/          research history, chunking comparison, multiquery dev log</pre>
+
+          <h4>Expert testing, from August 20</h4>
+          <p>50+ professional philosophers and PhD students start querying the system on August 20. The point isn't usage numbers — it's that a specialist asking about their own sub-field will surface sense-conflation and refusal failures far faster than questions I write for myself, because they already know what the right answer looks like. Their queries become the next golden set, and the failures they hit get traced the same way the reranker failures were.</p>
+
+          <h4>Corpus, and what's next</h4>
+          <p>The full 2024 Stanford Encyclopedia is scraped — article text, tables of contents, bibliographies, metadata. Metadata for 28 Springer Nature philosophy journals (~800k pages) and ~10k pages from <em>Analysis</em> are scraped but not yet indexed. Retrieval currently runs on a 100-article slice.</p>
+          <p>With multiquery in, the remaining generation-layer work is a self-critique step and multi-hop retrieval that follows a pointer inside a chunk to the section actually explaining the concept. Then full-corpus indexing, a FastAPI service, deployment, and an open-model option alongside the OpenAI path. The expert round runs before most of that lands, so what it turns up shapes the order of the rest.</p>
+
+        </div>
+      </details>
+
+    </div>
+
     <!-- SMALLER BUILDS -->
     <h3 style="margin: 40px 0 16px; font-size: 13px; font-weight: 700; color: oklch(52% 0.01 85); text-transform: uppercase; letter-spacing: 0.08em;">Smaller builds &amp; experiments</h3>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; align-items: start;">
@@ -374,6 +505,35 @@ tests/        105 tests, 20 compliance</pre>
 
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 18px;">
         <summary style="padding: 22px;">
+          <span class="badge-live">Live on Streamlit — try it</span>
+          <p class="eyebrow" style="font-size: 11px;">Solo build · 2023</p>
+          <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 16.5px; font-weight: 700;">DeepChef — Semantic Recommender</h3>
+          <p style="margin: 0 0 14px; font-size: 13.5px; line-height: 1.55; color: oklch(38% 0.01 85);">Give it a recipe you like and it returns the five closest matches from 520k scraped from food.com. My BrainStation capstone, extended past the assignment and deployed — still running three years later.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px;">
+            <span class="chip chip-sm">OpenAI embeddings</span>
+            <span class="chip chip-sm">Semantic search</span>
+            <span class="chip chip-sm">BERTopic · UMAP</span>
+            <span class="chip chip-sm">Streamlit</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+            <a href="https://deepchef.streamlit.app" target="_blank" rel="noopener" style="font-size: 13.5px; font-weight: 600;">Try it →</a>
+            <a href="https://github.com/amirkiaml/DeepChef-BSTN-Capstone" target="_blank" rel="noopener" style="font-size: 13.5px; font-weight: 600;">Repository →</a>
+          </div>
+        </summary>
+        <div class="card-body" style="padding: 0 22px 22px;">
+          <h4 style="font-size: 13px; margin-top: 18px;">Walkthrough</h4>
+          <div style="position: relative; padding-top: 62.5%; border-radius: 12px; overflow: hidden; margin-bottom: 16px;">
+            <iframe src="https://www.loom.com/embed/350eed0ce28c43e297ea78e6ede7d694" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+          </div>
+          <h4 style="font-size: 13px;">What it does</h4>
+          <p style="font-size: 12.5px;">Embeddings over ingredients, instructions and themes, so the query can be a whole recipe rather than a keyword. Scraped with Selenium, embedded, deployed. Stack: bertopic · spacy · nltk · pandas / numpy · openai · tiktoken · scikit-learn · umap · selenium · streamlit.</p>
+          <h4 style="font-size: 13px;">Where it sits now</h4>
+          <p style="font-size: 12.5px;">Single-vector cosine similarity, which was a reasonable 2023 choice and is commodity in 2026 — DeepAnalytic is where the retrieval thinking lives now. Kept here because it has been deployed and usable for three years, and because scraping and embedding half a million records end to end is the part most tutorials skip.</p>
+        </div>
+      </details>
+
+      <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 18px;">
+        <summary style="padding: 22px;">
           <p class="eyebrow" style="font-size: 11px;">Team of 4 · 24 hours · 1st place</p>
           <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 16.5px; font-weight: 700;">Google × BrainStation Hackathon — 1st Place</h3>
           <p style="margin: 0 0 14px; font-size: 13.5px; line-height: 1.55; color: oklch(38% 0.01 85);">Won a 24-hour industry hackathon designing "Insights" — an LLM widget giving users plain-language explanations of how Google's AI features use their data.</p>
@@ -392,129 +552,6 @@ tests/        105 tests, 20 compliance</pre>
       </details>
 
     </div>
-  </section>
-
-  <!-- RAG PROJECTS -->
-  <section id="rag" style="padding: 64px 0; border-top: 1px solid oklch(91% 0.006 85);">
-    <p style="margin: 0 0 6px; font-size: 13px; font-weight: 700; color: oklch(52% 0.16 258); text-transform: uppercase; letter-spacing: 0.08em;">Retrieval &amp; Applied ML</p>
-    <h2 style="margin: 0 0 10px; font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em;">RAG &amp; Semantic Search</h2>
-    <p style="margin: 0 0 36px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 700px;">Retrieval systems built on corpora large enough that the retrieval strategy actually decides the answer.</p>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; align-items: start;">
-
-      <!-- DeepAnalytic -->
-      <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
-        <summary style="padding: 28px;">
-          <img src="uploads/5ae65aef-5383-4077-9c79-f184aadcb8a3.png" alt="DeepAnalytic retrieval pipeline" style="width: 100%; height: 190px; object-fit: contain; background: #111; border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
-
-          <p class="eyebrow">Solo build · Evaluated · 2026</p>
-          <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">DeepAnalytic — RAG over the Stanford Encyclopedia of Philosophy</h3>
-          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">A retrieval pipeline I built, then measured until it contradicted me twice: the reranker was making answers worse, and the section-aware chunking the whole design rests on didn't beat a far simpler splitter.</p>
-
-          <p class="strip-label">Measured, against my own hypotheses</p>
-          <div class="strip-measured">
-            <div><div class="n">4.11 → 3.74</div><div class="l">overall score <em>fell</em> when reranking was added</div></div>
-            <div><div class="n">5</div><div class="l">chunking strategies compared — no clear winner</div></div>
-            <div><div class="n">3</div><div class="l">failure modes traced to chunk-level evidence</div></div>
-          </div>
-
-          <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px;">
-            <span class="chip">Section-aware chunking</span>
-            <span class="chip">Cohere rerank</span>
-            <span class="chip">Pinecone</span>
-            <span class="chip">Retrieval evaluation</span>
-            <span class="chip">OpenAI embeddings</span>
-          </div>
-
-          <a href="https://github.com/amirkiaml/DeepAnalytic" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Repository →</a>
-        </summary>
-
-        <div class="card-body">
-
-          <h4>What it is</h4>
-          <p>A retrieval-augmented QA system over the full 2024 Stanford Encyclopedia of Philosophy, scraped myself. The corpus is a deliberately hard case: dense, heavily cross-referenced, and full of terms whose meaning shifts between sub-fields. The pipeline chunks each article along its own table-of-contents boundaries, embeds to Pinecone, retrieves, reranks with Cohere, and generates — with a naive-retrieval path kept alongside so every change can be measured against a baseline rather than assumed to help.</p>
-
-          <h4>I was wrong about chunking, and the test said so</h4>
-          <p>The premise was that chunking along real section boundaries would beat fixed token windows, since a blind splitter can drop two unrelated subsections into one chunk. A five-way comparison — section-aware, fixed-window, paragraph, sentence-window, semantic — says otherwise. On straightforward questions, section-aware, fixed-window and paragraph chunking retrieved near-identical text, word for word in places, because paragraph breaks in a well-edited article already track topic breaks closely enough that a structure-blind splitter lands in the same place.</p>
-          <p>Semantic chunking was the interesting failure: the only strategy that ever clearly won a question, and the only one that ever clearly lost one — it caught a specific example nothing else found, then drifted into an unrelated passage about heresy when asked about universals. That volatility is the finding. I'm not putting retrieval quality on a coin flip, so it's disqualified as a default despite the ceiling. Section-aware stays, not because it won but because nothing beat it and it matches the source structure.</p>
-
-          <h4>The bottleneck is after retrieval, not before it</h4>
-          <p>On composite questions — compare something in one part of an article to something in another — nearly every strategy failed the same way: it retrieved both halves of the evidence and then declined to synthesize them, reporting that the context provided no direct comparison. The material was in the window. That's a generation failure, and no amount of re-cutting the source text addresses it.</p>
-          <p>The systematic reranker eval pointed at the same place from a different direction. Reranking came out flat-to-worse across the board, with failures reproducible against the retrieved chunk text. On organic versus somatic animalism, the reranked context kept a chunk that <em>names</em> both terms and points at where they're explained — an explicit backward reference to section 1.2 — while discarding the two chunks section 1.2 was pointing at. On Cicero's <em>res publica</em>, retrieval kept the right chunk and the model still refused, because the causal claim was assembled across the surrounding section rather than stated in one place. A third case was harder still: a chunk opening "the third negative claim Oruka aimed to challenge," with no explicit link to follow and the section listing all three never retrieved at all.</p>
-          <p>One root cause, three shapes: a chunk can mention or presuppose content it doesn't contain, and nothing in the pipeline notices the gap. Explicit pointers are followable if you look for cross-references. Implicit ones — an ordinal, a presupposition, a causal link spread across a section — need the model to recognize it's filling a gap rather than reporting, which is a different fix.</p>
-
-          <h4>How the evaluation was built</h4>
-          <p>Five articles chosen for known interesting cases rather than coverage — two confirmed rerank failures, one accuracy-drift case, one cross-article retrieval case, one clean baseline — two questions each, run through both retrieval modes and scored on Accuracy, Source Match and Completeness against expected key points fixed before any answers existed.</p>
-          <p>Methodology follows current RAG-eval practice: LLM-assisted test-set generation paired with LLM-as-judge scoring and human verification. Claude generated the article selection, questions and rubric, built the automation script, and did first-pass scoring; I scored independently afterward, spot-checking the highest-stakes rows against the retrieved chunk text directly. Both score sets sit side by side in <code>tests/eval_scored.xlsx</code>, including a row where my pass corrected Claude's.</p>
-
-          <h4>Write-ups</h4>
-          <ul style="margin: 0 0 20px; padding-left: 18px; line-height: 1.9;">
-            <li><a href="#" target="_blank" rel="noopener">Building a RAG System That Knows What Section It's In</a> — coming soon</li>
-            <li><a href="#" target="_blank" rel="noopener">Five Chunking Strategies, No Winner, One Real Finding</a> — coming soon</li>
-            <li><a href="#" target="_blank" rel="noopener">Chunks That Mention vs. Chunks That Explain</a> — coming soon</li>
-          </ul>
-
-          <h4>What's in the repo</h4>
-            <pre style="margin: 0 0 20px; font-size: 12px; line-height: 1.7; color: oklch(30% 0.01 85); background: oklch(96% 0.005 85); padding: 12px 14px; border-radius: 10px; overflow-x: auto;">ingest.py           SEP corpus → section split → chunk → embed → Pinecone
-            rag_pipeline.py     retrieve → rerank → generate, plus a naive baseline path
-            section_parser.py   TOC-aware chunking with logged fallback chain
-            run_eval.py         runs the eval set through both modes, logs results
-            check_chunks.py     inspect what actually got retrieved for a query
-            chat.py             terminal interface, naive or rerank mode
-            config.py           environment-driven settings, no secrets in code
-            tests/              question set, raw results, rubric, scored output
-            notebooks/          research history + the 5-way chunking comparison</pre>
-
-          <h4>Corpus, and what's next</h4>
-          <p>The full 2024 Stanford Encyclopedia is scraped — article text, tables of contents, bibliographies, metadata. Metadata for 28 Springer Nature philosophy journals (~800k pages) and ~10k pages from <em>Analysis</em> are scraped but not yet indexed. Retrieval currently runs on a 100-article slice.</p>
-          <p>Next is the generation layer rather than more retrieval tuning, because that's where the evidence points: a cheap prompt test first, to rule out how much of the refusal behaviour is prompt rather than architecture, then multiquery decomposition and a self-critique step, then multi-hop retrieval that follows a pointer inside a chunk to the section that actually explains the concept. Full-corpus indexing, a FastAPI service and deployment after that. Philosophers get it before any of that lands — their queries will be a better adversarial set than anything I'd write for myself.</p>
-
-        </div>
-      </details>
-
-      <!-- DeepChef -->
-      <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
-        <summary style="padding: 28px;">
-          <img src="uploads/96f892ee-7ac3-4b2e-82ce-52b93d09fea1.png" alt="DeepChef app" style="width: 100%; height: 190px; object-fit: contain; background: #fff; border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
-          <p class="eyebrow">Solo build · Live app</p>
-          <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">DeepChef — A Semantic Recipe Recommender (2023)</h3>
-          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">Give it a recipe you like or a handful of ingredients; it returns the five closest matches from half a million recipes. Scraped, embedded, and deployed end to end.</p>
-
-          <p class="strip-label">Built and shipped</p>
-          <div class="strip-measured">
-            <div><div class="n">520k</div><div class="l">recipes scraped from food.com</div></div>
-            <div><div class="n">5</div><div class="l">nearest results returned per query</div></div>
-            <div><div class="n">Live</div><div class="l">deployed and publicly usable</div></div>
-          </div>
-
-          <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px;">
-            <span class="chip">OpenAI embeddings</span>
-            <span class="chip">Semantic search</span>
-            <span class="chip">BERTopic · UMAP</span>
-            <span class="chip">spaCy / NLTK</span>
-            <span class="chip">Streamlit</span>
-          </div>
-
-          <div class="card-links">
-            <a href="https://deepchef-recommender.streamlit.app/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Try it →</a>
-            <a href="https://github.com/amirkiaml/DeepChef-BSTN-Capstone" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Repository →</a>
-          </div>
-        </summary>
-        <div class="card-body">
-          <h4>Walkthrough</h4>
-          <div style="position: relative; padding-top: 62.5%; border-radius: 12px; overflow: hidden; margin-bottom: 20px;">
-            <iframe src="https://www.loom.com/embed/350eed0ce28c43e297ea78e6ede7d694" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-          </div>
-
-          <h4>What it does</h4>
-          <p>Semantic embeddings over ingredients, instructions, and themes, so a query can be a whole recipe rather than a keyword. Built as my BrainStation capstone, then extended past the assignment and deployed. Stack: bertopic · spacy · nltk · pandas / numpy · openai · tiktoken · scikit-learn · umap · selenium · streamlit.</p>
-
-          <img src="uploads/pasted-1784573944620-0.png" alt="DeepChef Streamlit interface" style="width: 100%; border-radius: 12px; border: 1px solid oklch(91% 0.006 85);">
-        </div>
-      </details>
-
-    </div>
-
     <!-- EARLIER DATA WORK -->
     <h3 style="margin: 40px 0 16px; font-size: 13px; font-weight: 700; color: oklch(52% 0.01 85); text-transform: uppercase; letter-spacing: 0.08em;">Earlier data science &amp; analytics</h3>
     <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 18px;">
@@ -562,7 +599,7 @@ tests/        105 tests, 20 compliance</pre>
         </div>
         <div style="display: flex; gap: 12px; flex-wrap: wrap;">
           <a href="https://virtuousmachines.com" target="_blank" style="padding: 11px 20px; background: #fff; color: oklch(18% 0.01 85); border-radius: 100px; font-size: 14px; font-weight: 600;">virtuousmachines.com →</a>
-          <span style="padding: 11px 18px; border: 1px solid oklch(40% 0.01 85); color: #fff; border-radius: 100px; font-size: 14px; font-weight: 600;">13 Episodes · YouTube &amp; Spotify</span>
+          <span style="padding: 11px 18px; background: oklch(30% 0.07 150); border: 1px solid oklch(45% 0.10 150); color: oklch(88% 0.14 150); border-radius: 100px; font-size: 14px; font-weight: 700;">13 episodes · YouTube &amp; Spotify</span>
         </div>
       </div>
 
@@ -929,7 +966,5 @@ tests/        105 tests, 20 compliance</pre>
 })();
 </script>
 
-<script data-goatcounter="https://amirkiaml.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
