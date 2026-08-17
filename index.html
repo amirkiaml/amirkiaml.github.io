@@ -89,6 +89,37 @@
     box-decoration-break: clone; -webkit-box-decoration-break: clone;
   }
   .hl-num { color: oklch(45% 0.17 258); font-weight: 700; }
+  .paper-pending {
+    color: oklch(52% 0.16 258); font-weight: 600;
+  }
+  .hl-wip {
+    color: oklch(45% 0.13 70); font-weight: 700;
+    background: oklch(95% 0.06 70); border-radius: 5px; padding: 1px 6px;
+    box-decoration-break: clone; -webkit-box-decoration-break: clone;
+  }
+  html[data-theme="dark"] .hl-wip {
+    color: oklch(88% 0.13 70) !important; background: oklch(29% 0.06 70) !important;
+  }
+  .paper-pending .note { color: oklch(55% 0.01 85); font-weight: 500; }
+  html[data-theme="dark"] .paper-pending { color: oklch(78% 0.13 258) !important; }
+  html[data-theme="dark"] .paper-pending .note { color: oklch(62% 0.006 85) !important; }
+  .badge-wip {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+    color: oklch(45% 0.13 70); background: oklch(95% 0.06 70);
+    border: 1px solid oklch(83% 0.09 70); border-radius: 100px;
+    padding: 6px 13px 6px 11px; margin: 0 0 14px;
+  }
+  .badge-wip::before {
+    content: ""; width: 7px; height: 7px; border-radius: 50%;
+    background: oklch(68% 0.15 70); flex-shrink: 0;
+  }
+  html[data-theme="dark"] .badge-wip {
+    color: oklch(88% 0.13 70) !important; background: oklch(29% 0.06 70) !important;
+    border-color: oklch(44% 0.09 70) !important;
+  }
+  .card-wip { border-style: dashed !important; background: transparent !important; }
+  html[data-theme="dark"] .card-wip { background: transparent !important; }
   html[data-theme="dark"] .hl-live {
     color: oklch(88% 0.14 150) !important; background: oklch(30% 0.07 150) !important;
   }
@@ -253,9 +284,9 @@
     <div style="flex: 1; min-width: 280px; position: relative; z-index: 1;">
       <p style="margin: 0 0 14px; font-size: 14px; font-weight: 600; color: oklch(52% 0.16 258); text-transform: uppercase; letter-spacing: 0.08em;">AI Engineer · Agentic Systems in Production <span style="color: oklch(55% 0.01 85); font-weight: 500;">· Toronto</span></p>
       <h1 style="margin: 0 0 18px; font-family: 'Montserrat', sans-serif; font-size: 46px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; max-width: 720px;">Amir Kiani</h1>
-      <p style="margin: 0 0 22px; font-size: 18px; line-height: 1.6; color: oklch(38% 0.01 85); max-width: 660px;">I build LLM agent systems that run on real infrastructure — multi-agent orchestration, tool use, guardrails, and the compliance paths where a bug is a legal problem. <span class="hl-live">Two are live right now</span>: an AI voice receptionist that books jobs during the call, and a <span class="hl-num">nine-agent</span> SMS outreach system with a <span class="hl-num">105-test</span> suite behind it.</p>
-      <p style="margin: 0 0 22px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 660px;">Alongside that I'm building DeepAnalytic, a retrieval system over the Stanford Encyclopedia of Philosophy — an attempt to make a hard corpus genuinely answerable, and to find out by measuring rather than assuming. <span class="hl-num">10+</span> professional philosophers and PhD students <span class="hl-live">start testing it in September</span>, on the theory that the people who know the corpus best will break it fastest.</p>
-      <p style="margin: 0 0 28px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 660px;">A PhD in Philosophy (formal logic and semantics) is where my instinct for specifying rules an agent must actually follow comes from — and it's what I write and speak about in AI safety and alignment.</p>
+      <p style="margin: 0 0 22px; font-size: 18px; line-height: 1.6; color: oklch(38% 0.01 85); max-width: 660px;">I build LLM agent systems that run on real infrastructure -- multi-agent orchestration, tool use, guardrails, and the compliance paths where a bug is a legal problem. <span class="hl-live">Two are live right now</span>: an AI voice receptionist that books jobs during the call, and a <span class="hl-num">nine-agent</span> SMS outreach system with a <span class="hl-num">105-test</span> suite behind it.</p>
+      <p style="margin: 0 0 22px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 660px;">Alongside that I'm building DeepAnalytic, a retrieval system over the Stanford Encyclopedia of Philosophy -- an attempt to make a hard corpus genuinely answerable, and to find out by measuring rather than assuming. <span class="hl-num">50+ professional philosophers and PhD students</span> <span class="hl-live">start testing it on August 20</span>, on the theory that the people who know the corpus best will break it fastest.</p>
+      <p style="margin: 0 0 28px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 660px;">A PhD in Philosophy (formal logic and semantics) is where my instinct for specifying rules an agent must actually follow comes from. Right now that's pointed at a concrete problem: agents are deployed under policies written in words like <em>must</em>, <em>may</em> and <em>must not</em>, and almost nobody checks whether a model's grasp of that vocabulary is well-defined. I'm <span class="hl-num">researching</span> it and <span class="hl-wip">building a test harness</span> for it.</p>
       <div style="display: flex; gap: 10px; flex-wrap: wrap;">
         <a href="#agentic" style="padding: 11px 20px; background: oklch(18% 0.01 85); color: #fff; border-radius: 100px; font-size: 14px; font-weight: 600;">See the agent systems →</a>
         <a href="https://github.com/amirkiaml" target="_blank" style="padding: 11px 20px; border: 1px solid oklch(85% 0.01 85); color: oklch(30% 0.01 85); border-radius: 100px; font-size: 14px; font-weight: 600;">GitHub</a>
@@ -270,7 +301,7 @@
   <section id="agentic" style="padding: 48px 0 64px;">
     <p style="margin: 0 0 6px; font-size: 13px; font-weight: 700; color: oklch(52% 0.16 258); text-transform: uppercase; letter-spacing: 0.08em;">Featured Work</p>
     <h2 style="margin: 0 0 10px; font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em;">Agentic AI Systems in Production</h2>
-    <p style="margin: 0 0 36px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 700px;">Two systems built for live traffic — one on the phone, one over SMS. Both are mine end to end: architecture, agent design, guardrails, deployment, and the failures that only show up once real numbers are on the other end.</p>
+    <p style="margin: 0 0 36px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 700px;">Two systems built for live traffic -- one on the phone, one over SMS. Both are mine end to end: architecture, agent design, guardrails, deployment, and the failures that only show up once real numbers are on the other end.</p>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; align-items: start;">
 
@@ -279,10 +310,10 @@
         <summary style="padding: 28px;">
           <img src="uploads/sales-automation.png" alt="Three drafting agents write competing messages in parallel; a picker agent selects one; Twilio sends it" style="width: 100%; height: 170px; object-fit: contain; background: oklch(96% 0.005 85); border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
 
-          <span class="badge-live">Live — sending to real prospects</span>
+          <span class="badge-live">Live -- sending to real prospects</span>
           <p class="eyebrow">Sole engineer · 2026</p>
           <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">SMS Outreach &amp; SDR Agent System</h3>
-          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">Three agents draft every cold message in parallel and a picker agent selects one against explicit criteria — no single model settling for its first attempt. Replies go to a stateful SDR agent, and the rules that carry legal weight are enforced in code, not prompts.</p>
+          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">Three agents draft every cold message in parallel and a picker agent selects one against explicit criteria -- no single model settling for its first attempt. Replies go to a stateful SDR agent, and the rules that carry legal weight are enforced in code, not prompts.</p>
 
           <p class="strip-label">Measured on real sends</p>
           <div class="strip-measured">
@@ -309,17 +340,17 @@
         <div class="card-body">
 
           <h4>What it does, end to end</h4>
-          <p>A lead scraper pulls home-service businesses from Google Places into Supabase, and a <strong>hook agent</strong> reads each business profile to find a specific angle worth opening on — that hook is what the three drafters compete over. Once the picker has chosen, the draft passes through code-level checks — compliance footer, GSM-7 sanitisation, suppression list, line-type guard — before Twilio sends it.</p>
+          <p>A lead scraper pulls home-service businesses from Google Places into Supabase, and a <strong>hook agent</strong> reads each business profile to find a specific angle worth opening on -- that hook is what the three drafters compete over. Once the picker has chosen, the draft passes through code-level checks -- compliance footer, GSM-7 sanitisation, suppression list, line-type guard -- before Twilio sends it.</p>
           <p>When a reply lands on the FastAPI webhook, a <strong>triage agent</strong> classifies it as interested, objection, not-now, or opt-out. Opt-outs are handled in code and never reach a model. Everything else goes to a stateful <strong>SDR agent</strong> that holds the conversation, grounded in a YAML knowledge base, and hands off to me the moment it hits something outside its scope. An operator console shows every thread with its full trace, and I can take over any conversation mid-flight.</p>
 
           <h4>The two agents that only exist to say no</h4>
-          <p>Two guardrails wrap the reply path. A cheap keyword scope check runs first and catches the obvious out-of-bounds cases for nothing; an LLM classifier catches the rest. A separate grounding judge checks that every claim in a drafted reply traces back to the knowledge base, because the expensive failure here isn't rudeness — it's an agent inventing a price or a capability to a real prospect.</p>
+          <p>Two guardrails wrap the reply path. A cheap keyword scope check runs first and catches the obvious out-of-bounds cases for nothing; an LLM classifier catches the rest. A separate grounding judge checks that every claim in a drafted reply traces back to the knowledge base, because the expensive failure here isn't rudeness -- it's an agent inventing a price or a capability to a real prospect.</p>
 
           <h4>The autopilot agent holds no tools</h4>
-          <p>Output guardrails run <em>after</em> tool calls, so an agent holding <code>send_sms</code> can deliver an ungrounded message before any check sees it — and a text can't be unsent. So the agent returns structured output and code decides whether to send. The same reasoning drives retrieval: the knowledge base is lexical rather than vector, because an off-topic question must retrieve <em>nothing</em>, and similarity search always returns a nearest neighbour.</p>
+          <p>Output guardrails run <em>after</em> tool calls, so an agent holding <code>send_sms</code> can deliver an ungrounded message before any check sees it -- and a text can't be unsent. So the agent returns structured output and code decides whether to send. The same reasoning drives retrieval: the knowledge base is lexical rather than vector, because an off-topic question must retrieve <em>nothing</em>, and similarity search always returns a nearest neighbour.</p>
 
           <h4>Rules that must always hold live in code, not prompts</h4>
-          <p>Five rules migrated out of prompts during development: the CASL opt-out footer, GSM-7 punctuation, the sub-4.0 ratings the hook agent kept building insulting angles from, and two others. An instruction followed 98% of the time isn't a guarantee, and twice, tightening the instruction caused the next failure instead of fixing it. The compliance tests assert the paths where a bug is a legal problem — a suppressed number can never be sent to, opt-outs survive prospect deletion, a blocked message never returns silence.</p>
+          <p>Five rules migrated out of prompts during development: the CASL opt-out footer, GSM-7 punctuation, the sub-4.0 ratings the hook agent kept building insulting angles from, and two others. An instruction followed 98% of the time isn't a guarantee, and twice, tightening the instruction caused the next failure instead of fixing it. The compliance tests assert the paths where a bug is a legal problem -- a suppressed number can never be sent to, opt-outs survive prospect deletion, a blocked message never returns silence.</p>
 
           <h4>Layout</h4>
 <pre style="margin: 0; font-size: 12px; line-height: 1.7; color: oklch(30% 0.01 85); background: oklch(96% 0.005 85); padding: 12px 14px; border-radius: 10px; overflow-x: auto;">app/agents/   hook · 3 drafters · picker · triage · draft · SDR · guardrails
@@ -335,8 +366,8 @@ tests/        105 tests, 20 compliance</pre>
       <!-- VoiceCaptures -->
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
         <summary style="padding: 28px;">
-          <img src="uploads/69db9c4b-67c8-42c8-a149-461e033e8969.png" alt="VoiceCaptures — AI receptionist for home service contractors" style="width: 100%; height: 170px; object-fit: cover; border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
-          <span class="badge-live">Live — public demo line</span>
+          <img src="uploads/69db9c4b-67c8-42c8-a149-461e033e8969.png" alt="VoiceCaptures -- AI receptionist for home service contractors" style="width: 100%; height: 170px; object-fit: cover; border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
+          <span class="badge-live">Live -- public demo line</span>
           <p class="eyebrow">Founder · 2025–26</p>
           <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">VoiceCaptures — AI Voice Receptionist</h3>
           <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">A real-time voice agent for home service trades: answers the call, qualifies the job in conversation, checks live calendar availability, and books the slot before hanging up.</p>
@@ -366,10 +397,10 @@ tests/        105 tests, 20 compliance</pre>
           <p>Deployed on Railway and reachable on a public demo line; onboarding for paying trades is in progress, so what I can report is latency and booking accuracy rather than revenue. I'd rather show what I've measured than what I hope for.</p>
 
           <h4>The two fields that have to be exactly right</h4>
-          <p>A booking is worthless if the street address or callback number is wrong by one digit, and those are precisely the fields ASR mangles — proper nouns and digit strings have no language-model prior to fall back on. Both are read back to the caller for confirmation before the calendar write, and the structured payload is validated before it reaches the booking tool. Everything else in the conversation can tolerate a transcription error; these two cannot.</p>
+          <p>A booking is worthless if the street address or callback number is wrong by one digit, and those are precisely the fields ASR mangles -- proper nouns and digit strings have no language-model prior to fall back on. Both are read back to the caller for confirmation before the calendar write, and the structured payload is validated before it reaches the booking tool. Everything else in the conversation can tolerate a transcription error; these two cannot.</p>
 
           <h4>Why Vapi, and where I went underneath it</h4>
-          <p>Reimplementing a managed voice runtime is a three-week infrastructure project that produces something worse. The real risk of building on a provider isn't the provider — it's that the abstraction has a bottom an interviewer reaches in eight minutes. So one route runs on Pipecat with my own endpointing and barge-in handling, which is where the interesting decisions actually live: how long a pause means "your turn" varies by caller, and getting it wrong either talks over people or leaves dead air.</p>
+          <p>Reimplementing a managed voice runtime is a three-week infrastructure project that produces something worse. The real risk of building on a provider isn't the provider -- it's that the abstraction has a bottom an interviewer reaches in eight minutes. So one route runs on Pipecat with my own endpointing and barge-in handling, which is where the interesting decisions actually live: how long a pause means "your turn" varies by caller, and getting it wrong either talks over people or leaves dead air.</p>
 
           <h4>How it works</h4>
           <ol style="margin: 0; padding-left: 18px; line-height: 1.85;">
@@ -384,13 +415,66 @@ tests/        105 tests, 20 compliance</pre>
 
     </div>
 
+
+    <details class="card-wip" style="background: #fff; border: 1px solid oklch(85% 0.01 85); border-radius: 20px; margin-top: 20px;">
+      <summary style="padding: 28px;">
+        <span class="badge-wip">In progress · Nothing shipped yet</span>
+        <p class="eyebrow">Solo build · Started August 2026</p>
+        <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">Deontic Judge — a Test Harness for Rule-Following in LLM Agents</h3>
+        <p style="margin: 0 0 18px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">Agents get deployed under policies written in normative language -- must, may, should, must not -- and compliance then gets tested by keyword matching or a naive judge, both of which score the wording rather than the conduct. This is an attempt to test the substance instead.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px;">
+          <span class="chip">AI safety &amp; evals</span>
+          <span class="chip">Constitutional AI</span>
+          <span class="chip">Inspect (scoring)</span>
+          <span class="chip">CrewAI (generation)</span>
+          <span class="chip">LLM-as-judge</span>
+          <span class="chip">Deontic policy DSL</span>
+          <span class="chip">Judge calibration (Cohen's κ)</span>
+          <span class="chip">Prompt-injection suite</span>
+        </div>
+        <p style="margin: 0 0 14px; font-size: 13px; color: oklch(52% 0.01 85);">Design and scope below. The repo goes up when there's something worth reading.</p>
+        <ul style="margin: 0; padding-left: 18px; font-size: 13.5px; line-height: 1.8; color: oklch(38% 0.01 85);">
+          <li><span class="paper-pending">Deontic Semantics in LLMs: What "Must" Means to a Model <span class="note">-- paper in progress</span></span></li>
+        </ul>
+      </summary>
+
+      <div class="card-body">
+
+        <h4>The failure it's built to catch</h4>
+        <p>An agent instructed never to quote prices that replies "I can't quote a price, but similar jobs run $400–600" passes every keyword check and has plainly broken the constraint. The distinctions that decide these cases are deontic ones -- <em>contraindicated</em> versus <em>not recommended</em>, <em>shall</em> versus <em>may</em>, which obligation activates once another has already been breached -- and they're where non-specialist judges fall apart. That's the gap this targets, and it's the one place my PhD does load-bearing work rather than decorative work.</p>
+
+        <h4>Where this comes from</h4>
+        <p>This is the applied half of research I've been developing on deontic semantics in LLMs -- the question of what happens when a model handles <em>ought</em>, <em>must</em>, <em>may</em> and <em>forbidden</em>. Does its treatment of those words correspond to our best formal accounts of what they mean, or only to how they happen to be distributed across training text? A paper is in progress.</p>
+        <p>The gap I'm pointing at is specific. Methods like constitutional AI govern behaviour through rule-based critique and revision, which <em>presupposes</em> that the model's grasp of the constraint is sound rather than testing whether it is. So there are three ways to probe it: whether obligation and permission occupy distinct structure in embedding space or blur into each other, whether models honour formal inference patterns (given "you must do X" and "if X then Y", does "you must do Y" follow), and whether any of this is happening structurally at all rather than by surface correlation, which interpretability tooling can trace. What comes out is a typology of failure modes -- loopholes, a context-bound <em>must</em> treated as absolute, obligations that quietly change between turns -- and a dataset of prompts and responses annotated against them.</p>
+        <p>My doctoral work was on a structurally similar problem in a different domain: the semantics of grounding, where <em>because</em> and <em>in virtue of</em> look well-understood precisely because they're so familiar in ordinary language, and turn out to be badly underspecified the moment you try to say exactly what they mean. <em>Must</em> and <em>may</em> are in that position now, and the stakes are higher, because they're the vocabulary every model spec, tool-use policy and compliance rule is written in.</p>
+        <p>The harness is the engineering counterpart. Where the paper argues the point, this has to survive a scorer and a set of human labels.</p>
+
+        <h4>Intended shape</h4>
+        <ul style="margin: 0 0 20px; padding-left: 18px; line-height: 1.9;">
+          <li><strong>Attacker</strong> -- generates adversarial transcripts against a policy-constrained agent, adapting from whatever got through</li>
+          <li><strong>Target</strong> -- my own systems under test, so the policies are ones I actually wrote and have to live with</li>
+          <li><strong>Judge</strong> -- substantive-violation scoring against a rubric derived from the policy, not from its phrasing</li>
+          <li><strong>Policy DSL</strong> -- a small deontic fragment with a satisfiability check, so contradictory policy pairs get caught before runtime rather than after</li>
+          <li><strong>Reporter</strong> -- violation taxonomy, ablation table, calibration statistics</li>
+        </ul>
+
+        <h4>Two decisions made up front</h4>
+        <p>Generation stays in CrewAI while scoring is built on Inspect. Splitting them is deliberate: Inspect is the lingua franca for evals, so the artifact stays readable to the people who read evals for a living, and the boundary keeps the scorer independently testable. The vertical is healthcare guideline adherence, where <em>contraindicated</em> and <em>not recommended</em> are genuinely distinct strengths rather than stylistic variants, and where I have domain standing from the day job.</p>
+
+        <h4>What would make it credible, and what would not</h4>
+        <p>The judge is an LLM scoring other models' behaviour, which raises the obvious question: who checks the judge? So the number that decides whether any of this is worth anything is how often the judge and I agree on the same set of held-out cases, measured against how often we'd agree by luck alone. That correction matters: if 90% of transcripts are compliant, a judge that blindly says "compliant" every time already looks 90% right. Cohen's kappa is the standard way to strip that out, and it's the figure I'll report.</p>
+        <p>The known ways a judge like this goes wrong are documented, so they get handled by name rather than hoped away: preferring whichever option it sees first, mistaking length for quality, and rating output from its own model family more kindly -- which is why the judge runs on a different family than the system under test. If the agreement number comes out weak, that's the result and it gets published as the result.</p>
+
+      </div>
+    </details>
+
   </section>
 
   <!-- RAG PROJECTS -->
   <section id="rag" style="padding: 64px 0; border-top: 1px solid oklch(91% 0.006 85);">
     <p style="margin: 0 0 6px; font-size: 13px; font-weight: 700; color: oklch(52% 0.16 258); text-transform: uppercase; letter-spacing: 0.08em;">Retrieval &amp; Applied ML</p>
     <h2 style="margin: 0 0 10px; font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em;">RAG &amp; Semantic Search</h2>
-    <p style="margin: 0 0 36px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 700px;">One retrieval system, built on a corpus hard enough that the retrieval strategy decides the answer — and measured until it said things I didn't want to hear.</p>
+    <p style="margin: 0 0 36px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 700px;">One retrieval system, built on a corpus hard enough that the retrieval strategy decides the answer -- and measured until it said things I didn't want to hear.</p>
 
     <div style="display: grid; grid-template-columns: minmax(0, 720px); gap: 20px; align-items: start;">
 
@@ -399,7 +483,7 @@ tests/        105 tests, 20 compliance</pre>
         <summary style="padding: 28px;">
           <img src="uploads/5ae65aef-5383-4077-9c79-f184aadcb8a3.png" alt="DeepAnalytic retrieval pipeline" style="width: 100%; height: 190px; object-fit: contain; background: #111; border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
 
-          <span class="badge-live">Expert testing begins September</span>
+          <span class="badge-live">Expert testing begins Aug 20</span>
           <p class="eyebrow">Solo build · Evaluated · 2026</p>
           <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">DeepAnalytic — RAG over the Stanford Encyclopedia of Philosophy</h3>
           <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">A retrieval pipeline I built, then measured until it contradicted me twice: the reranker was making answers worse, and the section-aware chunking the whole design rests on didn't beat a far simpler splitter. Both findings redirected the build.</p>
@@ -407,7 +491,7 @@ tests/        105 tests, 20 compliance</pre>
           <p class="strip-label">Measured, against my own hypotheses</p>
           <div class="strip-measured">
             <div><div class="n">4.11 → 3.74</div><div class="l">overall score <em>fell</em> when reranking was added</div></div>
-            <div><div class="n">5</div><div class="l">chunking strategies compared — no clear winner</div></div>
+            <div><div class="n">5</div><div class="l">chunking strategies compared -- no clear winner</div></div>
             <div><div class="n">3</div><div class="l">failure modes traced to chunk-level evidence</div></div>
           </div>
 
@@ -428,31 +512,31 @@ tests/        105 tests, 20 compliance</pre>
         <div class="card-body">
 
           <h4>What it is</h4>
-          <p>A retrieval-augmented QA system over the full 2024 Stanford Encyclopedia of Philosophy, scraped myself. The corpus is a deliberately hard case: dense, heavily cross-referenced, and full of terms whose meaning shifts between sub-fields. The pipeline chunks each article along its own table-of-contents boundaries, embeds to Pinecone, retrieves, reranks with Cohere, and generates — with a naive-retrieval path kept alongside so every change is measured against a baseline rather than assumed to help.</p>
+          <p>A retrieval-augmented QA system over the full 2024 Stanford Encyclopedia of Philosophy, scraped myself. The corpus is a deliberately hard case: dense, heavily cross-referenced, and full of terms whose meaning shifts between sub-fields. The pipeline chunks each article along its own table-of-contents boundaries, embeds to Pinecone, retrieves, reranks with Cohere, and generates -- with a naive-retrieval path kept alongside so every change is measured against a baseline rather than assumed to help.</p>
 
           <h4>I was wrong about chunking, and the test said so</h4>
-          <p>The premise was that chunking along real section boundaries would beat fixed token windows, since a blind splitter can drop two unrelated subsections into one chunk. A five-way comparison — section-aware, fixed-window, paragraph, sentence-window, semantic — says otherwise. On straightforward questions, section-aware, fixed-window and paragraph chunking retrieved near-identical text, word for word in places, because paragraph breaks in a well-edited article already track topic breaks closely enough that a structure-blind splitter lands in the same place.</p>
-          <p>Semantic chunking was the interesting failure: the only strategy that ever clearly won a question, and the only one that ever clearly lost one — it caught a specific example nothing else found, then drifted into an unrelated passage about heresy when asked about universals. That volatility is the finding. I'm not putting retrieval quality on a coin flip, so it's disqualified as a default despite the ceiling. Section-aware stays, not because it won but because nothing beat it and it matches the source structure.</p>
+          <p>The premise was that chunking along real section boundaries would beat fixed token windows, since a blind splitter can drop two unrelated subsections into one chunk. A five-way comparison -- section-aware, fixed-window, paragraph, sentence-window, semantic -- says otherwise. On straightforward questions, section-aware, fixed-window and paragraph chunking retrieved near-identical text, word for word in places, because paragraph breaks in a well-edited article already track topic breaks closely enough that a structure-blind splitter lands in the same place.</p>
+          <p>Semantic chunking was the interesting failure: the only strategy that ever clearly won a question, and the only one that ever clearly lost one -- it caught a specific example nothing else found, then drifted into an unrelated passage about heresy when asked about universals. That volatility is the finding. I'm not putting retrieval quality on a coin flip, so it's disqualified as a default despite the ceiling. Section-aware stays, not because it won but because nothing beat it and it matches the source structure.</p>
 
           <h4>The bottleneck is after retrieval, not before it</h4>
-          <p>On composite questions — compare something in one part of an article to something in another — nearly every strategy failed the same way: it retrieved both halves of the evidence and then declined to synthesize them, reporting that the context provided no direct comparison. The material was in the window. That's a generation failure, and no amount of re-cutting the source text addresses it.</p>
-          <p>The systematic reranker eval pointed at the same place from a different direction. Reranking came out flat-to-worse across the board, with failures reproducible against the retrieved chunk text. On organic versus somatic animalism, the reranked context kept a chunk that <em>names</em> both terms and points at where they're explained — an explicit backward reference to section 1.2 — while discarding the two chunks section 1.2 was pointing at. On Cicero's <em>res publica</em>, retrieval kept the right chunk and the model still refused, because the causal claim was assembled across the surrounding section rather than stated in one place. A third case was harder still: a chunk opening "the third negative claim Oruka aimed to challenge," with no explicit link to follow and the section listing all three never retrieved at all.</p>
-          <p>One root cause, three shapes: a chunk can mention or presuppose content it doesn't contain, and nothing in the pipeline notices the gap. Explicit pointers are followable if you look for cross-references. Implicit ones — an ordinal, a presupposition, a causal link spread across a section — need the model to recognize it's filling a gap rather than reporting, which is a different fix.</p>
+          <p>On composite questions -- compare something in one part of an article to something in another -- nearly every strategy failed the same way: it retrieved both halves of the evidence and then declined to synthesize them, reporting that the context provided no direct comparison. The material was in the window. That's a generation failure, and no amount of re-cutting the source text addresses it.</p>
+          <p>The systematic reranker eval pointed at the same place from a different direction. Reranking came out flat-to-worse across the board, with failures reproducible against the retrieved chunk text. On organic versus somatic animalism, the reranked context kept a chunk that <em>names</em> both terms and points at where they're explained -- an explicit backward reference to section 1.2 -- while discarding the two chunks section 1.2 was pointing at. On Cicero's <em>res publica</em>, retrieval kept the right chunk and the model still refused, because the causal claim was assembled across the surrounding section rather than stated in one place. A third case was harder still: a chunk opening "the third negative claim Oruka aimed to challenge," with no explicit link to follow and the section listing all three never retrieved at all.</p>
+          <p>One root cause, three shapes: a chunk can mention or presuppose content it doesn't contain, and nothing in the pipeline notices the gap. Explicit pointers are followable if you look for cross-references. Implicit ones -- an ordinal, a presupposition, a causal link spread across a section -- need the model to recognize it's filling a gap rather than reporting, which is a different fix.</p>
 
           <h4>What the findings changed</h4>
-          <p>Multiquery decomposition is now built and in the pipeline rather than sitting on a someday list — <code>multiquery.py</code>, topic-first and schema-enforced, exposed through <code>query_multi()</code> and <code>query_multi_concat()</code>. It's aimed squarely at the composite-question failure: if the model won't assemble a comparison from one retrieval pass, decompose the question first and give it the halves separately. That ordering came from the evidence, not from a roadmap written in advance.</p>
+          <p>Multiquery decomposition is now built and in the pipeline rather than sitting on a someday list -- <code>multiquery.py</code>, topic-first and schema-enforced, exposed through <code>query_multi()</code> and <code>query_multi_concat()</code>. It's aimed squarely at the composite-question failure: if the model won't assemble a comparison from one retrieval pass, decompose the question first and give it the halves separately. That ordering came from the evidence, not from a roadmap written in advance.</p>
 
           <h4>How the evaluation was built</h4>
-          <p>Five articles chosen for known interesting cases rather than coverage — two confirmed rerank failures, one accuracy-drift case, one cross-article retrieval case, one clean baseline — two questions each, run through both retrieval modes and scored on Accuracy, Source Match and Completeness against expected key points fixed before any answers existed.</p>
+          <p>Five articles chosen for known interesting cases rather than coverage -- two confirmed rerank failures, one accuracy-drift case, one cross-article retrieval case, one clean baseline -- two questions each, run through both retrieval modes and scored on Accuracy, Source Match and Completeness against expected key points fixed before any answers existed.</p>
           <p>Methodology follows current RAG-eval practice: LLM-assisted test-set generation paired with LLM-as-judge scoring and human verification. Claude generated the article selection, questions and rubric, built the automation script, and did first-pass scoring; I scored independently afterward, spot-checking the highest-stakes rows against the retrieved chunk text directly. Both score sets sit side by side in <code>tests/eval_scored.xlsx</code>, including a row where my pass corrected Claude's.</p>
 
           <h4>Write-ups</h4>
           <ul style="margin: 0 0 20px; padding-left: 18px; line-height: 1.9;">
             <li><a href="https://vmachines.substack.com/p/building-a-rag-system-that-knows" target="_blank" rel="noopener">Building a RAG System That Knows What Section It's In</a></li>
-            <li>Five Chunking Strategies, No Winner, One Real Finding — coming soon</li>
-            <li>Chunks That Mention vs. Chunks That Explain — coming soon</li>
-            <li>From Multiquery to a Referee — coming soon</li>
-            <li>A Buried Answer, Two Wrong Guesses, and a Fix — coming soon</li>
+            <li>Five Chunking Strategies, No Winner, One Real Finding -- coming soon</li>
+            <li>Chunks That Mention vs. Chunks That Explain -- coming soon</li>
+            <li>From Multiquery to a Referee -- coming soon</li>
+            <li>A Buried Answer, Two Wrong Guesses, and a Fix -- coming soon</li>
           </ul>
 
           <h4>What's in the repo</h4>
@@ -468,10 +552,10 @@ tests/              question set, raw results, rubric, scored output
 notebooks/          research history, chunking comparison, multiquery dev log</pre>
 
           <h4>Expert testing, from August 20</h4>
-          <p>10+ professional philosophers and PhD students start querying the system on August 20. The point isn't usage numbers — it's that a specialist asking about their own sub-field will surface sense-conflation and refusal failures far faster than questions I write for myself, because they already know what the right answer looks like. Their queries become the next golden set, and the failures they hit get traced the same way the reranker failures were.</p>
+          <p>50+ professional philosophers and PhD students start querying the system on August 20. The point isn't usage numbers -- it's that a specialist asking about their own sub-field will surface sense-conflation and refusal failures far faster than questions I write for myself, because they already know what the right answer looks like. Their queries become the next golden set, and the failures they hit get traced the same way the reranker failures were.</p>
 
           <h4>Corpus, and what's next</h4>
-          <p>The full 2024 Stanford Encyclopedia is scraped — article text, tables of contents, bibliographies, metadata. Metadata for 28 Springer Nature philosophy journals (~800k pages) and ~10k pages from <em>Analysis</em> are scraped but not yet indexed. Retrieval currently runs on a 100-article slice.</p>
+          <p>The full 2024 Stanford Encyclopedia is scraped -- article text, tables of contents, bibliographies, metadata. Metadata for 28 Springer Nature philosophy journals (~800k pages) and ~10k pages from <em>Analysis</em> are scraped but not yet indexed. Retrieval currently runs on a 100-article slice.</p>
           <p>With multiquery in, the remaining generation-layer work is a self-critique step and multi-hop retrieval that follows a pointer inside a chunk to the section actually explaining the concept. Then full-corpus indexing, a FastAPI service, deployment, and an open-model option alongside the OpenAI path. The expert round runs before most of that lands, so what it turns up shapes the order of the rest.</p>
 
         </div>
@@ -499,16 +583,16 @@ notebooks/          research history, chunking comparison, multiquery dev log</p
           <h4 style="font-size: 13px; margin-top: 18px;">The decision that changed the design</h4>
           <p style="font-size: 12.5px;">I started with a custom planner/executor, then switched to native <code>@function_tool</code> with <code>tool_choice="required"</code>. The reason is specific: in the custom version each tool call was planned before prior results existed, whereas the SDK's conversation loop puts real results in context before the next call is chosen. Planning ahead of your own outputs is planning blind.</p>
           <h4 style="font-size: 13px;">The failure that needed an extra tool</h4>
-          <p style="font-size: 12.5px;">Forced tool use means the model must pick something, so on trivial inputs it reached for whichever tool was nearest and produced nonsense. Adding <code>DirectAnswerTool</code> as an explicit "no tool applies" option fixed it — the constraint needed an escape hatch, not a better prompt.</p>
+          <p style="font-size: 12.5px;">Forced tool use means the model must pick something, so on trivial inputs it reached for whichever tool was nearest and produced nonsense. Adding <code>DirectAnswerTool</code> as an explicit "no tool applies" option fixed it -- the constraint needed an escape hatch, not a better prompt.</p>
         </div>
       </details>
 
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 18px;">
         <summary style="padding: 22px;">
-          <span class="badge-live">Live on Streamlit — try it</span>
+          <span class="badge-live">Live on Streamlit -- try it</span>
           <p class="eyebrow" style="font-size: 11px;">Solo build · 2023</p>
           <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 16.5px; font-weight: 700;">DeepChef — Semantic Recommender</h3>
-          <p style="margin: 0 0 14px; font-size: 13.5px; line-height: 1.55; color: oklch(38% 0.01 85);">Give it a recipe you like and it returns the five closest matches from 520k scraped from food.com. My BrainStation capstone, extended past the assignment and deployed — still running three years later.</p>
+          <p style="margin: 0 0 14px; font-size: 13.5px; line-height: 1.55; color: oklch(38% 0.01 85);">Give it a recipe you like and it returns the five closest matches from 520k scraped from food.com. My BrainStation capstone, extended past the assignment and deployed -- still running three years later.</p>
           <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px;">
             <span class="chip chip-sm">OpenAI embeddings</span>
             <span class="chip chip-sm">Semantic search</span>
@@ -528,7 +612,7 @@ notebooks/          research history, chunking comparison, multiquery dev log</p
           <h4 style="font-size: 13px;">What it does</h4>
           <p style="font-size: 12.5px;">Embeddings over ingredients, instructions and themes, so the query can be a whole recipe rather than a keyword. Scraped with Selenium, embedded, deployed. Stack: bertopic · spacy · nltk · pandas / numpy · openai · tiktoken · scikit-learn · umap · selenium · streamlit.</p>
           <h4 style="font-size: 13px;">Where it sits now</h4>
-          <p style="font-size: 12.5px;">Single-vector cosine similarity, which was a reasonable 2023 choice and is commodity in 2026 — DeepAnalytic is where the retrieval thinking lives now. Kept here because it has been deployed and usable for three years, and because scraping and embedding half a million records end to end is the part most tutorials skip.</p>
+          <p style="font-size: 12.5px;">Single-vector cosine similarity, which was a reasonable 2023 choice and is commodity in 2026 -- DeepAnalytic is where the retrieval thinking lives now. Kept here because it has been deployed and usable for three years, and because scraping and embedding half a million records end to end is the part most tutorials skip.</p>
         </div>
       </details>
 
@@ -536,14 +620,14 @@ notebooks/          research history, chunking comparison, multiquery dev log</p
         <summary style="padding: 22px;">
           <p class="eyebrow" style="font-size: 11px;">Team of 4 · 24 hours · 1st place</p>
           <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 16.5px; font-weight: 700;">Google × BrainStation Hackathon — 1st Place</h3>
-          <p style="margin: 0 0 14px; font-size: 13.5px; line-height: 1.55; color: oklch(38% 0.01 85);">Won a 24-hour industry hackathon designing "Insights" — an LLM widget giving users plain-language explanations of how Google's AI features use their data.</p>
+          <p style="margin: 0 0 14px; font-size: 13.5px; line-height: 1.55; color: oklch(38% 0.01 85);">Won a 24-hour industry hackathon designing "Insights" -- an LLM widget giving users plain-language explanations of how Google's AI features use their data.</p>
           <a href="https://github.com/amirkiaml/Google-Industry-Day" target="_blank" rel="noopener" style="font-size: 13.5px; font-weight: 600;">Repository →</a>
         </summary>
         <div class="card-body" style="padding: 0 22px 22px;">
           <h4 style="font-size: 13px; margin-top: 18px;">The problem we picked</h4>
           <p style="font-size: 12.5px;">A one-day hackathon hosted by BrainStation for Google, July 2023. Our team tackled growing public mistrust of AI: no transparency into how AI-driven results are produced, and no way for a user to verify anything.</p>
           <h4 style="font-size: 13px;">What we designed</h4>
-          <p style="font-size: 12.5px;">"Insights," a widget giving users an on-demand explanation of how AI is using their data. A hover reveals a summary; a click opens a chatbot — envisioned on an LLM fine-tuned on Google's product docs — that answers deeper questions in the moment, turning a black box into something users can interrogate. Engagement with the widget doubles as a trust signal, analyzed with ANOVA and A/B testing to feed back into product decisions.</p>
+          <p style="font-size: 12.5px;">"Insights," a widget giving users an on-demand explanation of how AI is using their data. A hover reveals a summary; a click opens a chatbot -- envisioned on an LLM fine-tuned on Google's product docs -- that answers deeper questions in the moment, turning a black box into something users can interrogate. Engagement with the widget doubles as a trust signal, analyzed with ANOVA and A/B testing to feed back into product decisions.</p>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
             <img src="uploads/pasted-1784569978612-0.png" alt="Google Insights concept slide" style="width: 100%; border-radius: 10px; border: 1px solid oklch(91% 0.006 85); display: block;">
             <img src="uploads/pasted-1784569984033-0.png" alt="1st Place Industry Project certificate" style="width: 100%; border-radius: 10px; border: 1px solid oklch(91% 0.006 85); display: block;">
@@ -557,7 +641,7 @@ notebooks/          research history, chunking comparison, multiquery dev log</p
     <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 18px;">
       <summary style="padding: 22px;">
         <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 16.5px; font-weight: 700;">Five analytics &amp; ML studies</h3>
-        <p style="margin: 0 0 6px; font-size: 13.5px; line-height: 1.6; color: oklch(38% 0.01 85); max-width: 760px;">Distributed big-data wrangling, SQL and dashboarding, NLP classification, public-health prediction, and hospital readmission modelling — the statistical and data-engineering groundwork under the agent work above.</p>
+        <p style="margin: 0 0 6px; font-size: 13.5px; line-height: 1.6; color: oklch(38% 0.01 85); max-width: 760px;">Distributed big-data wrangling, SQL and dashboarding, NLP classification, public-health prediction, and hospital readmission modelling -- the statistical and data-engineering groundwork under the agent work above.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px;">
           <span class="chip chip-sm">Spark / PySpark</span>
           <span class="chip chip-sm">Hadoop · Hive · S3</span>
@@ -573,10 +657,10 @@ notebooks/          research history, chunking comparison, multiquery dev log</p
         <p style="margin: 0 0 14px; font-size: 12.5px; line-height: 1.7; color: oklch(30% 0.01 85);">SQL-driven exploration of Montreal's bike-share system across the 2016–2017 seasons, paired with an interactive drill-down Tableau dashboard on usage drivers and station demand. <a href="https://github.com/amirkiaml/Bixi/blob/main/Bixi_Codes.sql" target="_blank">SQL →</a></p>
 
         <p style="margin: 0 0 8px; font-size: 13px; font-weight: 700; color: oklch(25% 0.01 85);">Sentiment Analysis — Hotel Reviews</p>
-        <p style="margin: 0 0 14px; font-size: 12.5px; line-height: 1.7; color: oklch(30% 0.01 85);">NLP pipeline from EDA through feature engineering to sentiment classification — comparing Logistic Regression, PCA, KNN, and Decision Trees, refined with cross-validation. <a href="https://github.com/amirkiaml/Sentiment-Analysis-Hotel-Reviews" target="_blank">Repository →</a></p>
+        <p style="margin: 0 0 14px; font-size: 12.5px; line-height: 1.7; color: oklch(30% 0.01 85);">NLP pipeline from EDA through feature engineering to sentiment classification -- comparing Logistic Regression, PCA, KNN, and Decision Trees, refined with cross-validation. <a href="https://github.com/amirkiaml/Sentiment-Analysis-Hotel-Reviews" target="_blank">Repository →</a></p>
 
         <p style="margin: 0 0 8px; font-size: 13px; font-weight: 700; color: oklch(25% 0.01 85);">West Nile Virus — Predictive Analysis</p>
-        <p style="margin: 0 0 14px; font-size: 12.5px; line-height: 1.7; color: oklch(30% 0.01 85);">Statistical and predictive modeling of Chicago mosquito trap data for the city's public health monitoring program — chi-square testing, then linear and logistic regression on WNV prevalence. <a href="https://github.com/amirkiaml/Stats-and-Public-Health" target="_blank">Repository →</a></p>
+        <p style="margin: 0 0 14px; font-size: 12.5px; line-height: 1.7; color: oklch(30% 0.01 85);">Statistical and predictive modeling of Chicago mosquito trap data for the city's public health monitoring program -- chi-square testing, then linear and logistic regression on WNV prevalence. <a href="https://github.com/amirkiaml/Stats-and-Public-Health" target="_blank">Repository →</a></p>
 
         <p style="margin: 0 0 8px; font-size: 13px; font-weight: 700; color: oklch(25% 0.01 85);">U.S. Diabetes Readmission</p>
         <p style="margin: 0; font-size: 12.5px; line-height: 1.7; color: oklch(30% 0.01 85);">Explored ~100k U.S. hospital records (1999–2008) to identify sub-groups at higher readmission risk, then modeled readmission with logistic regression. <a href="https://github.com/amirkiaml/US-Diabetes" target="_blank">Repository →</a></p>
@@ -711,10 +795,10 @@ notebooks/          research history, chunking comparison, multiquery dev log</p
         <img src="uploads/dadcf597-8201-4f57-a1a7-404c2c0ac84c.jpg" alt="Speaking at the Mindstone AI Meetup" style="width: 100%; height: 130px; object-fit: cover; border-radius: 12px; margin-bottom: 14px;">
         <h4 style="margin: 0 0 12px; font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700;">Public Engagements</h4>
         <ul style="margin: 0 0 12px; padding-left: 18px; font-size: 13px; line-height: 2; color: oklch(30% 0.01 85);">
-          <li><a href="https://docs.google.com/presentation/d/1C9S2kNNP3qlLWwZy9DzE9zZHSwwLVv_0TgotDbPPUJc/edit" target="_blank">The Ethical Frameworks Underneath Frontier AI Models</a> — The AI Collective, Jan 2026</li>
-          <li><a href="https://docs.google.com/presentation/d/1X2ROQ8jIb8owZx5iMnJmXT4urDVtlUUD/edit?rtpof=true" target="_blank">AI Consciousness Through Connectionism</a> — Microsoft, Vancouver, Oct 2024</li>
-          <li><a href="https://docs.google.com/presentation/d/133APkPJvgwiTpfr6hXEv6_nODB-t7GbGJkkHvEOSzm4/edit" target="_blank">Corporate Transparency in the Age of Advanced AI</a> — University of Toronto, Feb 2025</li>
-          <li>Toronto AI Safety Day — Petrov Day Tribute (co-chair) — The AI Collective Toronto, Sept 2025</li>
+          <li><a href="https://docs.google.com/presentation/d/1C9S2kNNP3qlLWwZy9DzE9zZHSwwLVv_0TgotDbPPUJc/edit" target="_blank">The Ethical Frameworks Underneath Frontier AI Models</a> -- The AI Collective, Jan 2026</li>
+          <li><a href="https://docs.google.com/presentation/d/1X2ROQ8jIb8owZx5iMnJmXT4urDVtlUUD/edit?rtpof=true" target="_blank">AI Consciousness Through Connectionism</a> -- Microsoft, Vancouver, Oct 2024</li>
+          <li><a href="https://docs.google.com/presentation/d/133APkPJvgwiTpfr6hXEv6_nODB-t7GbGJkkHvEOSzm4/edit" target="_blank">Corporate Transparency in the Age of Advanced AI</a> -- University of Toronto, Feb 2025</li>
+          <li>Toronto AI Safety Day -- Petrov Day Tribute (co-chair) -- The AI Collective Toronto, Sept 2025</li>
         </ul>
         <a href="https://virtuousmachines.com/talks" target="_blank" style="font-size: 13.5px; font-weight: 600;">More talks at virtuousmachines.com/talks →</a>
       </div>
@@ -722,9 +806,9 @@ notebooks/          research history, chunking comparison, multiquery dev log</p
         <img src="uploads/29041d7c-9ec0-45c9-8dd6-e644bf816140.jpg" alt="Working through logic notation on a whiteboard" style="width: 100%; height: 130px; object-fit: cover; border-radius: 12px; margin-bottom: 14px;">
         <h4 style="margin: 0 0 12px; font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700;">Research &amp; Writings</h4>
         <ul style="margin: 0 0 12px; padding-left: 18px; font-size: 13px; line-height: 2; color: oklch(30% 0.01 85);">
-          <li><a href="https://substack.com/home/post/p-181721790" target="_blank">Introspection in AI: What Anthropic's New Paper Really Shows</a> — Dec 15, 2025</li>
-          <li><a href="https://llminds.substack.com/p/do-llms-have-minds-part-1-evidence" target="_blank">Do LLMs Have Minds? Evidence of Information-Carrying Representations</a> — Nov 17, 2024</li>
-          <li>Chomsky Against Large Language Models — A Response — Aug 21, 2024</li>
+          <li><a href="https://substack.com/home/post/p-181721790" target="_blank">Introspection in AI: What Anthropic's New Paper Really Shows</a> -- Dec 15, 2025</li>
+          <li><a href="https://llminds.substack.com/p/do-llms-have-minds-part-1-evidence" target="_blank">Do LLMs Have Minds? Evidence of Information-Carrying Representations</a> -- Nov 17, 2024</li>
+          <li>Chomsky Against Large Language Models -- A Response -- Aug 21, 2024</li>
         </ul>
         <a href="https://virtuousmachines.com/research-consulting" target="_blank" style="font-size: 13.5px; font-weight: 600;">More at virtuousmachines.com/research-consulting →</a>
       </div>
@@ -740,13 +824,13 @@ notebooks/          research history, chunking comparison, multiquery dev log</p
         <summary style="padding: 24px;">
           <img src="uploads/book1.png" alt="No Bullshit Math for Data Science cover" style="width: 100%; height: 170px; object-fit: cover; border-radius: 12px; margin-bottom: 14px;">
           <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700;">No Bullshit Math for Data Science</h3>
-          <p style="margin: 0 0 14px; font-size: 13.5px; line-height: 1.5; color: oklch(38% 0.01 85);">A short, sharp book on the mathematics underneath data science — linear algebra, calculus, statistics, and the math behind core ML algorithms, with Python code.</p>
+          <p style="margin: 0 0 14px; font-size: 13.5px; line-height: 1.5; color: oklch(38% 0.01 85);">A short, sharp book on the mathematics underneath data science -- linear algebra, calculus, statistics, and the math behind core ML algorithms, with Python code.</p>
           <a href="https://www.amazon.ca/Bullshit-Math-Data-Science-Comprehensive/dp/B0C47K45WH" target="_blank" style="font-size: 13.5px; font-weight: 600; margin-right: 16px;">Amazon →</a>
           <a href="https://github.com/amirkiaml/No-Bullshit-Math-for-DS/blob/main/No%20Bullshit%20Math%20for%20Data%20Science.pdf" target="_blank" style="font-size: 13.5px; font-weight: 600;">Book PDF →</a>
         </summary>
         <div style="padding: 0 24px 24px; border-top: 1px solid oklch(93% 0.006 85); margin-top: 4px;">
           <p style="margin: 16px 0 10px; font-size: 13px; line-height: 1.65; color: oklch(30% 0.01 85);">Most books teaching the mathematics under data science run ~350 pages, cost a lot, lean heavily on code, and teach surprisingly little actual math. This one is built to fix that: short, sharp, and math-first.</p>
-          <p style="margin: 0 0 14px; font-size: 13px; line-height: 1.65; color: oklch(30% 0.01 85);">Part I covers the core mathematics — linear algebra, calculus, statistics, and probability theory. Part II builds on it to cover the mathematics underneath regression, tree methods, support vector machines, clustering, PCA, and neural networks, with Python implementations throughout.</p>
+          <p style="margin: 0 0 14px; font-size: 13px; line-height: 1.65; color: oklch(30% 0.01 85);">Part I covers the core mathematics -- linear algebra, calculus, statistics, and probability theory. Part II builds on it to cover the mathematics underneath regression, tree methods, support vector machines, clustering, PCA, and neural networks, with Python implementations throughout.</p>
           <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
             <img src="uploads/book2.png" alt="Sample page: Vectors" style="width: 100%; border-radius: 8px; border: 1px solid oklch(91% 0.006 85);">
             <img src="uploads/book3.png" alt="Sample page: table of contents" style="width: 100%; border-radius: 8px; border: 1px solid oklch(91% 0.006 85);">
@@ -801,28 +885,28 @@ notebooks/          research history, chunking comparison, multiquery dev log</p
           <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">I then continued into a PhD at the University of Calgary, where over 4 years I engaged in research in Logic and Metaphysics.</p>
 
           <h4 style="margin: 0 0 8px; font-size: 13.5px; font-weight: 700;">Research</h4>
-          <p style="margin: 0 0 8px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">My MA thesis, <em>Perception, Abductive Methodology, and Compositional Universalism</em>, argued for compositional universalism — the view that any plurality of objects constitutes an object. <a href="http://amirkiani.ucalgaryblogs.ca/files/2020/10/MA-Thesis.pdf" target="_blank">Read the thesis →</a></p>
+          <p style="margin: 0 0 8px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">My MA thesis, <em>Perception, Abductive Methodology, and Compositional Universalism</em>, argued for compositional universalism -- the view that any plurality of objects constitutes an object. <a href="http://amirkiani.ucalgaryblogs.ca/files/2020/10/MA-Thesis.pdf" target="_blank">Read the thesis →</a></p>
           <p style="margin: 0 0 8px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">My PhD research focused on questions of fundamentality, with a secondary interest in IT ethics, AI safety, and machine consciousness that I still work in today. <a href="https://prism.ucalgary.ca/items/5e063fbe-91e5-4932-88f8-16423030d5e3" target="_blank">Read the dissertation →</a></p>
           <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">One dissertation chapter was later published in <em>Synthese</em>. <a href="https://link.springer.com/article/10.1007/s11229-023-04114-5" target="_blank">Read the paper →</a></p>
 
           <h4 style="margin: 0 0 8px; font-size: 13.5px; font-weight: 700;">Teaching</h4>
           <p style="margin: 0 0 8px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">Taught a graduate-level logic course on modern modal logics to 10+ masters and PhD students across Philosophy, Mathematics, and Semiotics during my MA.</p>
-          <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">During my PhD, taught hundreds of students on AI, IT, and data ethics — deepening my grounding in AI safety debates. I write on these topics at <a href="https://substack.com/@llminds" target="_blank">substack.com/@llminds</a> and occasionally for Wikipedia and the Centre for Social Impact Technology.</p>
+          <p style="margin: 0 0 16px; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">During my PhD, taught hundreds of students on AI, IT, and data ethics -- deepening my grounding in AI safety debates. I write on these topics at <a href="https://substack.com/@llminds" target="_blank">substack.com/@llminds</a> and occasionally for Wikipedia and the Centre for Social Impact Technology.</p>
 
           <h4 style="margin: 0 0 8px; font-size: 13.5px; font-weight: 700;">Awards</h4>
           <p style="margin: 0 0 6px; font-size: 13px; font-weight: 600; color: oklch(30% 0.01 85);">MA scholarships (over $24,000):</p>
           <ul style="margin: 0 0 12px; padding-left: 18px; font-size: 13px; line-height: 1.8; color: oklch(30% 0.01 85);">
             <li>Best MA Thesis Prospectus of The Year Award, University of Tartu (2018)</li>
-            <li>Tuition Waiver Scholarship, University of Tartu — CA$6,300/yr (2017 &amp; 2018)</li>
-            <li>DoraPlus Scholarship, University of Tartu — CA$5,700/yr (2017 &amp; 2018)</li>
+            <li>Tuition Waiver Scholarship, University of Tartu -- CA$6,300/yr (2017 &amp; 2018)</li>
+            <li>DoraPlus Scholarship, University of Tartu -- CA$5,700/yr (2017 &amp; 2018)</li>
             <li>Achievement Stipend, University of Tartu (2018)</li>
             <li>Excellence Scholarship for Travel and Accommodation, University of Tartu</li>
           </ul>
           <p style="margin: 0 0 6px; font-size: 13px; font-weight: 600; color: oklch(30% 0.01 85);">PhD scholarships (over $50,000):</p>
           <ul style="margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.8; color: oklch(30% 0.01 85);">
-            <li>Alberta Graduate Excellence Scholarship (AGES), International — CA$15,000 (2021, 2019)</li>
-            <li>Department of Philosophy Graduate Essay Award — CA$2,500 (2021)</li>
-            <li>Full Funding Package (4 years) — CA$30,000/yr (2019–2023)</li>
+            <li>Alberta Graduate Excellence Scholarship (AGES), International -- CA$15,000 (2021, 2019)</li>
+            <li>Department of Philosophy Graduate Essay Award -- CA$2,500 (2021)</li>
+            <li>Full Funding Package (4 years) -- CA$30,000/yr (2019–2023)</li>
           </ul>
         </div>
       </details>
@@ -849,7 +933,7 @@ notebooks/          research history, chunking comparison, multiquery dev log</p
           </div>
 
           <h4 style="margin: 0 0 8px; font-size: 13.5px; font-weight: 700;">Research</h4>
-          <p style="margin: 0; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">Thesis on coalgebraic logics — <em>Logics for Coalgebras, and a Final Coalgebra Theorem</em> (written in Persian). <a href="http://amirkiani.ucalgaryblogs.ca/files/2020/10/Logics-For-Coalgebras-and-a-Final-Coalgebra-Theorem.pdf" target="_blank">Read the thesis →</a></p>
+          <p style="margin: 0; font-size: 13.5px; line-height: 1.65; color: oklch(30% 0.01 85);">Thesis on coalgebraic logics -- <em>Logics for Coalgebras, and a Final Coalgebra Theorem</em> (written in Persian). <a href="http://amirkiani.ucalgaryblogs.ca/files/2020/10/Logics-For-Coalgebras-and-a-Final-Coalgebra-Theorem.pdf" target="_blank">Read the thesis →</a></p>
         </div>
       </details>
     </div>
@@ -872,7 +956,7 @@ notebooks/          research history, chunking comparison, multiquery dev log</p
   <section id="contact" style="padding: 64px 0 100px; border-top: 1px solid oklch(91% 0.006 85);">
     <div style="background: oklch(18% 0.01 85); border-radius: 24px; padding: 48px; text-align: center;">
       <h2 style="margin: 0 0 16px; font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 800; color: #fff;">Get in touch</h2>
-      <p style="margin: 0 auto 28px; font-size: 15px; line-height: 1.7; color: oklch(78% 0.01 85); max-width: 580px;">Always glad to talk about agent systems that have to survive real traffic — evaluation, guardrails, and the failures that only surface once something is live. Open to agentic AI and applied ML work in Toronto or remote.</p>
+      <p style="margin: 0 auto 28px; font-size: 15px; line-height: 1.7; color: oklch(78% 0.01 85); max-width: 580px;">Always glad to talk about agent systems that have to survive real traffic -- evaluation, guardrails, and the failures that only surface once something is live. Open to agentic AI and applied ML work in Toronto or remote.</p>
       <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
         <a href="mailto:amirkianitech@gmail.com" style="padding: 12px 22px; background: #fff; color: oklch(18% 0.01 85); border-radius: 100px; font-size: 14px; font-weight: 600;">amirkianitech@gmail.com</a>
         <a href="https://www.linkedin.com/in/amir-kiani/" target="_blank" style="padding: 12px 22px; border: 1px solid oklch(40% 0.01 85); color: #fff; border-radius: 100px; font-size: 14px; font-weight: 600;">LinkedIn</a>
