@@ -285,7 +285,7 @@
       <p style="margin: 0 0 14px; font-size: 14px; font-weight: 600; color: oklch(52% 0.16 258); text-transform: uppercase; letter-spacing: 0.08em;">AI Engineer · Agentic Systems in Production <span style="color: oklch(55% 0.01 85); font-weight: 500;">· Toronto</span></p>
       <h1 style="margin: 0 0 18px; font-family: 'Montserrat', sans-serif; font-size: 46px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; max-width: 720px;">Amir Kiani</h1>
       <p style="margin: 0 0 22px; font-size: 18px; line-height: 1.6; color: oklch(38% 0.01 85); max-width: 660px;">I build LLM agent systems that run on real infrastructure -- multi-agent orchestration, tool use, guardrails, and the compliance paths where a bug is a legal problem. <span class="hl-live">Two are live right now</span>: an AI voice receptionist that books jobs during the call, and a <span class="hl-num">nine-agent</span> SMS outreach system with a <span class="hl-num">105-test</span> suite behind it.</p>
-      <p style="margin: 0 0 22px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 660px;">Alongside that I'm building DeepAnalytic, a <span class="hl-num">retrieval system</span> over the Stanford Encyclopedia of Philosophy -- an attempt to make a hard corpus genuinely answerable, and to find out by measuring rather than assuming. <span class="hl-num">50+ professional philosophers and PhD students</span> <span class="hl-live">start testing it on August 20</span>, on the theory that the people who know the corpus best will break it fastest.</p>
+      <p style="margin: 0 0 22px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 660px;">Alongside that I'm building DeepAnalytic, a <span class="hl-num">retrieval system</span> over the Stanford Encyclopedia of Philosophy -- an attempt to make a hard corpus genuinely answerable, and to find out by measuring rather than assuming. <span class="hl-num">50+ professional philosophers and PhD students</span> <span class="hl-live">start testing it in September</span>, on the theory that the people who know the corpus best will break it fastest.</p>
       <p style="margin: 0 0 28px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 660px;">A PhD in Philosophy (formal logic and semantics) is where my instinct for specifying rules an agent must actually follow comes from. Right now that's pointed at a concrete <span class="hl-num">AI safety</span> problem: agents are deployed under policies written in words like <em>must</em>, <em>may</em> and <em>must not</em>, and almost nobody checks whether a model's grasp of that vocabulary is well-defined. I'm <span class="hl-num">researching</span> it and <span class="hl-wip">building a test harness</span> for it.</p>
       <div style="display: flex; gap: 10px; flex-wrap: wrap;">
         <a href="#agentic" style="padding: 11px 20px; background: oklch(18% 0.01 85); color: #fff; border-radius: 100px; font-size: 14px; font-weight: 600;">See the agent systems →</a>
@@ -366,7 +366,7 @@ tests/        105 tests, 20 compliance</pre>
       <!-- VoiceCaptures -->
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
         <summary style="padding: 28px;">
-          <img src="uploads/vc.png" alt="VoiceCaptures -- AI receptionist for home service contractors" style="width: 100%; height: 170px; object-fit: cover; border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
+          <img src="uploads/69db9c4b-67c8-42c8-a149-461e033e8969.png" alt="VoiceCaptures -- AI receptionist for home service contractors" style="width: 100%; height: 170px; object-fit: cover; border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
           <span class="badge-live">Live -- public demo line</span>
           <p class="eyebrow">Founder · 2025–26</p>
           <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">VoiceCaptures — AI Voice Receptionist</h3>
@@ -483,16 +483,16 @@ tests/        105 tests, 20 compliance</pre>
         <summary style="padding: 28px;">
           <img src="uploads/5ae65aef-5383-4077-9c79-f184aadcb8a3.png" alt="DeepAnalytic retrieval pipeline" style="width: 100%; height: 190px; object-fit: contain; background: #111; border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
 
-          <span class="badge-live">Expert testing begins Aug 20</span>
-          <p class="eyebrow">Solo build · Evaluated · 2026</p>
+          <span class="badge-live">Expert testing begins September</span>
+          <p class="eyebrow">Solo build · Full corpus indexed · 2026</p>
           <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">DeepAnalytic — RAG over the Stanford Encyclopedia of Philosophy</h3>
-          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">A retrieval pipeline I built, then measured until it contradicted me twice: the reranker was making answers worse, and the section-aware chunking the whole design rests on didn't beat a far simpler splitter. Both findings redirected the build.</p>
+          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">111,048 chunks across the full encyclopedia, and an evaluation habit that has now contradicted me three times: the reranker hurt, the chunking strategy I built the thing around didn't matter, and scaling the corpus twentyfold improved retrieval when the literature said it should break. Now being pointed at a harder product -- a referee that checks a philosophy paper's claims against the literature.</p>
 
           <p class="strip-label">Measured, against my own hypotheses</p>
           <div class="strip-measured">
+            <div><div class="n">19.5×</div><div class="l">corpus expansion, recall@5/10/20 unchanged</div></div>
             <div><div class="n">4.11 → 3.74</div><div class="l">overall score <em>fell</em> when reranking was added</div></div>
-            <div><div class="n">5</div><div class="l">chunking strategies compared -- no clear winner</div></div>
-            <div><div class="n">3</div><div class="l">failure modes traced to chunk-level evidence</div></div>
+            <div><div class="n">97.5%</div><div class="l">of 1,803 articles parsed on their own section boundaries</div></div>
           </div>
 
           <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px;">
@@ -505,58 +505,60 @@ tests/        105 tests, 20 compliance</pre>
 
           <div class="card-links">
             <a href="https://github.com/amirkiaml/DeepAnalytic" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Repository →</a>
-            <a href="https://vmachines.substack.com/p/building-a-rag-system-that-knows" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Read the write-up →</a>
+            <a href="https://vmachines.substack.com/p/building-a-rag-system-that-knows" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Read the write-ups →</a>
           </div>
         </summary>
 
         <div class="card-body">
 
-          <h4>What it is</h4>
-          <p>A retrieval-augmented QA system over the full 2024 Stanford Encyclopedia of Philosophy, scraped myself. The corpus is a deliberately hard case: dense, heavily cross-referenced, and full of terms whose meaning shifts between sub-fields. The pipeline chunks each article along its own table-of-contents boundaries, embeds to Pinecone, retrieves, reranks with Cohere, and generates -- with a naive-retrieval path kept alongside so every change is measured against a baseline rather than assumed to help.</p>
+          <h4>What it is, and where it's going</h4>
+          <p>A retrieval-augmented QA system over the full 2024 Stanford Encyclopedia of Philosophy, scraped and indexed myself -- 111,048 chunks across 1,803 articles. The corpus is a deliberately hard case: dense, heavily cross-referenced, full of terms whose meaning shifts between sub-fields.</p>
+          <p>The product is now pivoting toward a <strong>paper-referee tool</strong>: decompose a philosophy paper into individual claims, check each against the encyclopedia, and report back which are supported, which are contradicted, and which the literature simply doesn't address. The chatbot becomes the companion feature for discussing that feedback rather than the thing itself. The retrieval work below is what makes the referee possible, and it's also what told me the referee was the better product.</p>
 
-          <h4>I was wrong about chunking, and the test said so</h4>
-          <p>The premise was that chunking along real section boundaries would beat fixed token windows, since a blind splitter can drop two unrelated subsections into one chunk. A five-way comparison -- section-aware, fixed-window, paragraph, sentence-window, semantic -- says otherwise. On straightforward questions, section-aware, fixed-window and paragraph chunking retrieved near-identical text, word for word in places, because paragraph breaks in a well-edited article already track topic breaks closely enough that a structure-blind splitter lands in the same place.</p>
-          <p>Semantic chunking was the interesting failure: the only strategy that ever clearly won a question, and the only one that ever clearly lost one -- it caught a specific example nothing else found, then drifted into an unrelated passage about heresy when asked about universals. That volatility is the finding. I'm not putting retrieval quality on a coin flip, so it's disqualified as a default despite the ceiling. Section-aware stays, not because it won but because nothing beat it and it matches the source structure.</p>
+          <h4>I expected scaling to break retrieval. It fixed it.</h4>
+          <p>The published literature predicted degradation: Xiang et al. measured vector RAG accuracy on complex reasoning dropping 26% relative across a twentyfold expansion, attributed to retrieval capturing high-similarity but irrelevant noise as the search space grows. My expansion was 19.5×, near-identical in scale. Recall held completely -- recall@5, @10 and @20 unchanged, no question dropping out of the top 10, nothing falling out of the top 50.</p>
+          <p>One metric did appear to show crowding, rising 47%, and that reading was wrong. It counted chunks from <em>other</em> articles rather than <em>wrong</em> ones, and the 100-article baseline was an alphabetical slice that excluded most relevant material by construction. Head-query testing settled it: asked about supervenience, the small corpus returned nine chunks of <em>Anomalous Monism</em>, while the full corpus returned six of <em>Supervenience</em> -- the entry actually named after the concept. Four of five generic concepts behaved the same way. Paraphrase testing found rank moving at most one position under expansion, and rewording a question moving rank more than expanding the corpus did.</p>
+          <p>Two measurement bugs turned up in my own analysis along the way. Both are written up alongside the result, because a scaling finding that contradicts the literature is only worth anything if the method that produced it is inspectable.</p>
 
-          <h4>The bottleneck is after retrieval, not before it</h4>
-          <p>On composite questions -- compare something in one part of an article to something in another -- nearly every strategy failed the same way: it retrieved both halves of the evidence and then declined to synthesize them, reporting that the context provided no direct comparison. The material was in the window. That's a generation failure, and no amount of re-cutting the source text addresses it.</p>
-          <p>The systematic reranker eval pointed at the same place from a different direction. Reranking came out flat-to-worse across the board, with failures reproducible against the retrieved chunk text. On organic versus somatic animalism, the reranked context kept a chunk that <em>names</em> both terms and points at where they're explained -- an explicit backward reference to section 1.2 -- while discarding the two chunks section 1.2 was pointing at. On Cicero's <em>res publica</em>, retrieval kept the right chunk and the model still refused, because the causal claim was assembled across the surrounding section rather than stated in one place. A third case was harder still: a chunk opening "the third negative claim Oruka aimed to challenge," with no explicit link to follow and the section listing all three never retrieved at all.</p>
-          <p>One root cause, three shapes: a chunk can mention or presuppose content it doesn't contain, and nothing in the pipeline notices the gap. Explicit pointers are followable if you look for cross-references. Implicit ones -- an ordinal, a presupposition, a causal link spread across a section -- need the model to recognize it's filling a gap rather than reporting, which is a different fix.</p>
+          <h4>I was wrong about chunking too</h4>
+          <p>The premise was that chunking along real section boundaries would beat fixed token windows. A five-way comparison -- section-aware, fixed-window, paragraph, sentence-window, semantic -- says otherwise: on straightforward questions the first three retrieved near-identical text, because paragraph breaks in a well-edited article already track topic breaks closely enough. Semantic chunking was the interesting failure, the only strategy that ever clearly won a question and the only one that ever clearly lost one, which disqualifies it as a default however good its ceiling. Section-aware stays because nothing beat it, not because it won.</p>
+          <p>Parse quality did something I didn't expect: it improved with scale rather than degrading. 95% clean at 100 articles, 96.3% at 300, 97.5% across all 1,803, with a single article failing outright.</p>
+          <p>What all of this points at is that the bottleneck sits downstream of chunking. On composite questions nearly every strategy retrieved both halves of the evidence and then declined to synthesize them, reporting no direct comparison in a context that plainly contained one. A chunk can mention or presuppose content it doesn't itself contain, and nothing notices the gap -- which is what multiquery decomposition is aimed at, now built and in the pipeline as <code>multiquery.py</code>, topic-first and schema-enforced.</p>
 
-          <h4>What the findings changed</h4>
-          <p>Multiquery decomposition is now built and in the pipeline rather than sitting on a someday list -- <code>multiquery.py</code>, topic-first and schema-enforced, exposed through <code>query_multi()</code> and <code>query_multi_concat()</code>. It's aimed squarely at the composite-question failure: if the model won't assemble a comparison from one retrieval pass, decompose the question first and give it the halves separately. That ordering came from the evidence, not from a roadmap written in advance.</p>
+          <h4>Known open issues</h4>
+          <ul style="margin: 0 0 20px; padding-left: 18px; line-height: 1.9;">
+            <li><strong>The Oruka bug.</strong> One question consistently retrieves a wrong-but-adjacent section. Diagnosed: the correct chunk ranks 22nd by pure vector similarity, from content dilution plus crowding by thematically adjacent chunks elsewhere. A TF-IDF lexical blend moved it to rank 8 with zero regression on two controls -- but that fix lives in a notebook and is <em>not</em> wired into the pipeline yet.</li>
+            <li><strong>Multiquery rerank collapse.</strong> At 18 subqueries the reranked path returns nothing at all, despite correct retrieval behind it. The non-reranked path handles the same case. Found, not yet diagnosed -- and largely moot once reranking stops being the default.</li>
+            <li><strong>Subsections aren't indexed.</strong> Parsing stops at top-level headings, so a pointer like "as we saw in section 1.2" has nothing to resolve against, and within-article failures can't be measured automatically -- only found by hand. Prerequisite for the cross-reference work.</li>
+          </ul>
 
           <h4>How the evaluation was built</h4>
-          <p>Five articles chosen for known interesting cases rather than coverage -- two confirmed rerank failures, one accuracy-drift case, one cross-article retrieval case, one clean baseline -- two questions each, run through both retrieval modes and scored on Accuracy, Source Match and Completeness against expected key points fixed before any answers existed.</p>
           <p>Methodology follows current RAG-eval practice: LLM-assisted test-set generation paired with LLM-as-judge scoring and human verification. Claude generated the article selection, questions and rubric, built the automation script, and did first-pass scoring; I scored independently afterward, spot-checking the highest-stakes rows against the retrieved chunk text directly. Both score sets sit side by side in <code>tests/eval_scored.xlsx</code>, including a row where my pass corrected Claude's.</p>
 
           <h4>Write-ups</h4>
           <ul style="margin: 0 0 20px; padding-left: 18px; line-height: 1.9;">
             <li><a href="https://vmachines.substack.com/p/building-a-rag-system-that-knows" target="_blank" rel="noopener">Building a RAG System That Knows What Section It's In</a></li>
-            <li><a href="https://vmachines.substack.com/p/five-ways-to-cut-up-a-philosophy" target="_blank" rel="noopener">Five Chunking Strategies, No Winner, One Real Finding -- coming soon</a></li>
-            <li>Chunks That Mention vs. Chunks That Explain -- coming soon</li>
-            <li>From Multiquery to a Referee -- coming soon</li>
-            <li>A Buried Answer, Two Wrong Guesses, and a Fix -- coming soon</li>
+            <li><a href="https://vmachines.substack.com/p/five-ways-to-cut-up-a-philosophy" target="_blank" rel="noopener">Five Ways to Cut Up a Philosophy Article</a></li>
+            <li>Chunks That Mention vs. Chunks That Explain  -- coming soon</li>
+            <li>From Multiquery to a Referee  -- coming soon</li>
+            <li>A Buried Answer, Two Wrong Guesses, and a Fix That Isn't Live Yet  -- coming soon</li>
+            <li>I Expected Scaling to Break My Retrieval. It Fixed It.  -- coming soon</li>
           </ul>
 
           <h4>What's in the repo</h4>
 <pre style="margin: 0 0 20px; font-size: 12px; line-height: 1.7; color: oklch(30% 0.01 85); background: oklch(96% 0.005 85); padding: 12px 14px; border-radius: 10px; overflow-x: auto;">ingest.py           SEP corpus → section split → chunk → embed → Pinecone
-rag_pipeline.py     retrieve → rerank → generate, plus a naive baseline path
+rag_pipeline.py     retrieve → rerank → generate, plus naive and multiquery paths
 multiquery.py       topic-first, schema-enforced question decomposition
 section_parser.py   TOC-aware chunking with logged fallback chain
 run_eval.py         runs the eval set through both modes, logs results
 check_chunks.py     inspect what actually got retrieved for a query
-chat.py             terminal interface, naive or rerank mode
 config.py           environment-driven settings, no secrets in code
 tests/              question set, raw results, rubric, scored output
-notebooks/          research history, chunking comparison, multiquery dev log</pre>
+notebooks/          four experiments, each with its own findings log</pre>
 
-          <h4>Expert testing, from August 20</h4>
-          <p>50+ professional philosophers and PhD students start querying the system on August 20. The point isn't usage numbers -- it's that a specialist asking about their own sub-field will surface sense-conflation and refusal failures far faster than questions I write for myself, because they already know what the right answer looks like. Their queries become the next golden set, and the failures they hit get traced the same way the reranker failures were.</p>
-
-          <h4>Corpus, and what's next</h4>
-          <p>The full 2024 Stanford Encyclopedia is scraped -- article text, tables of contents, bibliographies, metadata. Metadata for 28 Springer Nature philosophy journals (~800k pages) and ~10k pages from <em>Analysis</em> are scraped but not yet indexed. Retrieval currently runs on a 100-article slice.</p>
-          <p>With multiquery in, the remaining generation-layer work is a self-critique step and multi-hop retrieval that follows a pointer inside a chunk to the section actually explaining the concept. Then full-corpus indexing, a FastAPI service, deployment, and an open-model option alongside the OpenAI path. The expert round runs before most of that lands, so what it turns up shapes the order of the rest.</p>
+          <h4>What's next</h4>
+          <p>Immediately: flip the reranking defaults now that three separate tests show it flat-to-harmful, ship a rate-limited Streamlit app, and put it in front of the philosopher testers. Then the referee work -- objection-and-response checking against documented SEP objections, argument reconstruction into premises and conclusion for per-premise checking, and user-uploadable documents so a draft can be checked against a philosopher's own citation list rather than only the encyclopedia.</p>
+          <p>Further out: subsection indexing to enable multi-hop retrieval, a FastAPI service, conversational memory (tried early, pulled while the core pipeline was unstable), and an open-model option alongside OpenAI. One research question is parked rather than dropped: the scaling literature treats corpus <em>size</em> as the variable while composition goes unisolated, and adding canonically relevant documents is not the same operation as adding adjacent ones. My own result fits the composition hypothesis. Testing it properly needs a second corpus and a much larger question set.</p>
 
         </div>
       </details>
