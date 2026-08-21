@@ -82,6 +82,10 @@
     border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);
   }
   .chip-sm { font-size: 11.5px; padding: 5px 10px; }
+  .hero-portrait {
+    width: clamp(180px, 22vw, 300px);
+    height: clamp(180px, 22vw, 300px);
+  }
   /* card media: aspect-ratio frames so images scale with card width
      instead of floating inside a fixed-height box */
   .card-media {
@@ -319,7 +323,7 @@
         <a href="https://github.com/amirkiaml" target="_blank" style="padding: 11px 20px; border: 1px solid oklch(85% 0.01 85); color: oklch(30% 0.01 85); border-radius: 100px; font-size: 14px; font-weight: 600;">GitHub</a>
       </div>
     </div>
-    <img src="assets/amirkiani.png" alt="Amir Kiani" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 1px solid oklch(91% 0.006 85); flex-shrink: 0; position: relative; z-index: 1;">
+    <img src="assets/amirkiani.png" alt="Amir Kiani" class="hero-portrait" style="border-radius: 50%; object-fit: cover; border: 1px solid oklch(91% 0.006 85); flex-shrink: 0; position: relative; z-index: 1;">
   </header>
 
   <p style="margin: 24px 0 0; font-size: 12.5px; color: oklch(52% 0.01 85); text-align: center;">Click any card below for the full write-up ↓</p>
@@ -335,7 +339,7 @@
       <!-- SMS Outreach & SDR Agent -->
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
         <summary style="padding: 28px;">
-          <img src="uploads/sales-automation.png" alt="Three drafting agents write competing messages in parallel; a picker agent selects one; Twilio sends it" class="card-media card-media--diagram card-media--light" style="margin-bottom: 18px;">
+          <img src="uploads/sales-automation.png" alt="Three drafting agents write competing messages in parallel; a picker agent selects one; Twilio sends it" class="card-media" style="object-position: center; margin-bottom: 18px;">
 
           <span class="badge-live">Live -- sending to real prospects</span>
           <p class="eyebrow">Sole engineer · 2026</p>
@@ -545,7 +549,7 @@ tests/        105 tests, 20 compliance</pre>
           <p>The product is now pivoting toward a <strong>paper-referee tool</strong>: decompose a philosophy paper into individual claims, check each against the encyclopedia, and report which are supported, which are contradicted, and which the literature simply doesn't address. The chatbot becomes the companion feature for discussing that feedback rather than the thing itself. The retrieval work below is what makes the referee possible, and it's also what told me the referee was the better product.</p>
 
           <h4>The pilot, running now</h4>
-          <img src="uploads/q_a-tool-screenshot.png" alt="SEP Assistant answering a question about induction, abduction and van Fraassen's bad lot argument, with grouped sources and a feedback form" style="width: 100%; max-width: 560px; display: block; border-radius: 12px; margin: 0 0 20px; border: 1px solid oklch(91% 0.006 85);">
+          <img src="uploads/q%26a-tool-screenshot.png" alt="SEP Assistant answering a question about induction, abduction and van Fraassen's bad lot argument, with grouped sources and a feedback form" style="width: 100%; max-width: 560px; display: block; border-radius: 12px; margin: 0 0 20px; border: 1px solid oklch(91% 0.006 85);">
           <p>Five PhDs in the field already have access. The wider round -- 50+ professional philosophers and PhD students -- is phase two, in September. Deliberately staged: five people who know the corpus will surface more in a week than fifty will in a day, and I'd rather fix what they find before the larger group arrives than collect fifty reports of the same bug.</p>
           <p>The app serves one pipeline with no mode switching, because testers should be judging whether answers are useful rather than evaluating my architecture. Two interface decisions came straight out of the retrieval findings. Sources are grouped under the sub-question that retrieved them rather than shown as a flat list, since multiquery produces no global ranking across sub-questions and a flat list would imply one that doesn't exist. Passages under 100 characters are hidden, which removes section headings that landed alone at a chunk boundary and would otherwise be cited as if they were evidence.</p>
           <p>Conversation memory spans three turns and lives entirely in the app layer, leaving the pipeline stateless. Testers are told not to lean on it: self-contained questions retrieve better, and self-contained claims are the unit the referee will work with. Interactions and feedback log anonymously to three joined sheets -- the interactions, per-answer ratings split between answer quality and source quality, and the full text of every retrieved passage for later analysis. Emails are hashed to short pseudonymous ids, so a tester's questions can be grouped without storing who asked them. Cost is capped twice over: a hard budget limit on the API project, and a per-session query cap so one tester can't exhaust it in a sitting and so exhaustion produces a clear message instead of raw errors.</p>
