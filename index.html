@@ -103,6 +103,20 @@
   .paper-pending .note { color: oklch(55% 0.01 85); font-weight: 500; }
   html[data-theme="dark"] .paper-pending { color: oklch(78% 0.13 258) !important; }
   html[data-theme="dark"] .paper-pending .note { color: oklch(62% 0.006 85) !important; }
+  .badge-lock {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+    color: oklch(38% 0.01 85); background: oklch(94% 0.008 85);
+    border: 1px solid oklch(86% 0.008 85); border-radius: 100px;
+    padding: 6px 13px; margin: 0 0 14px; text-decoration: none;
+  }
+  a.badge-lock:hover { background: oklch(90% 0.01 85); text-decoration: none; }
+  html[data-theme="dark"] .badge-lock {
+    color: oklch(85% 0.006 85) !important; background: oklch(28% 0.008 85) !important;
+    border-color: oklch(40% 0.008 85) !important;
+  }
+  .badge-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .badge-row .badge-live, .badge-row .badge-lock { margin-bottom: 14px; }
   .badge-wip {
     display: inline-flex; align-items: center; gap: 7px;
     font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
@@ -285,7 +299,7 @@
       <p style="margin: 0 0 14px; font-size: 14px; font-weight: 600; color: oklch(52% 0.16 258); text-transform: uppercase; letter-spacing: 0.08em;">AI Engineer · Agentic Systems in Production <span style="color: oklch(55% 0.01 85); font-weight: 500;">· Toronto</span></p>
       <h1 style="margin: 0 0 18px; font-family: 'Montserrat', sans-serif; font-size: 46px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; max-width: 720px;">Amir Kiani</h1>
       <p style="margin: 0 0 22px; font-size: 18px; line-height: 1.6; color: oklch(38% 0.01 85); max-width: 660px;">I build LLM agent systems that run on real infrastructure -- multi-agent orchestration, tool use, guardrails, and the compliance paths where a bug is a legal problem. <span class="hl-live">Two are live right now</span>: an AI voice receptionist that books jobs during the call, and a <span class="hl-num">nine-agent</span> SMS outreach system with a <span class="hl-num">105-test</span> suite behind it.</p>
-      <p style="margin: 0 0 22px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 660px;">Alongside that I'm building DeepAnalytic, a <span class="hl-num">retrieval system</span> over the Stanford Encyclopedia of Philosophy -- an attempt to make a hard corpus genuinely answerable, and to find out by measuring rather than assuming. <span class="hl-num">50+ professional philosophers and PhD students</span> <span class="hl-live">start testing it in September</span>, on the theory that the people who know the corpus best will break it fastest.</p>
+      <p style="margin: 0 0 22px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 660px;">Alongside that I'm building DeepAnalytic, a <span class="hl-num">retrieval system</span> over the Stanford Encyclopedia of Philosophy -- an attempt to make a hard corpus genuinely answerable, and to find out by measuring rather than assuming. <span class="hl-live">Five PhDs in the field are testing it now</span>, with <span class="hl-num">50+ philosophers and PhD students</span> in September, on the theory that the people who know the corpus best will break it fastest.</p>
       <p style="margin: 0 0 28px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 660px;">A PhD in Philosophy (formal logic and semantics) is where my instinct for specifying rules an agent must actually follow comes from. Right now that's pointed at a concrete <span class="hl-num">AI safety</span> problem: agents are deployed under policies written in words like <em>must</em>, <em>may</em> and <em>must not</em>, and almost nobody checks whether a model's grasp of that vocabulary is well-defined. I'm <span class="hl-num">researching</span> it and <span class="hl-wip">building a test harness</span> for it.</p>
       <div style="display: flex; gap: 10px; flex-wrap: wrap;">
         <a href="#agentic" style="padding: 11px 20px; background: oklch(18% 0.01 85); color: #fff; border-radius: 100px; font-size: 14px; font-weight: 600;">See the agent systems →</a>
@@ -481,12 +495,12 @@ tests/        105 tests, 20 compliance</pre>
       <!-- DeepAnalytic -->
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
         <summary style="padding: 28px;">
-          <img src="uploads/5ae65aef-5383-4077-9c79-f184aadcb8a3.png" alt="DeepAnalytic retrieval pipeline" style="width: 100%; height: 190px; object-fit: contain; background: #111; border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
+          <img src="uploads/q_a-tool-screenshot.png" alt="SEP Assistant: a question about induction and abduction answered with sources and a feedback form" style="width: 100%; height: 210px; object-fit: cover; object-position: top; background: #111; border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
 
-          <span class="badge-live">Expert testing begins September</span>
+          <span class="badge-row"><span class="badge-live">Live -- philosophers testing it now</span><a class="badge-lock" href="mailto:amirkianitech@gmail.com?subject=DeepAnalytic%20pilot%20access">🔒 Access by request -- email me</a></span>
           <p class="eyebrow">Solo build · Full corpus indexed · 2026</p>
           <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">DeepAnalytic — RAG over the Stanford Encyclopedia of Philosophy</h3>
-          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">111,048 chunks across the full encyclopedia, and an evaluation habit that has now contradicted me three times: the reranker hurt, the chunking strategy I built the thing around didn't matter, and scaling the corpus twentyfold improved retrieval when the literature said it should break. Now being pointed at a harder product -- a referee that checks a philosophy paper's claims against the literature.</p>
+          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">111,048 chunks across the full encyclopedia, now in front of real philosophers -- and an evaluation habit that has contradicted me three times: the reranker hurt, the chunking strategy I built the thing around didn't matter, and scaling the corpus twentyfold improved retrieval when the literature said it should break. Being pointed next at a harder product -- a referee that checks a philosophy paper's claims against the literature.</p>
 
           <p class="strip-label">Measured, against my own hypotheses</p>
           <div class="strip-measured">
@@ -498,22 +512,29 @@ tests/        105 tests, 20 compliance</pre>
           <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px;">
             <span class="chip">Section-aware chunking</span>
             <span class="chip">Multiquery decomposition</span>
-            <span class="chip">Cohere rerank</span>
+            <span class="chip">Streamlit pilot</span>
             <span class="chip">Pinecone</span>
             <span class="chip">Retrieval evaluation</span>
           </div>
 
           <div class="card-links">
             <a href="https://github.com/amirkiaml/DeepAnalytic" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Repository →</a>
-            <a href="https://vmachines.substack.com/p/building-a-rag-system-that-knows" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Read the write-ups →</a>
+            <a href="https://deepanalytic.streamlit.app/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Live app →</a>
+            <a href="https://vmachines.substack.com/p/building-a-rag-system-that-knows" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Write-ups →</a>
           </div>
+          <p style="margin: 12px 0 0; font-size: 13px; color: oklch(52% 0.01 85);">The app is password-protected while the pilot runs -- the link opens a login screen. <a href="mailto:amirkianitech@gmail.com?subject=DeepAnalytic%20pilot%20access">Email me</a> and I'll send you credentials.</p>
         </summary>
 
         <div class="card-body">
 
           <h4>What it is, and where it's going</h4>
           <p>A retrieval-augmented QA system over the full 2024 Stanford Encyclopedia of Philosophy, scraped and indexed myself -- 111,048 chunks across 1,803 articles. The corpus is a deliberately hard case: dense, heavily cross-referenced, full of terms whose meaning shifts between sub-fields.</p>
-          <p>The product is now pivoting toward a <strong>paper-referee tool</strong>: decompose a philosophy paper into individual claims, check each against the encyclopedia, and report back which are supported, which are contradicted, and which the literature simply doesn't address. The chatbot becomes the companion feature for discussing that feedback rather than the thing itself. The retrieval work below is what makes the referee possible, and it's also what told me the referee was the better product.</p>
+          <p>The product is now pivoting toward a <strong>paper-referee tool</strong>: decompose a philosophy paper into individual claims, check each against the encyclopedia, and report which are supported, which are contradicted, and which the literature simply doesn't address. The chatbot becomes the companion feature for discussing that feedback rather than the thing itself. The retrieval work below is what makes the referee possible, and it's also what told me the referee was the better product.</p>
+
+          <h4>The pilot, running now</h4>
+          <p>Five PhDs in the field already have access. The wider round -- 50+ professional philosophers and PhD students -- is phase two, in September. Deliberately staged: five people who know the corpus will surface more in a week than fifty will in a day, and I'd rather fix what they find before the larger group arrives than collect fifty reports of the same bug.</p>
+          <p>The app serves one pipeline with no mode switching, because testers should be judging whether answers are useful rather than evaluating my architecture. Two interface decisions came straight out of the retrieval findings. Sources are grouped under the sub-question that retrieved them rather than shown as a flat list, since multiquery produces no global ranking across sub-questions and a flat list would imply one that doesn't exist. Passages under 100 characters are hidden, which removes section headings that landed alone at a chunk boundary and would otherwise be cited as if they were evidence.</p>
+          <p>Conversation memory spans three turns and lives entirely in the app layer, leaving the pipeline stateless. Testers are told not to lean on it: self-contained questions retrieve better, and self-contained claims are the unit the referee will work with. Interactions and feedback log anonymously to three joined sheets -- the interactions, per-answer ratings split between answer quality and source quality, and the full text of every retrieved passage for later analysis. Emails are hashed to short pseudonymous ids, so a tester's questions can be grouped without storing who asked them. Cost is capped twice over: a hard budget limit on the API project, and a per-session query cap so one tester can't exhaust it in a sitting and so exhaustion produces a clear message instead of raw errors.</p>
 
           <h4>I expected scaling to break retrieval. It fixed it.</h4>
           <p>The published literature predicted degradation: Xiang et al. measured vector RAG accuracy on complex reasoning dropping 26% relative across a twentyfold expansion, attributed to retrieval capturing high-similarity but irrelevant noise as the search space grows. My expansion was 19.5×, near-identical in scale. Recall held completely -- recall@5, @10 and @20 unchanged, no question dropping out of the top 10, nothing falling out of the top 50.</p>
@@ -528,25 +549,27 @@ tests/        105 tests, 20 compliance</pre>
           <h4>Known open issues</h4>
           <ul style="margin: 0 0 20px; padding-left: 18px; line-height: 1.9;">
             <li><strong>The Oruka bug.</strong> One question consistently retrieves a wrong-but-adjacent section. Diagnosed: the correct chunk ranks 22nd by pure vector similarity, from content dilution plus crowding by thematically adjacent chunks elsewhere. A TF-IDF lexical blend moved it to rank 8 with zero regression on two controls -- but that fix lives in a notebook and is <em>not</em> wired into the pipeline yet.</li>
+            <li><strong>Refusal detection is a stopgap.</strong> When a question falls outside the corpus, vector search still returns nearest neighbours, and showing them beside a refusal makes the app look like it found something relevant and ignored it. Refusals are currently detected by matching phrasing in the answer and gating on length, which is brittle -- it depends on wording the prompt encourages but can't guarantee, and it broke silently once already when the prompt changed. The principled fix is a similarity threshold, which needs scores surfaced through the pipeline.</li>
             <li><strong>Multiquery rerank collapse.</strong> At 18 subqueries the reranked path returns nothing at all, despite correct retrieval behind it. The non-reranked path handles the same case. Found, not yet diagnosed -- and largely moot once reranking stops being the default.</li>
             <li><strong>Subsections aren't indexed.</strong> Parsing stops at top-level headings, so a pointer like "as we saw in section 1.2" has nothing to resolve against, and within-article failures can't be measured automatically -- only found by hand. Prerequisite for the cross-reference work.</li>
           </ul>
 
           <h4>How the evaluation was built</h4>
-          <p>Methodology follows current RAG-eval practice: LLM-assisted test-set generation paired with LLM-as-judge scoring and human verification. Claude generated the article selection, questions and rubric, built the automation script, and did first-pass scoring; I scored independently afterward, spot-checking the highest-stakes rows against the retrieved chunk text directly. Both score sets sit side by side in <code>tests/eval_scored.xlsx</code>, including a row where my pass corrected Claude's.</p>
+          <p>Methodology follows current RAG-eval practice: LLM-assisted test-set generation paired with LLM-as-judge scoring and human verification. Claude generated the article selection, questions and rubric, built the automation script, and did first-pass scoring; I scored independently afterward, spot-checking the highest-stakes rows against the retrieved chunk text directly. Both score sets sit side by side in <code>tests/eval_scored.xlsx</code>, including a row where my pass corrected Claude's. The pilot replaces this with something better: real questions from people who already know what a right answer looks like.</p>
 
           <h4>Write-ups</h4>
           <ul style="margin: 0 0 20px; padding-left: 18px; line-height: 1.9;">
             <li><a href="https://vmachines.substack.com/p/building-a-rag-system-that-knows" target="_blank" rel="noopener">Building a RAG System That Knows What Section It's In</a></li>
             <li><a href="https://vmachines.substack.com/p/five-ways-to-cut-up-a-philosophy" target="_blank" rel="noopener">Five Ways to Cut Up a Philosophy Article</a></li>
-            <li>Chunks That Mention vs. Chunks That Explain  -- coming soon</li>
-            <li>From Multiquery to a Referee  -- coming soon</li>
-            <li>A Buried Answer, Two Wrong Guesses, and a Fix That Isn't Live Yet  -- coming soon</li>
-            <li>I Expected Scaling to Break My Retrieval. It Fixed It.  -- coming soon</li>
+            <li>Chunks That Mention vs. Chunks That Explain -- coming soon</li>
+            <li>From Multiquery to a Referee -- coming soon</li>
+            <li>A Buried Answer, Two Wrong Guesses, and a Fix That Isn't Live Yet -- coming soon</li>
+            <li>I Expected Scaling to Break My Retrieval. It Fixed It. -- coming soon</li>
           </ul>
 
           <h4>What's in the repo</h4>
-<pre style="margin: 0 0 20px; font-size: 12px; line-height: 1.7; color: oklch(30% 0.01 85); background: oklch(96% 0.005 85); padding: 12px 14px; border-radius: 10px; overflow-x: auto;">ingest.py           SEP corpus → section split → chunk → embed → Pinecone
+<pre style="margin: 0 0 20px; font-size: 12px; line-height: 1.7; color: oklch(30% 0.01 85); background: oklch(96% 0.005 85); padding: 12px 14px; border-radius: 10px; overflow-x: auto;">app.py              Streamlit pilot: auth, query cap, memory, feedback logging
+ingest.py           SEP corpus → section split → chunk → embed → Pinecone
 rag_pipeline.py     retrieve → rerank → generate, plus naive and multiquery paths
 multiquery.py       topic-first, schema-enforced question decomposition
 section_parser.py   TOC-aware chunking with logged fallback chain
@@ -557,8 +580,8 @@ tests/              question set, raw results, rubric, scored output
 notebooks/          four experiments, each with its own findings log</pre>
 
           <h4>What's next</h4>
-          <p>Immediately: flip the reranking defaults now that three separate tests show it flat-to-harmful, ship a rate-limited Streamlit app, and put it in front of the philosopher testers. Then the referee work -- objection-and-response checking against documented SEP objections, argument reconstruction into premises and conclusion for per-premise checking, and user-uploadable documents so a draft can be checked against a philosopher's own citation list rather than only the encyclopedia.</p>
-          <p>Further out: subsection indexing to enable multi-hop retrieval, a FastAPI service, conversational memory (tried early, pulled while the core pipeline was unstable), and an open-model option alongside OpenAI. One research question is parked rather than dropped: the scaling literature treats corpus <em>size</em> as the variable while composition goes unisolated, and adding canonically relevant documents is not the same operation as adding adjacent ones. My own result fits the composition hypothesis. Testing it properly needs a second corpus and a much larger question set.</p>
+          <p>Phase two in September, then the referee work: objection-and-response checking against documented SEP objections, argument reconstruction into premises and conclusion for per-premise checking, and user-uploadable documents so a draft can be checked against a philosopher's own citation list rather than only the encyclopedia.</p>
+          <p>Further out: subsection indexing to enable multi-hop retrieval, a FastAPI service, and an open-model option alongside OpenAI. One research question is parked rather than dropped: the scaling literature treats corpus <em>size</em> as the variable while composition goes unisolated, and adding canonically relevant documents is not the same operation as adding adjacent ones. My own result fits the composition hypothesis. Testing it properly needs a second corpus and a much larger question set.</p>
 
         </div>
       </details>
