@@ -82,6 +82,19 @@
     border: 1px solid oklch(89% 0.01 85); border-radius: 100px; color: oklch(32% 0.01 85);
   }
   .chip-sm { font-size: 11.5px; padding: 5px 10px; }
+  /* card media: aspect-ratio frames so images scale with card width
+     instead of floating inside a fixed-height box */
+  .card-media {
+    width: 100%; display: block; border-radius: 12px;
+    border: 1px solid oklch(91% 0.006 85);
+    aspect-ratio: 16 / 10; object-fit: cover; object-position: center;
+  }
+  .card-media--diagram {
+    object-fit: contain; background: #111; padding: 10px; box-sizing: border-box;
+  }
+  .card-media--light { background: oklch(96% 0.005 85); }
+  .card-media--tall { aspect-ratio: 4 / 3; }
+  @media (max-width: 560px) { .card-media { aspect-ratio: 3 / 2; } }
   /* hero inline highlights */
   .hl-live {
     color: oklch(42% 0.14 150); font-weight: 700;
@@ -322,7 +335,7 @@
       <!-- SMS Outreach & SDR Agent -->
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
         <summary style="padding: 28px;">
-          <img src="uploads/sales-automation.png" alt="Three drafting agents write competing messages in parallel; a picker agent selects one; Twilio sends it" style="width: 100%; height: 170px; object-fit: contain; background: oklch(96% 0.005 85); border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
+          <img src="uploads/sales-automation.png" alt="Three drafting agents write competing messages in parallel; a picker agent selects one; Twilio sends it" class="card-media card-media--diagram card-media--light" style="margin-bottom: 18px;">
 
           <span class="badge-live">Live -- sending to real prospects</span>
           <p class="eyebrow">Sole engineer · 2026</p>
@@ -380,7 +393,7 @@ tests/        105 tests, 20 compliance</pre>
       <!-- VoiceCaptures -->
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
         <summary style="padding: 28px;">
-          <img src="uploads/69db9c4b-67c8-42c8-a149-461e033e8969.png" alt="VoiceCaptures -- AI receptionist for home service contractors" style="width: 100%; height: 170px; object-fit: cover; border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
+          <img src="uploads/69db9c4b-67c8-42c8-a149-461e033e8969.png" alt="VoiceCaptures -- AI receptionist for home service contractors" class="card-media" style="margin-bottom: 18px;">
           <span class="badge-live">Live -- public demo line</span>
           <p class="eyebrow">Founder · 2025–26</p>
           <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">VoiceCaptures — AI Voice Receptionist</h3>
@@ -495,7 +508,7 @@ tests/        105 tests, 20 compliance</pre>
       <!-- DeepAnalytic -->
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
         <summary style="padding: 28px;">
-          <img src="uploads/q_a-tool-screenshot.png" alt="SEP Assistant: a question about induction and abduction answered with sources and a feedback form" style="width: 100%; height: 210px; object-fit: cover; object-position: top; background: #111; border-radius: 12px; margin-bottom: 18px; border: 1px solid oklch(91% 0.006 85);">
+          <img src="uploads/5ae65aef-5383-4077-9c79-f184aadcb8a3.png" alt="DeepAnalytic retrieval pipeline" class="card-media card-media--diagram" style="margin-bottom: 18px;">
 
           <span class="badge-row"><span class="badge-live">Live -- philosophers testing it now</span><a class="badge-lock" href="mailto:amirkianitech@gmail.com?subject=DeepAnalytic%20pilot%20access">🔒 Access by request -- email me</a></span>
           <p class="eyebrow">Solo build · Full corpus indexed · 2026</p>
@@ -532,6 +545,7 @@ tests/        105 tests, 20 compliance</pre>
           <p>The product is now pivoting toward a <strong>paper-referee tool</strong>: decompose a philosophy paper into individual claims, check each against the encyclopedia, and report which are supported, which are contradicted, and which the literature simply doesn't address. The chatbot becomes the companion feature for discussing that feedback rather than the thing itself. The retrieval work below is what makes the referee possible, and it's also what told me the referee was the better product.</p>
 
           <h4>The pilot, running now</h4>
+          <img src="uploads/q_a-tool-screenshot.png" alt="SEP Assistant answering a question about induction, abduction and van Fraassen's bad lot argument, with grouped sources and a feedback form" style="width: 100%; max-width: 560px; display: block; border-radius: 12px; margin: 0 0 20px; border: 1px solid oklch(91% 0.006 85);">
           <p>Five PhDs in the field already have access. The wider round -- 50+ professional philosophers and PhD students -- is phase two, in September. Deliberately staged: five people who know the corpus will surface more in a week than fifty will in a day, and I'd rather fix what they find before the larger group arrives than collect fifty reports of the same bug.</p>
           <p>The app serves one pipeline with no mode switching, because testers should be judging whether answers are useful rather than evaluating my architecture. Two interface decisions came straight out of the retrieval findings. Sources are grouped under the sub-question that retrieved them rather than shown as a flat list, since multiquery produces no global ranking across sub-questions and a flat list would imply one that doesn't exist. Passages under 100 characters are hidden, which removes section headings that landed alone at a chunk boundary and would otherwise be cited as if they were evidence.</p>
           <p>Conversation memory spans three turns and lives entirely in the app layer, leaving the pipeline stateless. Testers are told not to lean on it: self-contained questions retrieve better, and self-contained claims are the unit the referee will work with. Interactions and feedback log anonymously to three joined sheets -- the interactions, per-answer ratings split between answer quality and source quality, and the full text of every retrieved passage for later analysis. Emails are hashed to short pseudonymous ids, so a tester's questions can be grouped without storing who asked them. Cost is capped twice over: a hard budget limit on the API project, and a per-session query cap so one tester can't exhaust it in a sitting and so exhaustion produces a clear message instead of raw errors.</p>
@@ -817,7 +831,7 @@ notebooks/          four experiments, each with its own findings log</pre>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 24px;">
       <div style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 18px; padding: 24px;">
-        <img src="uploads/dadcf597-8201-4f57-a1a7-404c2c0ac84c.jpg" alt="Speaking at the Mindstone AI Meetup" style="width: 100%; height: 130px; object-fit: cover; border-radius: 12px; margin-bottom: 14px;">
+        <img src="uploads/dadcf597-8201-4f57-a1a7-404c2c0ac84c.jpg" alt="Speaking at the Mindstone AI Meetup" class="card-media" style="margin-bottom: 14px;">
         <h4 style="margin: 0 0 12px; font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700;">Public Engagements</h4>
         <ul style="margin: 0 0 12px; padding-left: 18px; font-size: 13px; line-height: 2; color: oklch(30% 0.01 85);">
           <li><a href="https://docs.google.com/presentation/d/1C9S2kNNP3qlLWwZy9DzE9zZHSwwLVv_0TgotDbPPUJc/edit" target="_blank">The Ethical Frameworks Underneath Frontier AI Models</a> -- The AI Collective, Jan 2026</li>
@@ -828,7 +842,7 @@ notebooks/          four experiments, each with its own findings log</pre>
         <a href="https://virtuousmachines.com/talks" target="_blank" style="font-size: 13.5px; font-weight: 600;">More talks at virtuousmachines.com/talks →</a>
       </div>
       <div style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 18px; padding: 24px;">
-        <img src="uploads/29041d7c-9ec0-45c9-8dd6-e644bf816140.jpg" alt="Working through logic notation on a whiteboard" style="width: 100%; height: 130px; object-fit: cover; border-radius: 12px; margin-bottom: 14px;">
+        <img src="uploads/29041d7c-9ec0-45c9-8dd6-e644bf816140.jpg" alt="Working through logic notation on a whiteboard" class="card-media" style="margin-bottom: 14px;">
         <h4 style="margin: 0 0 12px; font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700;">Research &amp; Writings</h4>
         <ul style="margin: 0 0 12px; padding-left: 18px; font-size: 13px; line-height: 2; color: oklch(30% 0.01 85);">
           <li><a href="https://substack.com/home/post/p-181721790" target="_blank">Introspection in AI: What Anthropic's New Paper Really Shows</a> -- Dec 15, 2025</li>
@@ -847,7 +861,7 @@ notebooks/          four experiments, each with its own findings log</pre>
 
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
         <summary style="padding: 24px;">
-          <img src="uploads/book1.png" alt="No Bullshit Math for Data Science cover" style="width: 100%; height: 170px; object-fit: cover; border-radius: 12px; margin-bottom: 14px;">
+          <img src="uploads/book1.png" alt="No Bullshit Math for Data Science cover" class="card-media card-media--tall" style="margin-bottom: 14px;">
           <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700;">No Bullshit Math for Data Science</h3>
           <p style="margin: 0 0 14px; font-size: 13.5px; line-height: 1.5; color: oklch(38% 0.01 85);">A short, sharp book on the mathematics underneath data science -- linear algebra, calculus, statistics, and the math behind core ML algorithms, with Python code.</p>
           <a href="https://www.amazon.ca/Bullshit-Math-Data-Science-Comprehensive/dp/B0C47K45WH" target="_blank" style="font-size: 13.5px; font-weight: 600; margin-right: 16px;">Amazon →</a>
@@ -866,7 +880,7 @@ notebooks/          four experiments, each with its own findings log</pre>
 
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
         <summary style="padding: 24px;">
-          <img src="uploads/paper.png" alt="Structured propositions paper first page" style="width: 100%; height: 170px; object-fit: cover; object-position: top; border-radius: 12px; margin-bottom: 14px; border: 1px solid oklch(91% 0.006 85);">
+          <img src="uploads/paper.png" alt="Structured propositions paper first page" class="card-media card-media--tall" style="object-position: top; margin-bottom: 14px;">
           <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700;">Structured Propositions &amp; Logics of Ground</h3>
           <p style="margin: 0 0 14px; font-size: 13.5px; line-height: 1.5; color: oklch(38% 0.01 85);">Peer-reviewed paper in <em>Synthese</em> providing a unified semantics for propositional logics of impure ground using structured propositions.</p>
           <a href="https://link.springer.com/article/10.1007/s11229-023-04114-5" target="_blank" style="font-size: 13.5px; font-weight: 600;">Read paper →</a>
@@ -879,7 +893,7 @@ notebooks/          four experiments, each with its own findings log</pre>
 
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
         <summary style="padding: 24px;">
-          <img src="uploads/cover.png" alt="Practical Statistics for Data Practitioners cover" style="width: 100%; height: 170px; object-fit: cover; border-radius: 12px; margin-bottom: 14px;">
+          <img src="uploads/cover.png" alt="Practical Statistics for Data Practitioners cover" class="card-media card-media--tall" style="margin-bottom: 14px;">
           <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700;">Practical Statistics for Data Practitioners</h3>
           <p style="margin: 0 0 14px; font-size: 13.5px; line-height: 1.5; color: oklch(38% 0.01 85);">Open-source guide to descriptive and inferential statistics for real-world analytics, paired with reproducible Python code.</p>
           <a href="https://github.com/amirkiaml/Statistics" target="_blank" style="font-size: 13.5px; font-weight: 600;">Repository →</a>
@@ -900,7 +914,7 @@ notebooks/          four experiments, each with its own findings log</pre>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; align-items: start;">
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 18px;">
         <summary style="padding: 22px;">
-          <img src="uploads/phil.png" alt="Philosophy studies" style="width: 100%; height: 190px; object-fit: cover; border-radius: 10px; margin-bottom: 16px;">
+          <img src="uploads/phil.png" alt="Philosophy studies" class="card-media" style="margin-bottom: 16px;">
           <h3 style="margin: 0 0 4px; font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700;">MA &amp; PhD, Philosophy (Logic, Semantics &amp; Metaphysics)</h3>
           <p style="margin: 0; font-size: 13.5px; color: oklch(46% 0.01 85);">University of Calgary (2023) · University of Tartu (2019)</p>
         </summary>
@@ -937,7 +951,7 @@ notebooks/          four experiments, each with its own findings log</pre>
       </details>
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 18px;">
         <summary style="padding: 22px;">
-          <img src="uploads/aut.png" alt="Amirkabir University of Technology" style="width: 100%; height: 190px; object-fit: cover; border-radius: 10px; margin-bottom: 16px;">
+          <img src="uploads/aut.png" alt="Amirkabir University of Technology" class="card-media" style="margin-bottom: 16px;">
           <h3 style="margin: 0 0 4px; font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700;">BSc, Mathematics &amp; Applications</h3>
           <p style="margin: 0; font-size: 13.5px; color: oklch(46% 0.01 85);">Tehran Polytechnic (Amirkabir University of Technology), 2017</p>
         </summary>
@@ -965,12 +979,12 @@ notebooks/          four experiments, each with its own findings log</pre>
 
     <div id="certificates" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 20px;">
       <div style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 18px; padding: 22px;">
-        <img src="assets/bstn.png" alt="BrainStation certificate" style="width: 100%; height: 140px; object-fit: contain; background: oklch(96% 0.005 85); border-radius: 12px; margin-bottom: 14px;">
+        <img src="assets/bstn.png" alt="BrainStation certificate" class="card-media card-media--diagram card-media--light" style="margin-bottom: 14px;">
         <h3 style="margin: 0 0 6px; font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700;">BrainStation — Data Science Diploma</h3>
         <p style="margin: 0; font-size: 13px; color: oklch(46% 0.01 85);">3-month intensive data science bootcamp</p>
       </div>
       <div style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 18px; padding: 22px;">
-        <img src="assets/gcp.png" alt="Google Cloud Platform certificate" style="width: 100%; height: 140px; object-fit: contain; background: oklch(96% 0.005 85); border-radius: 12px; margin-bottom: 14px;">
+        <img src="assets/gcp.png" alt="Google Cloud Platform certificate" class="card-media card-media--diagram card-media--light" style="margin-bottom: 14px;">
         <h3 style="margin: 0 0 6px; font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700;">Google Cloud Platform</h3>
         <p style="margin: 0; font-size: 13px; color: oklch(46% 0.01 85);">Cloud &amp; ML infrastructure certification</p>
       </div>
