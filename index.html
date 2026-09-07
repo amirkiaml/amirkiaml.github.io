@@ -106,20 +106,19 @@
     box-decoration-break: clone; -webkit-box-decoration-break: clone;
   }
   .hl-num { color: oklch(45% 0.17 258); font-weight: 700; }
-  .paper-pending {
-    color: oklch(52% 0.16 258); font-weight: 600;
+  .hl-brush {
+    font-weight: 700; color: oklch(42% 0.16 258);
+    padding-bottom: 5px;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20400%2022%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M4%2013%20C60%207%2C%20130%205%2C%20200%206%20C270%207%2C%20330%2010%2C%20396%207%27%20stroke%3D%27%232563EB%27%20stroke-width%3D%277%27%20stroke-linecap%3D%27round%27%20fill%3D%27none%27%20opacity%3D%270.85%27%2F%3E%3Cpath%20d%3D%27M14%2018%20C80%2014%2C%20150%2013%2C%20220%2014%20C290%2015%2C%20340%2016%2C%20388%2014%27%20stroke%3D%27%232563EB%27%20stroke-width%3D%273.5%27%20stroke-linecap%3D%27round%27%20fill%3D%27none%27%20opacity%3D%270.45%27%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 100% 0.42em;
+    -webkit-box-decoration-break: clone; box-decoration-break: clone;
   }
-  .hl-wip {
-    color: oklch(45% 0.13 70); font-weight: 700;
-    background: oklch(95% 0.06 70); border-radius: 5px; padding: 1px 6px;
-    box-decoration-break: clone; -webkit-box-decoration-break: clone;
+  html[data-theme="dark"] .hl-brush {
+    color: oklch(85% 0.13 258) !important;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20400%2022%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M4%2013%20C60%207%2C%20130%205%2C%20200%206%20C270%207%2C%20330%2010%2C%20396%207%27%20stroke%3D%27%237DB0FF%27%20stroke-width%3D%277%27%20stroke-linecap%3D%27round%27%20fill%3D%27none%27%20opacity%3D%270.85%27%2F%3E%3Cpath%20d%3D%27M14%2018%20C80%2014%2C%20150%2013%2C%20220%2014%20C290%2015%2C%20340%2016%2C%20388%2014%27%20stroke%3D%27%237DB0FF%27%20stroke-width%3D%273.5%27%20stroke-linecap%3D%27round%27%20fill%3D%27none%27%20opacity%3D%270.45%27%2F%3E%3C%2Fsvg%3E");
   }
-  html[data-theme="dark"] .hl-wip {
-    color: oklch(88% 0.13 70) !important; background: oklch(29% 0.06 70) !important;
-  }
-  .paper-pending .note { color: oklch(55% 0.01 85); font-weight: 500; }
-  html[data-theme="dark"] .paper-pending { color: oklch(78% 0.13 258) !important; }
-  html[data-theme="dark"] .paper-pending .note { color: oklch(62% 0.006 85) !important; }
   .badge-lock {
     display: inline-flex; align-items: center; gap: 6px;
     font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
@@ -134,23 +133,6 @@
   }
   .badge-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
   .badge-row .badge-live, .badge-row .badge-lock { margin-bottom: 14px; }
-  .badge-wip {
-    display: inline-flex; align-items: center; gap: 7px;
-    font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
-    color: oklch(45% 0.13 70); background: oklch(95% 0.06 70);
-    border: 1px solid oklch(83% 0.09 70); border-radius: 100px;
-    padding: 6px 13px 6px 11px; margin: 0 0 14px;
-  }
-  .badge-wip::before {
-    content: ""; width: 7px; height: 7px; border-radius: 50%;
-    background: oklch(68% 0.15 70); flex-shrink: 0;
-  }
-  html[data-theme="dark"] .badge-wip {
-    color: oklch(88% 0.13 70) !important; background: oklch(29% 0.06 70) !important;
-    border-color: oklch(44% 0.09 70) !important;
-  }
-  .card-wip { border-style: dashed !important; background: transparent !important; }
-  html[data-theme="dark"] .card-wip { background: transparent !important; }
   html[data-theme="dark"] .hl-live {
     color: oklch(88% 0.14 150) !important; background: oklch(30% 0.07 150) !important;
   }
@@ -315,9 +297,9 @@
     <div style="flex: 1; min-width: 280px; position: relative; z-index: 1;">
       <p style="margin: 0 0 14px; font-size: 14px; font-weight: 600; color: oklch(52% 0.16 258); text-transform: uppercase; letter-spacing: 0.08em;">AI Engineer · Agentic Systems in Production <span style="color: oklch(55% 0.01 85); font-weight: 500;">· Toronto</span></p>
       <h1 style="margin: 0 0 18px; font-family: 'Montserrat', sans-serif; font-size: 46px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; max-width: 720px;">Amir Kiani</h1>
-      <p style="margin: 0 0 22px; font-size: 18px; line-height: 1.6; color: oklch(38% 0.01 85); max-width: 660px;">I build LLM agent systems that run on real infrastructure -- multi-agent orchestration, tool use, guardrails, and the compliance paths where a bug is a legal problem. <span class="hl-live">Two are live right now</span>: an AI voice receptionist that books jobs during the call, and a <span class="hl-num">nine-agent</span> SMS outreach system with a <span class="hl-num">105-test</span> suite behind it.</p>
-      <p style="margin: 0 0 22px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 660px;">Alongside that I'm building DeepAnalytic, a <span class="hl-num">retrieval system</span> over the Stanford Encyclopedia of Philosophy -- an attempt to make a hard corpus genuinely answerable, and to find out by measuring rather than assuming. <span class="hl-live">Five PhDs in the field are testing it now</span>, with <span class="hl-num">50+ philosophers and PhD students</span> in September, on the theory that the people who know the corpus best will break it fastest.</p>
-      <p style="margin: 0 0 28px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 660px;">A PhD in Philosophy (formal logic and semantics) is where my instinct for specifying rules an agent must actually follow comes from. Right now that's pointed at a concrete <span class="hl-num">AI safety</span> problem: agents are deployed under policies written in words like <em>must</em>, <em>may</em> and <em>must not</em>, and almost nobody checks whether a model's grasp of that vocabulary is well-defined. I'm <span class="hl-num">researching</span> it and <span class="hl-wip">building a test harness</span> for it.</p>
+      <p style="margin: 0 0 22px; font-size: 18px; line-height: 1.6; color: oklch(38% 0.01 85); max-width: 660px;">I build LLM agent systems that run on real infrastructure -- multi-agent orchestration, tool use, guardrails, and the compliance paths where a bug is a legal problem. <span class="hl-live">Two are live right now</span>: an AI voice receptionist answering real calls for <span class="hl-brush">two paying clients</span>, and a <span class="hl-num">nine-agent</span> SMS outreach system with a <span class="hl-num">105-test</span> suite behind it.</p>
+      <p style="margin: 0 0 22px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 660px;">Alongside that I'm building DeepAnalytic, a <span class="hl-num">retrieval system</span> over the Stanford Encyclopedia of Philosophy -- an attempt to make a hard corpus genuinely answerable, and to find out by measuring rather than assuming. <span class="hl-live">Five PhDs in the field are testing it now</span>, with <span class="hl-num">50+ philosophers and PhD students</span> in the coming months, on the theory that the people who know the corpus best will break it fastest.</p>
+      
       <div style="display: flex; gap: 10px; flex-wrap: wrap;">
         <a href="#agentic" style="padding: 11px 20px; background: oklch(18% 0.01 85); color: #fff; border-radius: 100px; font-size: 14px; font-weight: 600;">See the agent systems →</a>
         <a href="https://github.com/amirkiaml" target="_blank" style="padding: 11px 20px; border: 1px solid oklch(85% 0.01 85); color: oklch(30% 0.01 85); border-radius: 100px; font-size: 14px; font-weight: 600;">GitHub</a>
@@ -397,11 +379,11 @@ tests/        105 tests, 20 compliance</pre>
       <!-- VoiceCaptures -->
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
         <summary style="padding: 28px;">
-          <img src="uploads/69db9c4b-67c8-42c8-a149-461e033e8969.png" alt="VoiceCaptures -- AI receptionist for home service contractors" class="card-media" style="margin-bottom: 18px;">
-          <span class="badge-live">Live -- public demo line</span>
-          <p class="eyebrow">Founder · 2025–26</p>
+          <img src="uploads/vc_git.png" alt="VoiceCaptures -- AI receptionist for home service contractors" class="card-media" style="margin-bottom: 18px;">
+          <span class="badge-live">Live -- answering real customer calls</span>
+          <p class="eyebrow">Founder · Paying clients · 2025–26</p>
           <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">VoiceCaptures — AI Voice Receptionist</h3>
-          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">A real-time voice agent for home service trades: answers the call, qualifies the job in conversation, checks live calendar availability, and books the slot before hanging up.</p>
+          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">A real-time voice agent that answers the call, qualifies the job in conversation, checks live calendar availability and books the slot before hanging up. Live with paying clients, and now running across three verticals: home services, restaurants and clinics.</p>
 
           <p class="strip-label">The market it's built for</p>
           <div class="strip-context">
@@ -415,6 +397,7 @@ tests/        105 tests, 20 compliance</pre>
             <span class="chip">Real-time STT/TTS</span>
             <span class="chip">Tool use (Calendar API)</span>
             <span class="chip">RAG over per-business KB</span>
+            <span class="chip">Scripted eval harness</span>
             <span class="chip">Node/Express · Supabase</span>
           </div>
 
@@ -425,10 +408,18 @@ tests/        105 tests, 20 compliance</pre>
         </summary>
         <div class="card-body">
           <h4>Where it stands</h4>
-          <p>Deployed on Railway and reachable on a public demo line; onboarding for paying trades is in progress, so what I can report is latency and booking accuracy rather than revenue. I'd rather show what I've measured than what I hope for.</p>
+          <p>Paying clients on live lines, taking real customer calls, with more onboarding. The number is small and I'd rather say so than gesture at scale -- what matters is that the system is answering strangers rather than me, which is where the interesting failures live.</p>
+          <p>It has also expanded past home services into restaurants and clinics. Each vertical is the same pipeline with a different scope, calendar shape and escalation rule, and each one has broken something the previous vertical never exercised.</p>
 
           <h4>The two fields that have to be exactly right</h4>
           <p>A booking is worthless if the street address or callback number is wrong by one digit, and those are precisely the fields ASR mangles -- proper nouns and digit strings have no language-model prior to fall back on. Both are read back to the caller for confirmation before the calendar write, and the structured payload is validated before it reaches the booking tool. Everything else in the conversation can tolerate a transcription error; these two cannot.</p>
+
+          <h4>The biggest time sink, and what replaces it</h4>
+          <p>The loop right now is: place a call, dump the transcript, read it, fix by hand. That is the slowest part of the work, and the real cost isn't the hours -- it's that changing a working baseline starts to feel dangerous, so you stop touching things that need touching.</p>
+          <p>So the current build is a scripted test harness. Caller scenarios per vertical -- emergency, routine booking, no availability, caller hangs up mid-flow, garbled address, non-English item names -- fired at an assistant automatically, asserting on outcomes rather than vibes: did the Supabase row appear, did both SMS fire, did the calendar event land, did the call end only at the right point. Pass/fail per scenario, so a prompt change gets regression-tested in minutes instead of an afternoon.</p>
+
+          <h4>An open question I haven't settled</h4>
+          <p>Vapi Workflows could replace some of the prompt-driven flow control with explicit graph nodes, which would cut prompt fragility at the source rather than patching it downstream. I haven't evaluated it properly yet, and I'd rather do that than add another layer of prompt scaffolding to a design I may be about to replace.</p>
 
           <h4>Why Vapi, and where I went underneath it</h4>
           <p>Reimplementing a managed voice runtime is a three-week infrastructure project that produces something worse. The real risk of building on a provider isn't the provider -- it's that the abstraction has a bottom an interviewer reaches in eight minutes. So one route runs on Pipecat with my own endpointing and barge-in handling, which is where the interesting decisions actually live: how long a pause means "your turn" varies by caller, and getting it wrong either talks over people or leaves dead air.</p>
@@ -447,57 +438,7 @@ tests/        105 tests, 20 compliance</pre>
     </div>
 
 
-    <details class="card-wip" style="background: #fff; border: 1px solid oklch(85% 0.01 85); border-radius: 20px; margin-top: 20px;">
-      <summary style="padding: 28px;">
-        <span class="badge-wip">In progress · Nothing shipped yet</span>
-        <p class="eyebrow">Solo build · Started August 2026</p>
-        <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">Deontic Judge — a Test Harness for Rule-Following in LLM Agents</h3>
-        <p style="margin: 0 0 18px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">Agents get deployed under policies written in normative language -- must, may, should, must not -- and compliance then gets tested by keyword matching or a naive judge, both of which score the wording rather than the conduct. This is an attempt to test the substance instead.</p>
-        <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px;">
-          <span class="chip">AI safety &amp; evals</span>
-          <span class="chip">Constitutional AI</span>
-          <span class="chip">Inspect (scoring)</span>
-          <span class="chip">CrewAI (generation)</span>
-          <span class="chip">LLM-as-judge</span>
-          <span class="chip">Deontic policy DSL</span>
-          <span class="chip">Judge calibration (Cohen's κ)</span>
-          <span class="chip">Prompt-injection suite</span>
-        </div>
-        <p style="margin: 0 0 14px; font-size: 13px; color: oklch(52% 0.01 85);">Design and scope below. The repo goes up when there's something worth reading.</p>
-        <ul style="margin: 0; padding-left: 18px; font-size: 13.5px; line-height: 1.8; color: oklch(38% 0.01 85);">
-          <li><span class="paper-pending">Deontic Semantics in LLMs: What "Must" Means to a Model <span class="note">-- paper in progress</span></span></li>
-        </ul>
-      </summary>
-
-      <div class="card-body">
-
-        <h4>The failure it's built to catch</h4>
-        <p>An agent instructed never to quote prices that replies "I can't quote a price, but similar jobs run $400–600" passes every keyword check and has plainly broken the constraint. The distinctions that decide these cases are deontic ones -- <em>contraindicated</em> versus <em>not recommended</em>, <em>shall</em> versus <em>may</em>, which obligation activates once another has already been breached -- and they're where non-specialist judges fall apart. That's the gap this targets, and it's the one place my PhD does load-bearing work rather than decorative work.</p>
-
-        <h4>Where this comes from</h4>
-        <p>This is the applied half of research I've been developing on deontic semantics in LLMs -- the question of what happens when a model handles <em>ought</em>, <em>must</em>, <em>may</em> and <em>forbidden</em>. Does its treatment of those words correspond to our best formal accounts of what they mean, or only to how they happen to be distributed across training text? A paper is in progress.</p>
-        <p>The gap I'm pointing at is specific. Methods like constitutional AI govern behaviour through rule-based critique and revision, which <em>presupposes</em> that the model's grasp of the constraint is sound rather than testing whether it is. So there are three ways to probe it: whether obligation and permission occupy distinct structure in embedding space or blur into each other, whether models honour formal inference patterns (given "you must do X" and "if X then Y", does "you must do Y" follow), and whether any of this is happening structurally at all rather than by surface correlation, which interpretability tooling can trace. What comes out is a typology of failure modes -- loopholes, a context-bound <em>must</em> treated as absolute, obligations that quietly change between turns -- and a dataset of prompts and responses annotated against them.</p>
-        <p>My doctoral work was on a structurally similar problem in a different domain: the semantics of grounding, where <em>because</em> and <em>in virtue of</em> look well-understood precisely because they're so familiar in ordinary language, and turn out to be badly underspecified the moment you try to say exactly what they mean. <em>Must</em> and <em>may</em> are in that position now, and the stakes are higher, because they're the vocabulary every model spec, tool-use policy and compliance rule is written in.</p>
-        <p>The harness is the engineering counterpart. Where the paper argues the point, this has to survive a scorer and a set of human labels.</p>
-
-        <h4>Intended shape</h4>
-        <ul style="margin: 0 0 20px; padding-left: 18px; line-height: 1.9;">
-          <li><strong>Attacker</strong> -- generates adversarial transcripts against a policy-constrained agent, adapting from whatever got through</li>
-          <li><strong>Target</strong> -- my own systems under test, so the policies are ones I actually wrote and have to live with</li>
-          <li><strong>Judge</strong> -- substantive-violation scoring against a rubric derived from the policy, not from its phrasing</li>
-          <li><strong>Policy DSL</strong> -- a small deontic fragment with a satisfiability check, so contradictory policy pairs get caught before runtime rather than after</li>
-          <li><strong>Reporter</strong> -- violation taxonomy, ablation table, calibration statistics</li>
-        </ul>
-
-        <h4>Two decisions made up front</h4>
-        <p>Generation stays in CrewAI while scoring is built on Inspect. Splitting them is deliberate: Inspect is the lingua franca for evals, so the artifact stays readable to the people who read evals for a living, and the boundary keeps the scorer independently testable. The vertical is healthcare guideline adherence, where <em>contraindicated</em> and <em>not recommended</em> are genuinely distinct strengths rather than stylistic variants, and where I have domain standing from the day job.</p>
-
-        <h4>What would make it credible, and what would not</h4>
-        <p>The judge is an LLM scoring other models' behaviour, which raises the obvious question: who checks the judge? So the number that decides whether any of this is worth anything is how often the judge and I agree on the same set of held-out cases, measured against how often we'd agree by luck alone. That correction matters: if 90% of transcripts are compliant, a judge that blindly says "compliant" every time already looks 90% right. Cohen's kappa is the standard way to strip that out, and it's the figure I'll report.</p>
-        <p>The known ways a judge like this goes wrong are documented, so they get handled by name rather than hoped away: preferring whichever option it sees first, mistaking length for quality, and rating output from its own model family more kindly -- which is why the judge runs on a different family than the system under test. If the agreement number comes out weak, that's the result and it gets published as the result.</p>
-
-      </div>
-    </details>
+    
 
   </section>
 
@@ -550,7 +491,7 @@ tests/        105 tests, 20 compliance</pre>
 
           <h4>The pilot, running now</h4>
           <img src="uploads/q%26a-tool-screenshot.png" alt="SEP Assistant answering a question about induction, abduction and van Fraassen's bad lot argument, with grouped sources and a feedback form" style="width: 100%; max-width: 560px; display: block; border-radius: 12px; margin: 0 0 20px; border: 1px solid oklch(91% 0.006 85);">
-          <p>Five PhDs in the field already have access. The wider round -- 50+ professional philosophers and PhD students -- is phase two, in September. Deliberately staged: five people who know the corpus will surface more in a week than fifty will in a day, and I'd rather fix what they find before the larger group arrives than collect fifty reports of the same bug.</p>
+          <p>Five PhDs in the field already have access. The wider round -- 50+ professional philosophers and PhD students -- is phase two, in the coming months. Deliberately staged: five people who know the corpus will surface more in a week than fifty will in a day, and I'd rather fix what they find before the larger group arrives than collect fifty reports of the same bug.</p>
           <p>The app serves one pipeline with no mode switching, because testers should be judging whether answers are useful rather than evaluating my architecture. Two interface decisions came straight out of the retrieval findings. Sources are grouped under the sub-question that retrieved them rather than shown as a flat list, since multiquery produces no global ranking across sub-questions and a flat list would imply one that doesn't exist. Passages under 100 characters are hidden, which removes section headings that landed alone at a chunk boundary and would otherwise be cited as if they were evidence.</p>
           <p>Conversation memory spans three turns and lives entirely in the app layer, leaving the pipeline stateless. Testers are told not to lean on it: self-contained questions retrieve better, and self-contained claims are the unit the referee will work with. Interactions and feedback log anonymously to three joined sheets -- the interactions, per-answer ratings split between answer quality and source quality, and the full text of every retrieved passage for later analysis. Emails are hashed to short pseudonymous ids, so a tester's questions can be grouped without storing who asked them. Cost is capped twice over: a hard budget limit on the API project, and a per-session query cap so one tester can't exhaust it in a sitting and so exhaustion produces a clear message instead of raw errors.</p>
 
@@ -579,7 +520,7 @@ tests/        105 tests, 20 compliance</pre>
           <ul style="margin: 0 0 20px; padding-left: 18px; line-height: 1.9;">
             <li><a href="https://vmachines.substack.com/p/building-a-rag-system-that-knows" target="_blank" rel="noopener">Building a RAG System That Knows What Section It's In</a></li>
             <li><a href="https://vmachines.substack.com/p/five-ways-to-cut-up-a-philosophy" target="_blank" rel="noopener">Five Ways to Cut Up a Philosophy Article</a></li>
-            <li>Chunks That Mention vs. Chunks That Explain -- coming soon</li>
+            <li><a href="https://vmachines.substack.com/p/chunks-that-mention-vs-chunks-that" target="_blank" rel="noopener">Chunks That Mention vs. Chunks That Explain</a></li>
             <li>From Multiquery to a Referee -- coming soon</li>
             <li>A Buried Answer, Two Wrong Guesses, and a Fix That Isn't Live Yet -- coming soon</li>
             <li>I Expected Scaling to Break My Retrieval. It Fixed It. -- coming soon</li>
@@ -598,7 +539,7 @@ tests/              question set, raw results, rubric, scored output
 notebooks/          four experiments, each with its own findings log</pre>
 
           <h4>What's next</h4>
-          <p>Phase two in September, then the referee work: objection-and-response checking against documented SEP objections, argument reconstruction into premises and conclusion for per-premise checking, and user-uploadable documents so a draft can be checked against a philosopher's own citation list rather than only the encyclopedia.</p>
+          <p>Phase two in the coming months, then the referee work: objection-and-response checking against documented SEP objections, argument reconstruction into premises and conclusion for per-premise checking, and user-uploadable documents so a draft can be checked against a philosopher's own citation list rather than only the encyclopedia.</p>
           <p>Further out: subsection indexing to enable multi-hop retrieval, a FastAPI service, and an open-model option alongside OpenAI. One research question is parked rather than dropped: the scaling literature treats corpus <em>size</em> as the variable while composition goes unisolated, and adding canonically relevant documents is not the same operation as adding adjacent ones. My own result fits the composition hypothesis. Testing it properly needs a second corpus and a much larger question set.</p>
 
         </div>
