@@ -161,6 +161,22 @@
     .badge-live::before { animation: none; }
   }
   .card-links { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .listen {
+    margin: 4px 0 18px; padding: 14px 16px;
+    background: oklch(96% 0.005 85); border: 1px solid oklch(90% 0.01 85);
+    border-radius: 12px;
+  }
+  .listen .lbl {
+    margin: 0 0 9px; font-size: 12px; font-weight: 700; letter-spacing: 0.05em;
+    text-transform: uppercase; color: oklch(45% 0.01 85);
+  }
+  .listen audio { width: 100%; display: block; }
+  .listen .cap { margin: 9px 0 0; font-size: 12.5px; line-height: 1.5; color: oklch(50% 0.01 85); }
+  html[data-theme="dark"] .listen {
+    background: oklch(18% 0.008 85) !important; border-color: oklch(32% 0.008 85) !important;
+  }
+  html[data-theme="dark"] .listen .lbl { color: oklch(70% 0.006 85) !important; }
+  html[data-theme="dark"] .listen .cap { color: oklch(65% 0.006 85) !important; }
   .card-body { padding: 0 28px 28px; border-top: 1px solid oklch(93% 0.006 85); margin-top: 4px; }
   .card-body h4 { margin: 0 0 8px; font-size: 14.5px; font-weight: 700; }
   .card-body h4:first-child { margin-top: 24px; }
@@ -297,7 +313,7 @@
     <div style="flex: 1; min-width: 280px; position: relative; z-index: 1;">
       <p style="margin: 0 0 14px; font-size: 14px; font-weight: 600; color: oklch(52% 0.16 258); text-transform: uppercase; letter-spacing: 0.08em;">AI Engineer · Agentic Systems in Production <span style="color: oklch(55% 0.01 85); font-weight: 500;">· Toronto</span></p>
       <h1 style="margin: 0 0 18px; font-family: 'Montserrat', sans-serif; font-size: 46px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; max-width: 720px;">Amir Kiani</h1>
-      <p style="margin: 0 0 22px; font-size: 18px; line-height: 1.6; color: oklch(38% 0.01 85); max-width: 660px;">I build LLM agent systems that run on real infrastructure -- multi-agent orchestration, tool use, guardrails, and the compliance paths where a bug is a legal problem. <span class="hl-live">Two are live right now</span>: an AI voice receptionist answering real calls for <span class="hl-brush">paying clients</span>, and a <span class="hl-num">nine-agent</span> SMS outreach system with a <span class="hl-num">105-test</span> suite behind it.</p>
+      <p style="margin: 0 0 22px; font-size: 18px; line-height: 1.6; color: oklch(38% 0.01 85); max-width: 660px;">I build LLM agent systems that run on real infrastructure -- multi-agent orchestration, tool use, guardrails, and the compliance paths where a bug is a legal problem. <span class="hl-live">Two are live right now</span>: an AI voice receptionist answering real calls for <span class="hl-brush">real clients</span>, and a <span class="hl-num">nine-agent</span> SMS outreach system with a <span class="hl-num">105-test</span> suite behind it.</p>
       <p style="margin: 0 0 22px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 660px;">Alongside that I'm building DeepAnalytic, a <span class="hl-num">retrieval system</span> over the Stanford Encyclopedia of Philosophy -- an attempt to make a hard corpus genuinely answerable, and to find out by measuring rather than assuming. <span class="hl-live">Five PhDs in the field are testing it now</span>, with <span class="hl-num">50+ philosophers and PhD students</span> in the coming months, on the theory that the people who know the corpus best will break it fastest.</p>
       
       <div style="display: flex; gap: 10px; flex-wrap: wrap;">
@@ -317,6 +333,69 @@
     <p style="margin: 0 0 36px; font-size: 15px; line-height: 1.6; color: oklch(46% 0.01 85); max-width: 700px;">Two systems built for live traffic -- one on the phone, one over SMS. Both are mine end to end: architecture, agent design, guardrails, deployment, and the failures that only show up once real numbers are on the other end.</p>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; align-items: start;">
+
+      <!-- VoiceCaptures -->
+      <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
+        <summary style="padding: 28px;">
+          <img src="uploads/vc_git.png" alt="VoiceCaptures -- AI voice receptionist that answers, qualifies and books calls" class="card-media" style="margin-bottom: 18px;">
+          <span class="badge-live">Live -- answering real customer calls</span>
+          <p class="eyebrow">Founder · Real clients · 2025–26</p>
+          <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">VoiceCaptures — AI Voice Receptionist</h3>
+          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">A real-time voice agent that answers the call, qualifies the job in conversation, checks live calendar availability and books the slot before hanging up. Live with real clients, and now running across three verticals: home services, restaurants and clinics.</p>
+
+          <p class="strip-label">The market it's built for</p>
+          <div class="strip-context">
+            <div><div class="n">$75B</div><div class="l">lost annually to unanswered business calls (Forbes)</div></div>
+            <div><div class="n">85%</div><div class="l">of callers won't leave a voicemail (Forbes)</div></div>
+            <div><div class="n">62%</div><div class="l">of calls land outside business hours (HomeAdvisor)</div></div>
+          </div>
+
+          <div class="listen">
+            <p class="lbl">▶ Hear a real call</p>
+            <audio controls preload="none" src="uploads/sample-call.mp3">Your browser doesn't support audio playback.</audio>
+            <p class="cap">A caller books a job end to end -- qualification, address readback, live availability, confirmation.</p>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px;">
+            <span class="chip">Vapi + Twilio</span>
+            <span class="chip">Node/Express · Supabase</span>
+            <span class="chip">Tool use (Calendar API)</span>
+            <span class="chip">RAG over per-business KB</span>
+            <span class="chip">Server-side guardrails</span>
+          </div>
+
+          <div class="card-links">
+            <a href="https://voicecaptures.com" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">voicecaptures.com →</a>
+          </div>
+        </summary>
+        <div class="card-body">
+
+          <h4>What it does</h4>
+          <p>A call forwards in when the business can't pick up. The agent answers with their greeting, works out whether it's an emergency or routine, collects and reads back the caller's name, number, address and the job itself, checks the real calendar for open slots, books one on the call, and texts both the owner and the caller a confirmation. Every call lands in Supabase with its transcript and disposition.</p>
+          <p>Configured per business rather than forked per business: greeting, voice, hours, service area, booking length, transfer number and scope all come from the customer record at call time.</p>
+          <p><strong>Stack:</strong> Vapi · Twilio · Node/Express · Supabase · Google Calendar API · Railway.</p>
+
+          <h4>Constraints that don't live in the prompt</h4>
+          <p>I've called a number of restaurant voice agents around Toronto and got several of them to tell me what model they run, what tools they hold and roughly what their system prompt says -- just by asking in the right way. Presumably each of those prompts contains an instruction not to. A rule written into a prompt gets followed most of the time, which is not the same as being enforced, and no amount of rewording closes that gap: the instruction is one more thing in the context, competing with everything else in it.</p>
+          <p>Part of the answer is to keep things out of the model's reach in the first place -- it can't disclose or misuse what it was never handed. Three places where the server decides instead:</p>
+          <ul style="margin: 0 0 20px; padding-left: 18px; line-height: 1.9;">
+            <li>The model never supplies a phone number for an SMS. It picks a role -- caller, dispatch, or both -- and the server resolves the real numbers from the customer record and the call. A misheard callback number can't redirect a text, because there's no number parameter to get wrong.</li>
+            <li>Availability comes back from the server as the sentence to read out, so open slots can't be paraphrased into something untrue.</li>
+            <li>The business is identified from the call payload, never from anything the model asserts, and there's no single-tenant fallback to guess with.</li>
+          </ul>
+          <p>That narrows the blast radius but doesn't close it. None of it stops an agent naming its provider or paraphrasing its instructions, because that's the model talking rather than the model acting, and there's no parameter to remove. The only real handle on it is detection -- assertions over transcripts and end-of-call reports -- which turns disclosure from something I hope doesn't happen into a rate I can measure. That's part of what the eval work below is for, and it's what I'm building now.</p>
+
+          <h4>What's still open</h4>
+          <ul style="margin: 0; padding-left: 18px; line-height: 1.9;">
+            <li><strong>Disclosure testing.</strong> No scripted probes yet for what the agent will say about itself under pressure -- its model, its tools, the contents of its instructions. It's the failure I went looking for in other people's agents and I don't currently measure it in my own.</li>
+            <li><strong>Structured outputs.</strong> Calls still produce free-form model behaviour rather than a defined schema. A fixed shape for what a call must yield makes tool calls deterministic and makes evaluation possible at all -- right now there's nothing to diff against.</li>
+            <li><strong>An automated eval harness.</strong> The loop today is: place a call, read the transcript, fix by hand. The target is scripted caller scenarios per vertical -- emergency, routine booking, no availability, hangup mid-flow, garbled address -- fired automatically, asserting on outcomes: did the row appear, did both texts fire, did the calendar event land, did the call end only when it should. Pass/fail per scenario, so a prompt change is regression-tested in minutes.</li>
+            <li><strong>Latency and cost instrumentation.</strong> No stage-level p50/p95 split across ASR, LLM and TTS yet, and no cost per call. I'd rather have the breakdown before trading anything for it.</li>
+            <li><strong>Flow control.</strong> Vapi Workflows may replace prompt-driven control with explicit graph nodes, removing a class of fragility instead of patching it. Worth evaluating before adding more prompt scaffolding.</li>
+          </ul>
+
+        </div>
+      </details>
 
       <!-- SMS Outreach & SDR Agent -->
       <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
@@ -373,65 +452,6 @@ app/db/       Supabase client, schema, migrations
 app/routes/   FastAPI webhook + operator console
 tests/        105 tests, 20 compliance</pre>
 
-        </div>
-      </details>
-
-      <!-- VoiceCaptures -->
-      <details style="background: #fff; border: 1px solid oklch(91% 0.006 85); border-radius: 20px;">
-        <summary style="padding: 28px;">
-          <img src="uploads/vc_git.png" alt="VoiceCaptures -- AI voice receptionist that answers, qualifies and books calls" class="card-media" style="margin-bottom: 18px;">
-          <span class="badge-live">Live -- answering real customer calls</span>
-          <p class="eyebrow">Founder · Paying clients · 2025–26</p>
-          <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">VoiceCaptures — AI Voice Receptionist</h3>
-          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">A real-time voice agent that answers the call, qualifies the job in conversation, checks live calendar availability and books the slot before hanging up. Live with paying clients, and now running across three verticals: home services, restaurants and clinics.</p>
-
-          <p class="strip-label">The market it's built for</p>
-          <div class="strip-context">
-            <div><div class="n">$75B</div><div class="l">lost annually to unanswered business calls (Forbes)</div></div>
-            <div><div class="n">85%</div><div class="l">of callers won't leave a voicemail (Forbes)</div></div>
-            <div><div class="n">62%</div><div class="l">of calls land outside business hours (HomeAdvisor)</div></div>
-          </div>
-
-          <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px;">
-            <span class="chip">Vapi + Twilio</span>
-            <span class="chip">Real-time STT/TTS</span>
-            <span class="chip">Tool use (Calendar API)</span>
-            <span class="chip">RAG over per-business KB</span>
-            <span class="chip">Scripted eval harness</span>
-            <span class="chip">Node/Express · Supabase</span>
-          </div>
-
-          <div class="card-links">
-            <a href="https://voicecaptures.com" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">voicecaptures.com →</a>
-            <a href="https://www.loom.com/share/voicecaptures" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Hear a booking call →</a>
-          </div>
-        </summary>
-        <div class="card-body">
-          <h4>Where it stands</h4>
-          <p>Paying clients on live lines, taking real customer calls, with more onboarding. What matters more than the count is that the system is answering strangers rather than me, which is where the interesting failures live.</p>
-          <p>It has also expanded past home services into restaurants and clinics. Each vertical is the same pipeline with a different scope, calendar shape and escalation rule, and each one has broken something the previous vertical never exercised.</p>
-
-          <h4>The two fields that have to be exactly right</h4>
-          <p>A booking is worthless if the street address or callback number is wrong by one digit, and those are precisely the fields ASR mangles -- proper nouns and digit strings have no language-model prior to fall back on. Both are read back to the caller for confirmation before the calendar write, and the structured payload is validated before it reaches the booking tool. Everything else in the conversation can tolerate a transcription error; these two cannot.</p>
-
-          <h4>The biggest time sink, and what replaces it</h4>
-          <p>The loop right now is: place a call, dump the transcript, read it, fix by hand. That is the slowest part of the work, and the real cost isn't the hours -- it's that changing a working baseline starts to feel dangerous, so you stop touching things that need touching.</p>
-          <p>So the current build is a scripted test harness. Caller scenarios per vertical -- emergency, routine booking, no availability, caller hangs up mid-flow, garbled address, non-English item names -- fired at an assistant automatically, asserting on outcomes rather than vibes: did the Supabase row appear, did both SMS fire, did the calendar event land, did the call end only at the right point. Pass/fail per scenario, so a prompt change gets regression-tested in minutes instead of an afternoon.</p>
-
-          <h4>An open question I haven't settled</h4>
-          <p>Vapi Workflows could replace some of the prompt-driven flow control with explicit graph nodes, which would cut prompt fragility at the source rather than patching it downstream. I haven't evaluated it properly yet, and I'd rather do that than add another layer of prompt scaffolding to a design I may be about to replace.</p>
-
-          <h4>Why Vapi, and where I went underneath it</h4>
-          <p>Reimplementing a managed voice runtime is a three-week infrastructure project that produces something worse. The real risk of building on a provider isn't the provider -- it's that the abstraction has a bottom an interviewer reaches in eight minutes. So one route runs on Pipecat with my own endpointing and barge-in handling, which is where the interesting decisions actually live: how long a pause means "your turn" varies by caller, and getting it wrong either talks over people or leaves dead air.</p>
-
-          <h4>How it works</h4>
-          <ol style="margin: 0; padding-left: 18px; line-height: 1.85;">
-            <li>Customer calls the business's existing number.</li>
-            <li>Call forwards to the agent when the line is busy, on a job, or after hours.</li>
-            <li>Agent collects and confirms name, phone, address, and the nature of the job.</li>
-            <li>Checks the real Google Calendar and books an open slot live on the call.</li>
-            <li>Owner and customer both get a text confirmation.</li>
-          </ol>
         </div>
       </details>
 
