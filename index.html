@@ -162,21 +162,20 @@
   }
   .card-links { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
   .listen {
-    margin: 4px 0 18px; padding: 14px 16px;
-    background: oklch(96% 0.005 85); border: 1px solid oklch(90% 0.01 85);
-    border-radius: 12px;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    margin: 0 0 16px; padding: 9px 14px;
+    background: oklch(95% 0.05 195); border: 1px solid oklch(78% 0.10 195);
+    border-radius: 100px;
   }
   .listen .lbl {
-    margin: 0 0 9px; font-size: 12px; font-weight: 700; letter-spacing: 0.05em;
-    text-transform: uppercase; color: oklch(45% 0.01 85);
+    margin: 0; font-size: 11.5px; font-weight: 700; letter-spacing: 0.05em;
+    text-transform: uppercase; color: oklch(38% 0.11 195); white-space: nowrap;
   }
-  .listen audio { width: 100%; display: block; }
-  .listen .cap { margin: 9px 0 0; font-size: 12.5px; line-height: 1.5; color: oklch(50% 0.01 85); }
+  .listen audio { flex: 1 1 200px; height: 34px; min-width: 180px; }
   html[data-theme="dark"] .listen {
-    background: oklch(18% 0.008 85) !important; border-color: oklch(32% 0.008 85) !important;
+    background: oklch(27% 0.06 195) !important; border-color: oklch(45% 0.09 195) !important;
   }
-  html[data-theme="dark"] .listen .lbl { color: oklch(70% 0.006 85) !important; }
-  html[data-theme="dark"] .listen .cap { color: oklch(65% 0.006 85) !important; }
+  html[data-theme="dark"] .listen .lbl { color: oklch(86% 0.11 195) !important; }
   .card-body { padding: 0 28px 28px; border-top: 1px solid oklch(93% 0.006 85); margin-top: 4px; }
   .card-body h4 { margin: 0 0 8px; font-size: 14.5px; font-weight: 700; }
   .card-body h4:first-child { margin-top: 24px; }
@@ -339,21 +338,20 @@
         <summary style="padding: 28px;">
           <img src="uploads/vc_git.png" alt="VoiceCaptures -- AI voice receptionist that answers, qualifies and books calls" class="card-media" style="margin-bottom: 18px;">
           <span class="badge-live">Live -- answering real customer calls</span>
+          <div class="listen">
+            <p class="lbl">▶ Hear a real call</p>
+            <audio controls preload="none" src="uploads/sample-call.mp3">Your browser doesn't support audio playback.</audio>
+          </div>
+
           <p class="eyebrow">Founder · Real clients · 2025–26</p>
           <h3 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;">VoiceCaptures — AI Voice Receptionist</h3>
           <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: oklch(38% 0.01 85);">A real-time voice agent that answers the call, qualifies the job in conversation, checks live calendar availability and books the slot before hanging up. Live with real clients, and now running across three verticals: home services, restaurants and clinics.</p>
 
           <p class="strip-label">The market it's built for</p>
           <div class="strip-context">
-            <div><div class="n">$75B</div><div class="l">lost annually to unanswered business calls (Forbes)</div></div>
-            <div><div class="n">85%</div><div class="l">of callers won't leave a voicemail (Forbes)</div></div>
-            <div><div class="n">62%</div><div class="l">of calls land outside business hours (HomeAdvisor)</div></div>
-          </div>
-
-          <div class="listen">
-            <p class="lbl">▶ Hear a real call</p>
-            <audio controls preload="none" src="uploads/sample-call.mp3">Your browser doesn't support audio playback.</audio>
-            <p class="cap">A caller books a job end to end -- qualification, address readback, live availability, confirmation.</p>
+            <div><div class="n">14%</div><div class="l">missed-call rate in home services <span style="opacity:.75">(CallRail, 2025)</span></div></div>
+            <div><div class="n">85%</div><div class="l">of callers whose call goes unanswered never call back <span style="opacity:.75">(CallRail, 2025)</span></div></div>
+            <div><div class="n" style="font-size:17px">$500–$1,200</div><div class="l">typical value of one missed service call <span style="opacity:.75">(answeringagent.com, 2026)</span></div></div>
           </div>
 
           <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px;">
@@ -541,7 +539,7 @@ tests/        105 tests, 20 compliance</pre>
             <li><a href="https://vmachines.substack.com/p/building-a-rag-system-that-knows" target="_blank" rel="noopener">Building a RAG System That Knows What Section It's In</a></li>
             <li><a href="https://vmachines.substack.com/p/five-ways-to-cut-up-a-philosophy" target="_blank" rel="noopener">Five Ways to Cut Up a Philosophy Article</a></li>
             <li><a href="https://vmachines.substack.com/p/chunks-that-mention-vs-chunks-that" target="_blank" rel="noopener">Chunks That Mention vs. Chunks That Explain</a></li>
-            <li>From Multiquery to a Referee -- coming soon</li>
+            <li><a href="https://vmachines.substack.com/p/from-multiquery-to-a-referee-the" target="_blank" rel="noopener">From Multiquery to a Referee: The Week the Project Changed Shape</a></li>
             <li>A Buried Answer, Two Wrong Guesses, and a Fix That Isn't Live Yet -- coming soon</li>
             <li>I Expected Scaling to Break My Retrieval. It Fixed It. -- coming soon</li>
           </ul>
